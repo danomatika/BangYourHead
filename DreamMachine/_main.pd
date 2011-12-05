@@ -1,4 +1,4 @@
-#N canvas 585 71 508 682 10;
+#N canvas 585 71 558 688 10;
 #X declare -path ../externals/rclib;
 #X obj -11 272 gemhead;
 #N canvas 0 22 281 165 externals 0;
@@ -7,7 +7,7 @@
 #X restore 337 15 pd externals;
 #X obj -41 5 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
 0;
-#X obj -27 36 tgl 30 0 empty empty run 32 7 0 10 -262144 -1 -1 1 1
+#X obj -27 36 tgl 30 0 empty empty run 32 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 0 142 reset;
 #X obj -27 174 gem_win;
@@ -26,10 +26,9 @@
 #X obj -11 649 gem_rect 0 0 400 400;
 #X obj 49 565 spigot;
 #X obj 52 590 hsl 128 15 0 1 0 0 empty empty 0-1 8 8 0 10 -262144 -1
--1 806 1;
+-1 0 1;
 #X obj 82 544 tgl 15 0 empty empty turn_on_the_pulse 17 7 0 10 -262144
--1 -1 1 1;
-#X obj 49 515 lfo 500 20;
+-1 -1 0 1;
 #X obj 52 465 hsl 128 15 50 1000 0 0 empty empty 50-1000_speed 8 8
 0 10 -262144 -1 -1 0 1;
 #X msg 79 487 sin;
@@ -40,11 +39,12 @@ red and blue;
 #X text 88 615 set the color;
 #X text 124 649 draw a rectangle over the whole window;
 #X text 72 314 get the mouse position;
-#X text 121 509 this low frequency oscillator sweeps the blue value
+#X text 165 509 this low frequency oscillator sweeps the blue value
 back and forth from 0-1;
-#X text 176 488 set the waveform type for the pulse;
+#X text 186 486 set the waveform type for the pulse;
 #X text -17 222 this is a GEM render chain \, everything connected
 under the [gemhead] is drawn to the screen;
+#X obj 49 515 nusmuk/lfo 500 20;
 #X connect 0 0 16 0;
 #X connect 3 0 5 0;
 #X connect 4 0 5 0;
@@ -60,8 +60,8 @@ under the [gemhead] is drawn to the screen;
 #X connect 18 0 19 0;
 #X connect 19 0 16 3;
 #X connect 20 0 18 1;
-#X connect 21 0 18 0;
-#X connect 22 0 21 0;
-#X connect 23 0 21 0;
-#X connect 24 0 21 0;
-#X connect 25 0 21 0;
+#X connect 21 0 32 0;
+#X connect 22 0 32 0;
+#X connect 23 0 32 0;
+#X connect 24 0 32 0;
+#X connect 32 0 18 0;
