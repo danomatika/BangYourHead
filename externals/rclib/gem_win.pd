@@ -1,4 +1,4 @@
-#N canvas 563 328 677 481 10;
+#N canvas 206 243 677 481 10;
 #X msg 116 262 destroy;
 #X obj 43 229 sel 1 0;
 #X msg 366 347 reset;
@@ -40,6 +40,7 @@
 #X obj 418 264 / 2;
 #X obj 385 264 / 2;
 #X obj 127 51 route float render defaultView reset size;
+#X obj 225 277 print;
 #X connect 0 0 5 0;
 #X connect 1 0 33 0;
 #X connect 1 1 0 0;
@@ -68,10 +69,10 @@
 #X connect 18 1 2 0;
 #X connect 19 0 20 0;
 #X connect 20 0 5 0;
+#X connect 20 0 40 0;
 #X connect 21 0 39 0;
 #X connect 32 0 20 0;
 #X connect 33 0 3 0;
-#X connect 33 1 34 0;
 #X connect 34 0 39 0;
 #X connect 35 0 5 0;
 #X connect 36 0 5 0;
