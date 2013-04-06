@@ -1,4 +1,4 @@
-<div style="text-align;">
+<div style="text-align: center;">
 <img src="https://raw.github.com/danomatika/BangYourHead/master/pd_headbang.png"/>
 <p><strong>An Introduction to Pure Data</strong></p>
 </div>
@@ -13,7 +13,7 @@ With various contributions from around the web, notably:
 What is Pure Data?
 ------------------
 
-<div style="text-align;">
+<div style="text-align: center;">
 <img src="https://raw.github.com/danomatika/BangYourHead/master/pd_patch.png"/>
 </div>
 
