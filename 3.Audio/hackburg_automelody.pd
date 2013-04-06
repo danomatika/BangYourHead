@@ -1,0 +1,81 @@
+#N canvas 15 64 663 488 10;
+#X obj 30 361 osc~ 300;
+#X obj 29 453 dac~;
+#X obj 29 427 *~;
+#X obj 30 245 mtof;
+#X floatatom 48 265 5 0 0 0 - - -;
+#X msg 30 164 48;
+#X obj 30 43 metro 500;
+#X obj 30 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 13 tgl 15 0 empty empty empty 17 7 0 10 -258113 -1 -1 1 1
+;
+#X floatatom 172 14 5 0 0 0 - - -;
+#X obj 30 214 + 12;
+#X floatatom 111 194 5 0 0 0 - - -;
+#X obj 174 395 line~;
+#X obj 30 288 trigger anything bang;
+#X obj 174 313 t b b;
+#X floatatom 241 318 5 0 0 0 - - -;
+#X obj 174 364 pack 0 300;
+#X msg 270 364 1 0;
+#X text 212 11 <- set repeat time;
+#X text 47 12 <- start/stop;
+#X text 51 68 <- trigger manually;
+#X text 155 192 <- change overall pitch;
+#X text 161 164 <- preselected midi notes;
+#X text 79 242 <- convert midi notes to frequency;
+#X text 155 417 |- envelope generator -|;
+#X text 307 359 first go to '1' in '0' ms \, then;
+#X text 309 375 go to '0' in '300' ms.;
+#X text 286 318 <- set decay time (ms);
+#X text 97 263 <- frequency;
+#X obj 30 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 62 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 93 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 125 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 62 164 55;
+#X msg 93 164 62;
+#X msg 125 164 69;
+#X text 344 80 !! DON'T FORGET TO TURN AUDIO ON !!;
+#X obj 30 121 select 0 1 2 3 4;
+#X obj 30 92 random 5;
+#X obj 162 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 4 0;
+#X connect 3 0 13 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 38 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 3 0;
+#X connect 11 0 10 1;
+#X connect 12 0 2 1;
+#X connect 13 0 0 0;
+#X connect 13 1 14 0;
+#X connect 14 0 16 0;
+#X connect 14 1 17 0;
+#X connect 15 0 16 1;
+#X connect 16 0 12 0;
+#X connect 17 0 12 0;
+#X connect 29 0 5 0;
+#X connect 30 0 33 0;
+#X connect 31 0 34 0;
+#X connect 32 0 35 0;
+#X connect 33 0 10 0;
+#X connect 34 0 10 0;
+#X connect 35 0 10 0;
+#X connect 37 0 29 0;
+#X connect 37 1 30 0;
+#X connect 37 2 31 0;
+#X connect 37 3 32 0;
+#X connect 37 4 39 0;
+#X connect 38 0 37 0;
