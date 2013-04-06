@@ -1,5 +1,5 @@
 <div style="text-align;">
-<img src="https://github.com/danomatika/BangYourHead/blob/master/pd_headbang.png"/>
+<img src="https://github.com/danomatika/BangYourHead/master/pd_headbang.png"/>
 <p><strong>An Introduction to Pure Data</strong></p>
 </div>
 
@@ -14,7 +14,7 @@ What is Pure Data?
 ------------------
 
 <div style="text-align;">
-<img src="https://github.com/danomatika/BangYourHead/blob/master/pd_patch.png"/>
+<img src="https://github.com/danomatika/BangYourHead/master/pd_patch.png"/>
 </div>
 
 Pure Data is an open source graphical patching environment for audio and multimedia similar to [Max/MSP](http://cycling74.com/products/max/). It was created by [Miller Puckette](http://crca.ucsd.edu/~msp/) (who also created Max) in 1996 and is now a community project with contributors from around the world.
