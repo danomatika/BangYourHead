@@ -1,0 +1,377 @@
+#N canvas 183 159 205 446 10;
+#N canvas 814 117 472 552 MESSAGE_TYPES 0;
+#X floatatom 97 75 5 0 0 0 - - -;
+#X obj 20 458 print BANG;
+#X obj 67 437 print FLOAT;
+#X obj 115 414 print SYMBOL;
+#X obj 163 393 print LIST;
+#X text 219 68 float;
+#X symbolatom 146 116 10 0 0 0 - - -;
+#X text 242 123 symbol;
+#X obj 79 74 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 20 14 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 38 13 bang;
+#X obj 79 55 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 84 12 bang;
+#X msg 138 74 23.15;
+#X obj 211 372 print ANYTHING;
+#X msg 146 134 symbol yoyo;
+#X msg 186 171 1 2 4;
+#X msg 185 212 list eins two;
+#X msg 185 192 123 cinq;
+#X text 285 190 list;
+#X msg 205 265 pd is fun;
+#X msg 205 290 x 1 2 3 4 5 67;
+#X obj 20 327 route bang float symbol list;
+#X text 314 273 anything;
+#X connect 0 0 22 0;
+#X connect 6 0 22 0;
+#X connect 8 0 22 0;
+#X connect 9 0 22 0;
+#X connect 10 0 22 0;
+#X connect 11 0 22 0;
+#X connect 13 0 22 0;
+#X connect 15 0 22 0;
+#X connect 16 0 22 0;
+#X connect 17 0 22 0;
+#X connect 18 0 22 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 1 0;
+#X connect 22 1 2 0;
+#X connect 22 2 3 0;
+#X connect 22 3 4 0;
+#X connect 22 4 14 0;
+#X restore 14 95 pd MESSAGE_TYPES;
+#N canvas 705 165 444 294 GUI_USE 0;
+#X floatatom 14 22 5 0 0 0 - - -;
+#X text 62 21 <- drag me;
+#X obj 14 217 print;
+#X symbolatom 33 52 10 0 0 0 - - -;
+#X text 112 52 <- type me;
+#X obj 45 81 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 64 82 <- click me;
+#X obj 60 106 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 79 129 uno deux three;
+#X text 199 105 <- drag me;
+#X obj 111 159 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 191 130 <- click me;
+#X text 135 159 <- click me;
+#X obj 118 187 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 245 187 <- click me;
+#X connect 0 0 2 0;
+#X connect 3 0 2 0;
+#X connect 5 0 2 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 10 0 2 0;
+#X connect 13 0 2 0;
+#X restore 14 69 pd GUI_USE;
+#N canvas 694 214 535 378 GUI_ELEMENTS 0;
+#X obj 20 13 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 22 38 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 76 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 76 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 22 182 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 65 208 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 49 38 <- vertical slider (ctrl-shift-v / cmd-shift-v);
+#X text 163 13 <- horizontal slider (ctrl-shift-h / cmd-shift-h);
+#X text 99 69 <- bang (ctrl-shift-b / cmd-shift-b);
+#X text 100 100 <- toggle (ctrl-shift-t / cmd-shift-t);
+#X text 49 182 <-horizontal radio button (ctrl-shift-d / cmd-shift-d)
+;
+#X text 201 206 <- vertical radio button (ctrl-shift-i / ctrl-shift-i)
+;
+#X obj 104 134 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X text 166 131 <- number2 (ctrl-shift-n / cmd-shift-n);
+#X obj 138 293 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 65 242 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X text 116 247 <- vu meter (ctrl-shift-u / cmd-shift-u);
+#X text 251 295 <- canvas (ctrl-shift-c / cmd-shift-c);
+#X restore 13 44 pd GUI_ELEMENTS;
+#N canvas 796 197 311 179 BASIC_ELEMENTS 0;
+#X obj 24 23 print;
+#X msg 25 50 hello;
+#X floatatom 25 78 5 0 0 0 - - -;
+#X symbolatom 25 110 10 0 0 0 - - -;
+#X text 26 139 some comment;
+#X text 78 23 <- object (ctrl-1/cmd-1);
+#X text 78 50 <- message (ctrl-2/cmd-2);
+#X text 77 80 <- number box (ctrl-3/cmd-3);
+#X text 108 108 <- symbol box (ctrl-4/cmd-4);
+#X text 128 138 <- text (ctrl-5/cmd-5);
+#X restore 13 20 pd BASIC_ELEMENTS;
+#N canvas 527 337 436 286 EDIT_MODE_RUN_MODE 0;
+#X floatatom 92 133 5 0 0 0 - - -;
+#X text 141 123 <- move the around while in edit mode;
+#X text 142 139 <- drag number while in run mode;
+#X text 66 53 You should see the mouse pointer change ...;
+#X text 29 25 Use CTRL-E / CMD-E to switch between edit mode and run
+mode.;
+#X restore 14 120 pd EDIT_MODE_RUN_MODE;
+#N canvas 406 22 439 512 MESSAGES_AND_AUDIO 0;
+#X obj 31 24 +;
+#X obj 31 72 +;
+#X text 47 48 <- this is a message connection;
+#X obj 31 102 +~;
+#X obj 31 150 +~;
+#X text 47 126 <- this is a audio (so called signal) connection;
+#X floatatom 28 201 5 0 0 0 - - -;
+#X obj 28 239 sig~;
+#X obj 28 297 snapshot~;
+#X obj 28 330 print SNAPSHOT;
+#X obj 48 275 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 70 241 <- conversion from message to audio;
+#X text 108 297 <- conversion from audio to message;
+#X text 27 424 Some of them accept messages and signals at their first
+inlet. Check their help patches when in doubt.;
+#X text 26 378 Signal objects have usually a '~' (tilde) at the end
+of their name.;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X restore 14 245 pd MESSAGES_AND_AUDIO;
+#N canvas 622 169 447 468 INLETS_AND_OUTLETS 0;
+#X obj 20 72 * 3;
+#X text 20 53 /;
+#X text 27 38 /;
+#X text 30 19 first inlet (leftmost inlet) is hot;
+#X text 51 60 _ second inlet is cold;
+#X text 18 92 |;
+#X text 21 111 (first) outlet;
+#X text 25 282 example:;
+#X text 100 368 <- stores a number;
+#X obj 31 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 51 313 5 0 0 0 - - -;
+#X floatatom 82 341 5 0 0 0 - - -;
+#X obj 31 365 float 13;
+#X obj 31 398 print FLOAT;
+#X text 19 157 Messages on the cold (second/third/fourth etc.) inlet
+usually don't cause any output. They only overwrite an inner state
+of the object.;
+#X text 19 214 Messages on the 'hot' (leftmost) inlet usually trigger
+a message on the outlet. They probably also overwrite the inner state
+of the object;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X connect 11 0 12 1;
+#X connect 12 0 13 0;
+#X restore 14 145 pd INLETS_AND_OUTLETS;
+#N canvas 598 225 508 427 CREATION_ARGUMENTS 0;
+#X obj 28 45 + 12;
+#X floatatom 28 16 5 0 0 0 - - -;
+#X floatatom 28 74 5 0 0 0 - - -;
+#X obj 29 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 130 float 23;
+#X floatatom 29 154 5 0 0 0 - - -;
+#X obj 29 217 select 1 2 3 4 5 6;
+#X obj 29 377 print one;
+#X obj 49 356 print two;
+#X obj 69 335 print three;
+#X obj 89 314 print four;
+#X obj 109 293 print five;
+#X obj 129 273 print six;
+#X obj 150 251 print NO_MATCH;
+#X floatatom 29 194 5 0 0 0 - - -;
+#X text 138 62 Many objects can have one or more so called creation
+arguments. These arguments initialize a certain state;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 6 2 9 0;
+#X connect 6 3 10 0;
+#X connect 6 4 11 0;
+#X connect 6 5 12 0;
+#X connect 6 6 13 0;
+#X connect 14 0 6 0;
+#X restore 14 171 pd CREATION_ARGUMENTS;
+#N canvas 367 191 404 332 GETTING_HELP 0;
+#X obj 105 234 print;
+#X text 19 153 Getting help on a specific object:;
+#X text 19 187 Right-click (on macs ctrl-click) on the object and choose
+'help'. a new window \, the so called help-patch should appear.;
+#X text 147 232 <-- try getting the help for [print];
+#X text 23 278 Getting help in general:;
+#X text 23 302 See http://puredata.info/docs/StartHere;
+#X text 19 21 Get a list of Pd-vanilla objects:;
+#X text 18 53 Right-click (on macs ctrl-click) on empty space and choose
+'help' and a new window should appear with a list and short descpritption
+of all pd objects.;
+#X text 19 100 Note: this list *does not* include external libraries
+included with Pd-extended.;
+#X restore 14 295 pd GETTING_HELP;
+#N canvas 667 308 425 236 ERRORS 0;
+#X obj 16 116 f;
+#X msg 31 89 bang;
+#X text 73 88 <- this causes an error;
+#X text 68 167 <- a dashed line indicates \, that there is no such
+object class \, so the object couldn't be instantiated;
+#X obj 16 169 foobar;
+#X text 10 17 Always pay attention to the pd-window to see \, if some
+error occured. whenever an error occurs \, it is printed to the pd-window.
+;
+#X connect 1 0 0 1;
+#X restore 14 320 pd ERRORS;
+#N canvas 221 129 442 539 AUDIO_SETUP 0;
+#X obj 31 268 adc~;
+#X text 76 269 <- gets a signal from the audio input of your computer
+;
+#X obj 32 306 dac~;
+#X text 77 305 <- sends a signal to the audio output of your computer
+;
+#X obj 35 407 adc~ 1 2 3 4;
+#X obj 157 408 dac~ 12 3 4;
+#X obj 119 500 dac~ 1;
+#X obj 33 500 adc~ 2 7;
+#X text 23 169 !!! IMPORTANT !!!;
+#X text 25 189 In order to have any audio at all \, 'dsp computation'
+must be on. Hit the toggle 'compute audio' in the pd-window to switch
+audio computation on and off.;
+#X text 29 112 To test \, if audio is working \, load the 'test audio
+and midi' patch from the 'media' menu.;
+#X text 28 56 You probably need to adjust the audio settings in the
+audio settings dialog from the menu. you'll find it under 'media'.
+choose the soundcard you'd like to work with;
+#X text 29 13 Getting audio into pd and from pd out of the computer
+is pretty straightforward.;
+#X text 32 353 You also address/receive more than two channels (if
+your soundcard supports it):;
+#X text 34 448 You can also exactly specify \, which channels you'd
+like to use:;
+#X restore 14 270 pd AUDIO_SETUP;
+#N canvas 303 22 462 609 MESSAGE_ORDER 0;
+#X obj 42 69 print A;
+#X obj 58 48 print B;
+#X floatatom 42 17 5 0 0 0 - - -;
+#X floatatom 32 276 5 0 0 0 - - -;
+#X obj 32 297 trigger float float;
+#X obj 32 335 print A;
+#X obj 160 333 print B;
+#X floatatom 268 277 5 0 0 0 - - -;
+#X obj 268 336 print A;
+#X obj 327 337 print B;
+#X obj 268 298 t f f;
+#X text 46 251 B fires first;
+#X text 274 251 A fires first;
+#X text 26 383 from right to left;
+#X obj 76 507 print first;
+#X obj 32 484 t b b b;
+#X obj 54 527 print second;
+#X obj 32 548 print third;
+#X obj 32 462 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 243 510 unpack;
+#X obj 280 534 print one;
+#X obj 243 555 print two;
+#X msg 243 481 12 34;
+#X text 26 409 As we see \, the right outlet of [triggers] fires first.
+As a general rule in pd \, we can say \, that usually objectclasses
+with more than outlet fire from right to left.;
+#X text 28 200 The execution order can simply be defined by using a
+[trigger] object:;
+#X text 31 115 Whenever more than one connection is coming out from
+one outlet \, the order \, which connection 'fires' first \, is not
+defined. Since there are a lot of situations where the order is crucial
+\, such situations should be strictly avoided.;
+#X text 132 44 <- Which fires first? we have undefined order;
+#X connect 2 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 7 0 10 0;
+#X connect 10 0 9 0;
+#X connect 10 1 8 0;
+#X connect 15 0 17 0;
+#X connect 15 1 16 0;
+#X connect 15 2 14 0;
+#X connect 18 0 15 0;
+#X connect 19 0 21 0;
+#X connect 19 1 20 0;
+#X connect 22 0 19 0;
+#X restore 14 196 pd MESSAGE_ORDER;
+#N canvas 294 62 674 376 VARIABLES_IN_MESSAGEBOXES 0;
+#X floatatom 33 86 5 0 0 0 - - -;
+#X obj 33 148 print;
+#X msg 33 123 number \$1 rules;
+#X msg 82 86 symbol two;
+#X text 163 123 <- '\$1' is replaced by the first element of the incoming
+message (which is a just a float or a symbol message in this case)
+;
+#X msg 32 203 list haefeli roman;
+#X msg 32 239 my first name is \$2 and my last name is \$1;
+#X obj 32 278 print;
+#X text 361 239 <- \$1 is replaced by the first element;
+#X text 383 258 \$2 is replaced by the second element;
+#X text 383 276 of the incoming message (a list message;
+#X text 383 292 in this case);
+#X msg 165 204 list wilcox dan;
+#X msg 279 204 list barack obama;
+#X text 15 22 Variables in message boxes can be used to compose messages
+according to a certain scheme or to compose bigger messages out of
+a few elements.;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 12 0 6 0;
+#X connect 13 0 6 0;
+#X restore 14 220 pd VARIABLES_IN_MESSAGEBOXES;
+#X text 16 387 Author: Roman Haefeli;
+#X text 16 401 Updated by: Dan Wilcox;
+#X text 16 416 Version: 04-06 2013;
+#N canvas 366 219 387 422 SENDS_AND_RECEIVES 0;
+#X text 19 19 Sometimes you need to route messages between different
+parts of a patch or between different patch windows and regular patch
+cords won't/can't do the job.;
+#X text 18 76 In this case \, you can use named "virtual patch cords"
+using the send and receive objects:;
+#X floatatom 60 126 5 0 0 0 - - -;
+#X floatatom 60 209 5 0 0 0 - - -;
+#X floatatom 230 129 5 0 0 0 - - -;
+#X floatatom 232 212 5 0 0 0 - - -;
+#X obj 230 153 send myNumber;
+#X obj 232 185 receive myNumber;
+#X text 122 127 <-- change -->;
+#X text 22 242 There are also send and receives for audio:;
+#X obj 233 301 send~ mySig;
+#X obj 233 332 receive~ mySig;
+#X obj 233 359 env~ 2048;
+#X floatatom 233 384 5 0 0 0 - - -;
+#X obj 54 276 osc~ 0.025;
+#X obj 54 358 env~ 2048;
+#X floatatom 54 383 5 0 0 0 - - -;
+#X connect 2 0 3 0;
+#X connect 4 0 6 0;
+#X connect 7 0 5 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 10 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X restore 14 345 pd SENDS_AND_RECEIVES;

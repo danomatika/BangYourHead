@@ -1,0 +1,71 @@
+#N canvas 732 53 485 664 10;
+#X declare -path ../../externals/gem;
+#X declare -path ../../externals/rjlib/rj;
+#X declare -path ../rc;
+#X declare -path ../rc-patches/rc-patches;
+#X obj -11 258 gemhead;
+#N canvas 0 22 281 165 externals 0;
+#X text 19 23 add search paths to local libraries here;
+#X obj 21 56 declare -path ../../externals/gem;
+#X obj 21 88 declare -path ../../externals/rjlib/rj;
+#X restore 337 15 pd externals;
+#X obj -41 5 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
+0;
+#X obj -27 36 tgl 30 0 empty empty run 32 7 0 10 -262144 -1 -1 1 1
+;
+#X msg 0 142 reset;
+#X obj -27 174 gem_win;
+#X obj -13 85 loadbang;
+#X text 50 53 set the window title \, the framerate \,;
+#X text 50 69 the window size \, and the background color;
+#X text 43 141 reset the window;
+#X obj -11 612 gem_rect 200 200 200 200 center;
+#X obj -11 289 color 1 1 1;
+#X obj -11 233 tgl 15 0 empty empty render 17 7 0 10 -262144 -1 -1
+1 1;
+#X msg -13 113 title VideoLooper \, frame 30 \, size 400 400 \, color
+0 0 0;
+#X obj 10 476 tgl 20 0 empty empty play 24 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 20 565 unpack f f f;
+#X obj 126 431 hsl 128 15 0 1 0 0 empty empty 0-1_frame_position -2
+-8 0 10 -262144 -1 -1 0 1;
+#X obj 123 504 int;
+#X obj 123 478 m_scale 0 1 0 255;
+#X obj 7 346 loadbang;
+#X obj 281 433 hsl 128 15 0 1 0 0 empty empty 0-1_loop_length -2 -8
+0 10 -262144 -1 -1 0 1;
+#X obj 278 505 int;
+#X obj 278 479 m_scale 0 1 0 2;
+#X obj 20 590 s \$0-framelen;
+#X obj 164 453 r \$0-framelen;
+#X obj 328 454 r \$0-framelen;
+#X text 159 392 play with the looping;
+#X text 198 611 render movie onto a rectangle;
+#X text 121 571 set the size of the rectangle to the movie size;
+#X obj -11 540 gem_videoplayer;
+#X msg 7 373 open test_clip.mov;
+#X text 79 344 load a movie file;
+#X connect 0 0 11 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 6 0 13 0;
+#X connect 11 0 29 0;
+#X connect 12 0 0 0;
+#X connect 13 0 5 0;
+#X connect 14 0 29 1;
+#X connect 15 0 23 0;
+#X connect 15 1 10 3;
+#X connect 15 2 10 4;
+#X connect 16 0 18 0;
+#X connect 17 0 29 3;
+#X connect 18 0 17 0;
+#X connect 19 0 30 0;
+#X connect 20 0 22 0;
+#X connect 21 0 29 4;
+#X connect 22 0 21 0;
+#X connect 24 0 18 4;
+#X connect 25 0 22 4;
+#X connect 29 0 10 0;
+#X connect 29 1 15 0;
+#X connect 30 0 29 0;

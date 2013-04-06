@@ -1,0 +1,50 @@
+#N canvas 347 180 745 355 10;
+#X obj 241 212 videolooper;
+#X obj 241 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 271 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 241 16 3 0 0 0 - - -;
+#X obj 300 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 390 119 Video file name Don't forget the "symbol";
+#N canvas 0 22 450 300 gemwin 0;
+#X obj 132 136 gemwin;
+#X obj 67 89 outlet;
+#X obj 67 10 inlet;
+#X msg 67 70 set destroy;
+#X msg 132 112 create \, 1;
+#X msg 198 112 destroy;
+#X msg 156 71 set create;
+#X obj 67 41 route create;
+#X connect 2 0 7 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 7 0 4 0;
+#X connect 7 1 6 0;
+#X connect 7 1 5 0;
+#X restore 25 37 pd gemwin;
+#X msg 25 18 destroy;
+#X text 23 -50 1- Create a GEM window;
+#X obj 25 -8 loadbang;
+#X obj 241 -11 keyname;
+#X symbolatom 276 17 10 0 0 0 - - -;
+#X obj 241 49 select q w e;
+#X msg 241 120 symbol test_clip.mov;
+#X text 240 -49 2- hit q to load the video file;
+#X text 323 209 This custom object is what plays the video click on
+it to see how it works;
+#X connect 1 0 13 0;
+#X connect 6 0 7 0;
+#X connect 7 0 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 3 0;
+#X connect 10 1 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 1 0;
+#X connect 12 1 2 0;
+#X connect 12 2 4 0;
+#X connect 13 0 0 0;
