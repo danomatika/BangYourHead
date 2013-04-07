@@ -1,0 +1,36 @@
+#N canvas 446 346 416 493 10;
+#X obj -118 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 78 75 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 130 105 0-1;
+#X msg 75 105 amp \$1;
+#X obj -92 452 dac~;
+#X floatatom -77 396 5 0 1 0 - - -;
+#X obj -92 420 *~;
+#X floatatom 37 333 5 0 0 1 envelope - -;
+#X obj -27 359 tgl 15 0 empty empty playing 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg -39 123 64;
+#X msg -19 152 127;
+#X text -102 70 triggers;
+#X text -42 100 midi vel;
+#X text 67 48 controls;
+#X text -15 441 Dan Wilcox 2009;
+#X text -16 460 danomatika.com / robotcowboy.com;
+#X text -95 130 bang;
+#X text 15 407 output lvl = vel/127 * amp;
+#X text -147 9 rc-808clap~ : a tr808 style hand clap with gui;
+#X obj -91 243 rc-808clap~ clap;
+#X obj 106 303 print;
+#X connect 0 0 19 0;
+#X connect 1 0 3 0;
+#X connect 3 0 19 1;
+#X connect 5 0 6 1;
+#X connect 6 0 4 0;
+#X connect 6 0 4 1;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 19 0 6 0;
+#X connect 19 1 8 0;
+#X connect 19 2 7 0;

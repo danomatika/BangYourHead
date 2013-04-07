@@ -7,8 +7,8 @@
 
 With various contributions from around the web, notably:
 
-* [rjlib](https://github.com/rjdj/rjlib)
-* [Roman Haefeli](http://romanhaefeli.net/)
+* [rjlib](https://github.com/rjdj/rjlib): great external library
+* [Roman Haefeli](http://romanhaefeli.net/): Pd basics patch
 
 What is Pure Data?
 ------------------
@@ -20,6 +20,8 @@ What is Pure Data?
 Pure Data is an open source graphical patching environment for audio and multimedia similar to [Max/MSP](http://cycling74.com/products/max/). It was created by [Miller Puckette](http://crca.ucsd.edu/~msp/) (who also created Max) in 1996 and is now a community project with contributors from around the world.
 
 It's website is http://puredata.info and you can download it from http://puredata.info/downloads
+
+Conceptually, "patching" refers to programming by connecting little boxes together with "patch cords". Boxes may have inlets and outlets and perform some sort of action on incoming data with the result sent out of an outlet or number of outlets. Data is sent between boxes through the connected patch cords from outlets to inlets.
 
 There are a few versions of Pure Data ("Pd" for short) floating around, so it's good to know the distinctions between them:
 
@@ -53,4 +55,6 @@ Well, you can clone or download a zip of this repository and start looking into 
 
 See [Pure Data Start Here](http://puredata.info/docs/StartHere)
 
-There are also a few books online, see [Pure Data Book About Pd](http://puredata.info/docs/BooksAboutPd)
+There are also a few books online, see [Pure Data Books About Pd](http://puredata.info/docs/BooksAboutPd)
+
+If you run into specific issues or have general questions, see the [Pure Data FAQ](http://puredata.info/docs/faq)

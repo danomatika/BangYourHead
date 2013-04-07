@@ -1,0 +1,60 @@
+#N canvas 753 117 516 485 10;
+#X obj 207 173 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj -118 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 259 203 0-1;
+#X obj 205 113 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 257 143 0-1;
+#X obj 207 242 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 267 264 0-1;
+#X msg 204 271 tune \$1;
+#X msg 202 143 amp \$1;
+#X obj -34 446 dac~;
+#X floatatom -49 391 5 0 1 2 closed_hat - -;
+#X obj -64 415 *~;
+#X msg -39 105 64;
+#X msg -19 134 127;
+#X text -42 82 midi vel;
+#X text 133 345 danomatika.com / robotcowboy.com;
+#X text -95 112 bang;
+#X text 75 396 output lvl = vel/127 * amp;
+#X obj -64 318 rc-808hihat~_;
+#X floatatom 26 393 5 0 1 2 open_hat - -;
+#X obj 11 417 *~;
+#X text 63 431 adapted from d-808hh~;
+#X text 63 449 2008 GPL v3 by Damian Stewart damian@frey.co.nz;
+#X text 133 328 GPL v3 Dan Wilcox 2009;
+#X obj 37 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 116 112 64;
+#X msg 136 141 127;
+#X text 113 89 midi vel;
+#X text 60 119 bang;
+#X text -107 64 CH triggers;
+#X text 48 71 OH triggers;
+#X msg 204 203 decay \$1;
+#X text 194 86 controls (for both);
+#X text -130 19 rc-808hihat~_ : a non-gui tr808 style hi hat;
+#X msg -116 287 reset;
+#X connect 0 0 31 0;
+#X connect 1 0 18 0;
+#X connect 3 0 8 0;
+#X connect 5 0 7 0;
+#X connect 7 0 18 0;
+#X connect 8 0 18 0;
+#X connect 10 0 11 1;
+#X connect 11 0 9 0;
+#X connect 12 0 18 0;
+#X connect 13 0 18 0;
+#X connect 18 0 11 0;
+#X connect 18 1 20 0;
+#X connect 19 0 20 1;
+#X connect 20 0 9 1;
+#X connect 24 0 18 1;
+#X connect 25 0 18 1;
+#X connect 26 0 18 1;
+#X connect 31 0 18 0;
+#X connect 34 0 18 0;

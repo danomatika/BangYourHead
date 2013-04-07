@@ -1,0 +1,15 @@
+#N canvas 0 0 319 282 10;
+#X obj 92 155 rc-bump~ 100;
+#X obj 92 242 dac~;
+#X obj 92 187 rc-gain~;
+#X msg 92 85 bang;
+#X floatatom 161 126 5 0 0 0 - - -;
+#X text 13 11 rc-bump~: a super simple kick drum;
+#X text 39 43 Creation args: frequency;
+#X text 129 82 trigger;
+#X text 200 129 freq;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;

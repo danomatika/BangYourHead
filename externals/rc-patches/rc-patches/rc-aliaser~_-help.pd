@@ -1,0 +1,21 @@
+#N canvas 4 51 383 350 10;
+#X obj 81 138 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 128 172 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 34 99 osc~ 440;
+#X floatatom 34 71 5 0 0 0 - - -;
+#X obj 35 241 rc-gain~;
+#X obj 35 305 dac~;
+#X text 207 138 overlap;
+#X text 253 171 resample;
+#X text 18 24 rc-aliaser~_: a resampler;
+#X text 98 69 overlap and resample are integers from 0 - 8;
+#X obj 35 199 rc-aliaser~_ 2 4;
+#X connect 0 0 10 1;
+#X connect 1 0 10 2;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 10 0 4 0;

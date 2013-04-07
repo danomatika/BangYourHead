@@ -1,0 +1,24 @@
+#N canvas 0 22 392 261 10;
+#X obj 20 225 outlet~;
+#X obj 21 55 inlet~;
+#X obj 41 81 inlet;
+#X text 6 11 simple spigot for signals \, just a convenience object
+really;
+#X text 70 50 audio signal in;
+#X text 77 227 audio signal out;
+#X obj 41 104 sel 0;
+#X text 83 78 left inlet: onoff toggle \, any nonzero is treated as
+1;
+#X obj 35 171 vline~;
+#X obj 20 198 *~;
+#X msg 41 127 0 5;
+#X msg 74 127 1 5;
+#X connect 1 0 9 0;
+#X connect 2 0 6 0;
+#X connect 6 0 10 0;
+#X connect 6 1 11 0;
+#X connect 8 0 9 1;
+#X connect 9 0 0 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X coords 0 0 1 1 85 40 0;

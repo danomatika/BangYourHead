@@ -1,0 +1,126 @@
+#N canvas 251 22 621 444 10;
+#N canvas 53 354 212 229 fft 0;
+#X obj 20 50 rfft~;
+#X obj 20 83 *~;
+#X obj 51 83 *~;
+#X obj 20 113 sqrt~;
+#X obj 20 144 clip~ 0 50;
+#X obj 77 115 r \$0-yscale;
+#X obj 105 156 inlet bangs;
+#X obj 20 20 inlet~ audio;
+#X obj 112 50 block~ 256 1;
+#X obj 20 200 tabwrite~ \$0-a_spectroscope;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 0 1 2 0;
+#X connect 0 1 2 1;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 4 2;
+#X connect 6 0 9 0;
+#X connect 7 0 0 0;
+#X restore 6 399 pd fft;
+#X obj 6 224 hip~ 50;
+#X obj 295 234 r \$0-yscale;
+#X msg 224 358 resize \$1;
+#X obj 6 197 inlet~ audio;
+#X obj 39 369 metro 100;
+#X obj 39 282 sel 0;
+#X msg 39 310 0;
+#X msg 71 309 1;
+#X obj 39 254 r \$0-onoff;
+#X obj 90 341 r \$0-refresh;
+#X obj 359 1 inlet control;
+#X obj 359 153 s \$0-onoff;
+#X obj 497 80 s \$0-yscale;
+#X obj 406 129 s \$0-refresh;
+#N canvas 0 22 450 300 defaults 0;
+#X obj 73 205 outlet;
+#X obj 138 86 loadbang;
+#X msg 73 117 bang;
+#X obj 73 63 r \$0-reset;
+#X msg 73 165 onoff 1 \, refresh 100 \, xscale 128 \, yscale 50;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X restore 477 2 pd defaults;
+#X obj 543 57 s \$0-reset;
+#X obj 34 340 switch~;
+#X obj 1 3 cnv 15 314 167 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 303 20 vsl 10 135 1 100 0 0 \$0-yscale \$0-yscale empty 0 -9
+0 10 -261234 -66577 -1 6632 1;
+#X obj 303 158 bng 10 250 50 0 \$0-reset \$0-reset empty 17 7 0 10
+-99865 -228856 -1;
+#X obj 303 5 tgl 10 0 \$0-onoff \$0-onoff empty 17 7 0 10 -99865 -4034
+-1 1 1;
+#X obj 258 5 nbx 4 10 10 1000 0 0 \$0-refresh \$0-refresh empty 0 -8
+0 10 -99865 -228856 -228856 100 256;
+#X obj 4 19 cnv 15 298 138 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-a_spectroscope 128 float 0;
+#X coords 0 50 128 0 300 140 1 0 0;
+#X restore 3 18 graph;
+#X obj 6 158 hsl 295 10 0 128 0 0 \$0-xscale \$0-xscale empty -2 -8
+0 10 -261234 -66577 -1 29400 1;
+#X obj 224 233 int;
+#X obj 224 261 t f b f;
+#X obj 224 294 + 1;
+#X obj 224 330 clip 0 128;
+#X obj 224 202 r \$0-xscale;
+#X msg 295 359 bounds 0 \$1 \$2 0;
+#X obj 295 331 pack 50 127;
+#X obj 451 105 s \$0-xscale;
+#X obj 359 32 route onoff refresh xscale yscale reset;
+#X obj 224 396 s \$0-a_spectroscope;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 455 293 pd LICENSE-GPL;
+#X connect 1 0 0 0;
+#X connect 2 0 32 0;
+#X connect 3 0 35 0;
+#X connect 4 0 1 0;
+#X connect 5 0 0 1;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 5 0;
+#X connect 7 0 17 0;
+#X connect 8 0 5 0;
+#X connect 8 0 17 0;
+#X connect 9 0 6 0;
+#X connect 10 0 5 1;
+#X connect 11 0 34 0;
+#X connect 15 0 34 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 27 1 32 0;
+#X connect 27 2 32 1;
+#X connect 28 0 29 0;
+#X connect 29 0 3 0;
+#X connect 30 0 26 0;
+#X connect 31 0 35 0;
+#X connect 32 0 31 0;
+#X connect 34 0 12 0;
+#X connect 34 1 14 0;
+#X connect 34 2 33 0;
+#X connect 34 3 13 0;
+#X connect 34 4 16 0;
+#X coords 0 -1 1 1 316 171 1 0 0;

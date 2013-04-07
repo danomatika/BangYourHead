@@ -1,0 +1,7 @@
+#N canvas 678 68 483 481 10;
+#X obj 89 52 rc-adsr~_;
+#X obj 88 103 rc-adsr~;
+#X obj 82 265 rc-env~;
+#X text 162 49 adsr;
+#X text 252 141 adsr gui;
+#X text 255 333 envelope table;

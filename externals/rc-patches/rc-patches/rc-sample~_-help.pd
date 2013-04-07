@@ -1,0 +1,78 @@
+#N canvas 114 71 404 624 10;
+#X obj 40 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 596 dac~;
+#X text 61 121 play;
+#X obj 225 537 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 29 565 rc-spigot~;
+#X text 159 95 load from a filename;
+#X text 211 514 audio on;
+#X msg 75 225 reset;
+#X obj 173 486 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 168 566 rc-spigot~;
+#X text 114 224 reset reverse to off \, speed to 1;
+#X text 196 485 bangs when sample is done;
+#X text 293 435 stop;
+#X msg 115 396 1;
+#X msg 143 396 2;
+#X msg 251 396 60 127;
+#X msg 301 396 60 64;
+#X msg 202 396 55 127;
+#X msg 172 396 -1;
+#X msg 82 396 0.5;
+#X floatatom 85 272 5 0 1 0 - - -;
+#X obj 88 250 hsl 50 15 0 2 0 0 empty empty empty -2 -6 0 10 -262144
+-1 -1 0 1;
+#X msg 52 149 60;
+#X msg 59 172 127;
+#X text 13 31 left inlet: bang triggering \, vel triggering \, and
+control messages;
+#X text 87 156 play using midi velocities \, 0 - 127;
+#X obj 29 463 rc-sample~_;
+#X text 9 4 rc-sample~_: a one shot stereo sample player;
+#X obj 29 506 rc-gain~ gain1 0.5;
+#X text 128 273 set speed 1 = normal \, 2 = 2x \, 0.5 = 1/2 \, etc
+;
+#X msg 85 297 speed \$1;
+#X text 91 372 speed and midi note-vel pair triggers;
+#X obj 93 321 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X text 145 341 reverse \, 1 or 0 \, on or off;
+#X msg 93 343 rev \$1;
+#X msg 29 96 load media/bang.wav;
+#X obj 29 69 loadbang;
+#X msg 68 197 0;
+#X text 98 196 stop;
+#X msg 259 436 60 0;
+#X text 207 61 Creation args: speed;
+#X connect 0 0 26 0;
+#X connect 3 0 4 1;
+#X connect 3 0 9 1;
+#X connect 4 0 1 0;
+#X connect 7 0 26 0;
+#X connect 9 0 1 1;
+#X connect 13 0 26 1;
+#X connect 14 0 26 1;
+#X connect 15 0 26 1;
+#X connect 16 0 26 1;
+#X connect 17 0 26 1;
+#X connect 18 0 26 1;
+#X connect 19 0 26 1;
+#X connect 20 0 30 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 23 0 26 0;
+#X connect 26 0 28 0;
+#X connect 26 1 28 1;
+#X connect 26 2 8 0;
+#X connect 28 0 4 0;
+#X connect 28 1 9 0;
+#X connect 30 0 26 0;
+#X connect 32 0 34 0;
+#X connect 34 0 26 0;
+#X connect 35 0 26 0;
+#X connect 36 0 35 0;
+#X connect 37 0 26 0;
+#X connect 39 0 26 1;

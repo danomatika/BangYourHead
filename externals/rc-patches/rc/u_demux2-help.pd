@@ -1,0 +1,46 @@
+#N canvas 146 80 845 512 10;
+#N canvas 345 179 582 570 REFERENCE 0;
+#X text 23 434 Tags: Utilities;
+#X text 24 99 Inlet 0: incoming messages;
+#X text 24 334 See also: [u_mux2] [demux] (requires zexy);
+#X text 24 31 Name: [u_demux2];
+#X text 24 51 Summary: demultiplex from 1 inlet to 2 outlets;
+#X text 24 171 Outlet 0: outputs messages from the inlet if chosen
+;
+#X text 24 193 Outlet 0: outputs messages from the inlet if chosen
+;
+#X text 24 125 Inlet 1: <float> select the current inlet \, 0 & 1;
+#X text 24 228 Description: Route messages from the inlet to a given
+outlet. Equivalent to [demux 1 2] in zexy.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X msg 618 153 q w e;
+#X obj 643 250 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 667 258 choose the inlet;
+#X floatatom 643 290 5 0 0 0 - - -;
+#X obj 598 368 u_show;
+#X msg 598 402 1 2 3;
+#X obj 666 369 u_show;
+#X msg 666 404 abcd;
+#X msg 598 121 abcd;
+#X msg 634 186 1234;
+#X msg 566 90 1 2 3;
+#X obj 8 20 u_demux2;
+#X obj 598 321 u_demux2;
+#X text 129 21 - demultiplex from 1 inlet between 2 outlets;
+#X connect 4 0 16 0;
+#X connect 5 0 7 0;
+#X connect 7 0 16 1;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 12 0 16 0;
+#X connect 13 0 16 0;
+#X connect 14 0 16 0;
+#X connect 16 0 8 0;
+#X connect 16 1 10 0;

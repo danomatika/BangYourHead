@@ -1,0 +1,64 @@
+#N canvas 676 41 395 613 10;
+#X obj 75 188 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7800 1;
+#X obj 75 124 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 135 210 0-1;
+#X obj -115 132 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 72 154 tone \$1;
+#X text 127 154 0-1;
+#X obj 73 64 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6600 1;
+#X text 125 94 0-1;
+#X msg 70 94 amp \$1;
+#X obj -116 580 dac~;
+#X floatatom -100 517 5 0 1 0 - - -;
+#X obj -115 541 *~;
+#X obj -51 491 tgl 15 0 empty empty playing 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg -39 123 64;
+#X msg -19 152 127;
+#X text -102 70 triggers;
+#X text -42 100 midi vel;
+#X text 62 37 controls;
+#X text 44 350 danomatika.com / robotcowboy.com;
+#X text -95 130 bang;
+#X text -56 523 output lvl = vel/127 * amp;
+#X msg 72 217 decay \$1;
+#X obj 75 251 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8900 1;
+#X text 135 273 0-1;
+#X msg 72 280 tune \$1;
+#X text 45 331 Dan Wilcox 2009 GPL v3;
+#X text -60 583 2008 GPL v3 by Damian Stewart damian@frey.co.nz;
+#X text -60 565 adapted from d-808cy~;
+#X floatatom 13 458 5 0 0 1 envelope - -;
+#X text -143 10 rc-808cymbal~ : a tr808 style cymbal with gui;
+#X obj 136 407 rc-sssad /hlp;
+#N canvas 0 0 450 300 state 0;
+#X obj 37 18 inlet;
+#X msg 37 47 \; SSSAD /hlp/cy/tune 0.210145 \; SSSAD /hlp/cy/decay
+0.797101 \; SSSAD /hlp/cy/tone 0.753623 \; SSSAD /hlp/cy/amp 0.746377
+\; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 136 468 pd state;
+#X obj -115 323 rc-808cymbal~ /hlp/cy;
+#X connect 0 0 21 0;
+#X connect 1 0 4 0;
+#X connect 3 0 32 0;
+#X connect 4 0 32 1;
+#X connect 6 0 8 0;
+#X connect 8 0 32 1;
+#X connect 10 0 11 1;
+#X connect 11 0 9 0;
+#X connect 11 0 9 1;
+#X connect 13 0 32 0;
+#X connect 14 0 32 0;
+#X connect 21 0 32 1;
+#X connect 22 0 24 0;
+#X connect 24 0 32 1;
+#X connect 30 0 31 0;
+#X connect 32 0 11 0;
+#X connect 32 1 12 0;
+#X connect 32 2 28 0;

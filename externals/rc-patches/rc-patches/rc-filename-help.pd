@@ -1,0 +1,25 @@
+#N canvas 555 424 462 277 10;
+#X obj 32 81 rc-filename;
+#X msg 71 -64 ../blaaah;
+#X msg 87 -39 /path/to/file;
+#X msg 104 -15 ../../../dd;
+#X msg 52 -87 filelalaa;
+#X obj 32 -134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 32 -109 openpanel;
+#X obj 32 111 print;
+#X text 79 -144 rc-filename: takes filenames with absolute or relative
+paths;
+#X text 155 -127 and spits out absolute paths;
+#X text 212 -68 handles parent dirs \, ../;
+#X msg 134 45 D:/My Documents;
+#X msg 122 16 C:/Windows;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;

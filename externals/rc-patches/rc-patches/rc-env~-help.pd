@@ -1,0 +1,62 @@
+#N canvas 81 590 501 470 10;
+#X obj 49 339 dac~;
+#X obj 48 265 *~;
+#X obj 49 1 metro 500;
+#X obj 49 -47 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 100 -27 500;
+#X msg 135 -21 100;
+#X msg 49 76 60;
+#X msg 286 54 dur \$1;
+#X msg 286 9 50;
+#X msg 365 10 500;
+#X msg 326 10 100;
+#X obj 48 295 rc-spigot~;
+#X obj 105 271 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 122 270 audio;
+#X text 346 48 note duration;
+#X text 21 -91 drag and create the envelope by drawing on the array
+with the mouse;
+#X text 20 -114 envelope w/ gui \, outputs signal 0 - 1;
+#X obj 388 159 sssad/datastore;
+#N canvas 0 0 451 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD tone/amp 0.724638 \; SSSAD tone/detune -12 \;
+SSSAD envelope/amp 0.811594 \; SSSAD envelope/envtable 0.836007 0.836007
+0.836007 0.836007 0.836007 0.824896 0.813784 0.813784 0.813784 0.747118
+0.680451 0.647118 0.613784 0.56934 0.524895 0.480451 0.458228 0.402673
+0.38045 0.336006 0.313784 0.291561 0.269339 0.224894 0.213783 0.191561
+0.169339 0.147116 0.102672 0.0693384 0.036005 0.036005 0.036005 0.036005
+0.036005 0.036005 0.036005 0.036005 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 388 233 pd datastore;
+#X text 387 132 state saving;
+#X obj 49 106 rc-sawosc~ tone;
+#X text 69 -50 run;
+#X msg 124 28 bang;
+#X msg 194 54 60;
+#X msg 173 31 127;
+#X text 158 -1 triggers;
+#X text 198 31 velocity;
+#X text 146 322 Creation args: name \, envtable size;
+#X obj 173 105 rc-env~ envelope;
+#X connect 1 0 11 0;
+#X connect 2 0 6 0;
+#X connect 2 0 28 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 2 1;
+#X connect 6 0 20 0;
+#X connect 7 0 28 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 0 1;
+#X connect 11 0 0 0;
+#X connect 12 0 11 1;
+#X connect 20 0 1 0;
+#X connect 22 0 28 0;
+#X connect 23 0 28 0;
+#X connect 24 0 28 0;
+#X connect 28 0 1 1;

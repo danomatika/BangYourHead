@@ -1,0 +1,41 @@
+#N canvas 146 80 845 512 10;
+#N canvas 345 179 582 570 REFERENCE 0;
+#X text 23 434 Tags: Utilities;
+#X text 24 31 Name: [u_mux2];
+#X text 24 51 Summary: multiplex between 2 inlets to 1 outlet;
+#X text 24 99 Inlet 0: incoming messages;
+#X text 24 119 Inlet 1: incoming messages;
+#X text 24 171 Outlet 0: outputs messages from the chosen inlet;
+#X text 24 138 Inlet 2: <float> select the current inlet \, 0 & 1;
+#X text 24 334 See also: [u_demux2] [mux] (requires zexy);
+#X text 24 228 Description: Route messages from a given inlet to the
+outlet. Equivalent to [mux 1 2] in zexy and similar to [gate] in Max/MSP
+\, but with reversed inlets.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X msg 546 140 abcd;
+#X msg 643 139 1234;
+#X obj 595 324 u_show;
+#X msg 595 357 q w e;
+#X msg 575 173 1 2 3;
+#X msg 651 173 q w e;
+#X obj 672 211 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 696 219 choose the inlet;
+#X floatatom 672 251 5 0 0 0 - - -;
+#X obj 595 284 u_mux2;
+#X obj 8 20 u_mux2;
+#X text 129 21 - multiplex between 2 inlets to 1 outlet;
+#X connect 4 0 13 0;
+#X connect 5 0 13 1;
+#X connect 6 0 7 0;
+#X connect 8 0 13 0;
+#X connect 9 0 13 1;
+#X connect 10 0 12 0;
+#X connect 12 0 13 2;
+#X connect 13 0 6 0;

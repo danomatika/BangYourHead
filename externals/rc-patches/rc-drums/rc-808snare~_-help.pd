@@ -1,0 +1,55 @@
+#N canvas 160 79 422 482 10;
+#X obj 80 199 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 80 135 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 140 221 0-1;
+#X obj -118 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 77 165 tone \$1;
+#X msg 77 228 snappy \$1;
+#X text 132 165 0-1;
+#X obj 78 75 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 130 105 0-1;
+#X obj 81 257 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 141 279 0-1;
+#X msg 78 286 tune \$1;
+#X msg 75 105 amp \$1;
+#X obj -64 447 dac~;
+#X floatatom -49 391 5 0 1 0 - - -;
+#X obj -64 415 *~;
+#X floatatom 11 346 5 0 0 1 envelope - -;
+#X obj -27 367 tgl 15 0 empty empty playing 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg -39 123 64;
+#X msg -19 152 127;
+#X text -102 70 triggers;
+#X text -42 100 midi vel;
+#X text 67 48 controls;
+#X text -147 9 rc-808snare~_ : a non-gui tr808 style snare drum;
+#X text 13 436 Dan Wilcox 2009;
+#X text 12 455 danomatika.com / robotcowboy.com;
+#X text -95 130 bang;
+#X text 43 402 output lvl = vel/127 * amp;
+#X obj -64 318 rc-808snare~_;
+#X msg -120 283 reset;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 3 0 28 0;
+#X connect 4 0 28 0;
+#X connect 5 0 28 0;
+#X connect 7 0 12 0;
+#X connect 9 0 11 0;
+#X connect 11 0 28 0;
+#X connect 12 0 28 0;
+#X connect 14 0 15 1;
+#X connect 15 0 13 0;
+#X connect 15 0 13 1;
+#X connect 18 0 28 0;
+#X connect 19 0 28 0;
+#X connect 28 0 15 0;
+#X connect 28 1 17 0;
+#X connect 28 2 16 0;
+#X connect 29 0 28 0;

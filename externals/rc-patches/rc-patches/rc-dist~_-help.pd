@@ -1,0 +1,16 @@
+#N canvas 400 434 344 298 10;
+#X floatatom 37 62 5 0 0 0 - - -;
+#X obj 37 143 rc-dist~_ 0.5;
+#X floatatom 112 116 5 0 1 0 - - -;
+#X text 149 116 dist amount (0-1);
+#X obj 37 179 rc-gain~;
+#X obj 38 251 dac~;
+#X obj 37 92 osc~ 440;
+#X text 17 14 rc-dist~_: simple distortion;
+#X text 84 45 Creation args: intensity between 0 and 1;
+#X connect 0 0 6 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 1 0;

@@ -1,0 +1,9 @@
+#N canvas 106 368 418 327 10;
+#X obj 39 51 rc-noteflip;
+#X text 116 50 invert a midi note;
+#X obj 38 138 rc-arp;
+#X text 203 157 arpeggiator;
+#X obj 38 254 rc-portamento;
+#X text 225 262 glide between notes;
+#X text 137 92 filter midi notes based on a scale;
+#X obj 39 93 rc-scalefilter;

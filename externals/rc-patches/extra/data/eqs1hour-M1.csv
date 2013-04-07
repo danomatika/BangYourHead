@@ -1,0 +1,8 @@
+Src,Eqid,Version,Datetime,Lat,Lon,Magnitude,Depth,NST,Region
+us,c0006787,4,"Tuesday, October 11, 2011 01:17:22 UTC",38.9361,70.7274,4.5,41.20,24,"Tajikistan"
+ak,10332829,1,"Tuesday, October 11, 2011 01:12:40 UTC",60.1073,-152.3618,1.5,64.10, 8,"Southern Alaska"
+nc,71661721,1,"Tuesday, October 11, 2011 01:11:29 UTC",38.8202,-122.7805,1.6,1.70,29,"Northern California"
+nn,00350843,8,"Tuesday, October 11, 2011 01:00:45 UTC",37.3438,-115.4767,1.0,8.00, 8,"Nevada"
+ci,15061884,0,"Tuesday, October 11, 2011 00:51:36 UTC",33.3562,-116.3597,1.3,13.70,43,"Southern California"
+us,c0006780,5,"Tuesday, October 11, 2011 00:50:54 UTC",-27.1623,-176.5935,4.9,30.90,62,"Kermadec Islands region"
+nn,00350840,8,"Tuesday, October 11, 2011 00:49:58 UTC",39.5155,-119.4094,1.1,7.70, 8,"Nevada"

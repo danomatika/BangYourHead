@@ -1,0 +1,71 @@
+#N canvas 214 285 321 345 10;
+#X obj 47 42 inlet;
+#X obj 47 310 outlet;
+#X obj 64 137 route float;
+#X obj 47 247 f;
+#X obj 47 281 /;
+#X obj 64 162 t a b;
+#N canvas 370 313 450 300 accum 0;
+#X obj 182 102 0;
+#X obj 135 79 inlet;
+#X obj 182 79 inlet;
+#X obj 135 169 outlet;
+#X obj 135 137 +;
+#X obj 168 138 f;
+#X connect 0 0 4 1;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 4 0 3 0;
+#X connect 4 0 5 0;
+#X connect 5 0 4 1;
+#X restore 64 197 pd accum;
+#N canvas 425 298 450 300 count 0;
+#X obj 133 59 b;
+#X obj 133 35 inlet;
+#X obj 183 35 inlet;
+#X obj 164 111 + 1;
+#X obj 133 133 outlet;
+#X msg 183 71 1;
+#X obj 133 110 f 1;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 3 0 6 1;
+#X connect 5 0 6 1;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X restore 147 200 pd count;
+#X obj 47 78 t b a b b;
+#X obj 64 111 u_listdrip;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 184 81 pd LICENSE-GPL;
+#X text 101 43 originally [list-mean] in list-abs;
+#X text 28 10 usage: u_listmean;
+#X connect 0 0 8 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 3 1;
+#X connect 7 0 4 1;
+#X connect 8 0 3 0;
+#X connect 8 1 9 0;
+#X connect 8 2 6 1;
+#X connect 8 3 7 1;
+#X connect 9 0 2 0;

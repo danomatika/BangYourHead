@@ -1,0 +1,55 @@
+#N canvas 701 269 583 368 10;
+#X obj 20 283 *~;
+#X obj 12 329 dac~;
+#X floatatom 20 155 5 0 0 0 - - -;
+#X obj 288 112 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 20 70 metro 500;
+#X obj 20 39 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0 1
+;
+#X obj 20 106 random 127;
+#X obj 20 130 clip 20 100;
+#X obj 459 33 sssad/datastore;
+#N canvas 4 20 539 194 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD synth1/amp 0.57971 \; SSSAD synth1/detune -16
+\; SSSAD env1/R 434.783 \; SSSAD env1/S 57.971 \; SSSAD env1/D 463.768
+\; SSSAD env1/A 28.9855 \; SSSAD env1/amp 0.173913 \; SSSAD_ADMIN set
+\;;
+#X connect 0 0 1 0;
+#X restore 460 109 pd datastore;
+#X text 451 9 sssad state saving;
+#X text 5 5 rc-sawosc~ a simple saw / osc subtractive synth;
+#X text 44 37 run to play notes;
+#X obj 288 139 rc-adsr~ env1 50;
+#X obj 20 190 rc-sawosc~ synth1;
+#N canvas 0 0 343 163 sends_example 0;
+#X floatatom 181 89 5 -24 24 0 - - -;
+#X floatatom 23 36 5 0 0 0 - - -;
+#X obj 181 112 s synth1/detune;
+#X text 19 16 sends;
+#X obj 23 60 s synth1/notein;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X restore 357 325 pd sends_example;
+#X text 135 230 amplitude \, 0-1;
+#X text 396 43 hit load;
+#X text 132 210 detune the osc \, -24-24;
+#X msg 110 133 detune 2;
+#X text 119 109 control messages;
+#X msg 134 159 amp 0.67;
+#X msg 170 187 phase 0.6;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 14 0;
+#X connect 3 0 13 0;
+#X connect 4 0 3 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 13 0 0 1;
+#X connect 14 0 0 0;
+#X connect 19 0 14 1;
+#X connect 21 0 14 1;
+#X connect 22 0 14 1;

@@ -1,0 +1,91 @@
+#N canvas 161 235 1082 435 10;
+#X msg 614 104 save;
+#X msg 614 134 dump;
+#X obj 53 313 sssad/datastore;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD pat1/pat8 4_0_0_0_127_127_127_0_0_0_0_127_127_127_0_0_0-3_0_0_0_127_0_127_0_0_0_0_127_0_127_0_0_0-2_0_0_0_127_0_127_0_0_0_0_127_0_127_0_0_0-1_0_0_0_127_127_127_0_0_0_0_127_127_127_0_0_0
+\; SSSAD pat1/pat7 4_127_127_127_127_0_0_0_0_0_0_0_0_0_0_0_0-3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0-2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0-1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+\; SSSAD pat1/pat6 4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0-3_0_0_0_0_0_0_127_0_0_0_0_0_0_0_0_0-2_0_0_127_0_0_0_0_0_127_0_0_0_0_0_127_0-1_127_0_0_0_0_0_0_0_0_0_0_0_127_0_0_0
+\; SSSAD pat1/pat5 4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0-3_0_0_0_0_127_127_127_127_0_0_0_0_127_127_127_127-2_127_127_127_127_0_0_0_0_127_127_127_127_0_0_0_0-1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+\; SSSAD pat1/pat4 4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_127-3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_127_0-2_0_0_0_0_0_0_0_0_0_0_0_0_0_127_0_0-1_0_0_0_0_0_0_0_0_0_0_0_0_127_0_0_0
+\; SSSAD pat1/pat3 4_0_0_0_0_0_0_0_0_0_0_0_127_0_0_0_0-3_0_0_0_0_0_0_0_0_0_0_127_0_0_0_0_0-2_0_0_0_0_0_0_0_0_0_127_0_0_0_0_0_0-1_0_0_0_0_0_0_0_0_127_0_0_0_0_0_0_0
+\; SSSAD pat1/pat2 4_0_0_0_0_0_0_0_127_0_0_0_0_0_0_0_0-3_0_0_0_0_0_0_127_0_0_0_0_0_0_0_0_0-2_0_0_0_0_0_127_0_0_0_0_0_0_0_0_0_0-1_0_0_0_0_127_0_0_0_0_0_0_0_0_0_0_0
+\; SSSAD pat1/pat1 4_0_0_0_127_0_0_0_0_0_0_0_0_0_0_0_0-3_0_0_127_0_0_0_0_0_0_0_0_0_0_0_0_0-2_0_127_0_0_0_0_0_0_0_0_0_0_0_0_0_0-1_127_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+\; SSSAD drums2/sequences 4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0-3_0_0_0_0_0_0_127_0_0_0_0_0_0_0_0_0-2_0_0_127_0_0_0_0_0_127_0_0_0_0_0_127_0-1_127_0_0_0_0_0_0_0_0_0_0_0_127_0_0_0
+\; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 53 381 pd datastore;
+#X msg 613 78 clear;
+#X obj 694 296 print pat_dump;
+#X floatatom 501 286 5 0 0 0 - - -;
+#X floatatom 501 45 5 0 0 0 - - -;
+#X obj 669 339 route float list;
+#X text 16 102 this is the target sequence object named "drums2";
+#X text 654 87 messages in \, same as gui \, note: "clear" does not
+clear the pattern in the patternbuddy's memory \, it just sends the
+clear message to the target so you can enter a new pattern without
+having to remove the old one;
+#X text 51 289 sssad state saving;
+#X text 630 365 index;
+#X text 685 394 seqs;
+#X text 713 256 right outlet: dumps each stored pattern with a float
+index is sent first \, then the seqs as lists;
+#X text 719 199 right inlet: manually load a pattern via a message
+... pattern index first \, then a list of sequences;
+#X text 466 13 left inlet: messages and floats;
+#X text 8 10 rc-patternbuddy: a pattern memory object \, manages the
+pattern of a target sequence object;
+#X symbolatom 715 396 25 0 0 0 - - -;
+#X floatatom 669 368 5 0 0 0 - - -;
+#X obj 715 367 l2s;
+#X text 535 39 change pattern via index num \, pat 0 is always empty
+and cannot be saved to (acts as a "no play" pattern);
+#N canvas 0 0 527 234 sends_recvs 0;
+#X text 11 14 of course there are sends and receives based on the object
+name \, in this case "pat1";
+#X obj 18 99 s pat1/in;
+#X text 95 70 right inlet;
+#X text 13 53 left inlet;
+#X obj 210 67 r pat1/out;
+#X text 207 43 left outlet;
+#X msg 18 72 0;
+#X msg 53 72 2;
+#X floatatom 210 101 5 0 0 0 - - -;
+#X obj 293 98 r pat1/pat_dump;
+#X obj 97 99 s pat1/pat_load;
+#X text 290 73 right outlet;
+#X obj 293 133 route float list;
+#X text 254 159 index;
+#X text 309 188 seqs;
+#X symbolatom 339 190 25 0 0 0 - - -;
+#X floatatom 293 162 5 0 0 0 - - -;
+#X obj 339 161 l2s;
+#X connect 4 0 8 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 9 0 12 0;
+#X connect 12 0 16 0;
+#X connect 12 1 17 0;
+#X connect 17 0 15 0;
+#X restore 240 350 pd sends_recvs;
+#X text 208 326 check out the sends and recvs ...;
+#X msg 694 151 3 \, 1 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 \, 2 0 0 1 1
+0 0 1 1 0 0 1 1 0 0 1 1 \, 3 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 \, 4 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
+#X obj 19 127 rc-drumseq16 drums2;
+#X text 464 306 left outlet: current pattern num;
+#X obj 501 214 rc-patternbuddy pat1 drums2;
+#X text 28 54 Creation args: name \, target pattern box (drum seq \,
+etc) \, # of seqs in target (default is 4);
+#X connect 0 0 27 0;
+#X connect 1 0 27 0;
+#X connect 4 0 27 0;
+#X connect 7 0 27 0;
+#X connect 8 0 19 0;
+#X connect 8 1 20 0;
+#X connect 20 0 18 0;
+#X connect 24 0 27 1;
+#X connect 27 0 6 0;
+#X connect 27 1 5 0;
+#X connect 27 1 8 0;

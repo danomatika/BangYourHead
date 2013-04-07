@@ -1,0 +1,14 @@
+#N canvas 670 465 450 300 10;
+#X declare -lib rj;
+#X obj 61 133 u_state;
+#X msg 61 201 add SSSAD \, e_chorus-\$1 mod 1.8 \, e_chorus-\$1 freq
+0.8 \, e_tremolo-mtrem freq 10 \, e_tremolo-mtrem dry 0.5 \,;
+#X msg 58 65 save;
+#X msg 90 99 load;
+#X msg 148 100 clear;
+#X obj 205 17 import rj;
+#X obj 232 70 e_tremolo hello1;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;

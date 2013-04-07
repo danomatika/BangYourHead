@@ -1,0 +1,43 @@
+#N canvas 562 58 366 317 10;
+#X obj 33 128 list;
+#X msg 82 111 bang;
+#X obj 33 210 t a a;
+#X obj 33 170 list split \$1;
+#X obj 33 50 inlet;
+#X obj 33 280 outlet;
+#X obj 164 48 inlet;
+#X obj 33 244 u_listmean;
+#X obj 33 81 route float clear;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 194 180 pd LICENSE-GPL;
+#X text 22 15 usage: m_mavg <number of floats to average> (optional)
+;
+#X text 147 130;
+#X text 168 122 based on : zexy [mavg];
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 1 0 3 0;
+#X connect 2 0 7 0;
+#X connect 2 1 0 1;
+#X connect 3 0 2 0;
+#X connect 3 2 2 0;
+#X connect 4 0 8 0;
+#X connect 6 0 3 1;
+#X connect 7 0 5 0;
+#X connect 8 0 0 0;
+#X connect 8 1 1 0;

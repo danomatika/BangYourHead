@@ -1,0 +1,15 @@
+#N canvas 0 0 319 288 10;
+#X obj 92 242 dac~;
+#X obj 92 187 rc-gain~;
+#X msg 92 85 bang;
+#X floatatom 167 125 5 0 0 0 - - -;
+#X text 39 43 Creation args: frequency;
+#X text 129 82 trigger;
+#X text 206 128 freq;
+#X obj 92 155 rc-sqump~ 100;
+#X text 12 11 rc-sqump~: a super simple square drum;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 7 0;
+#X connect 3 0 7 1;
+#X connect 7 0 1 0;

@@ -1,0 +1,150 @@
+#N canvas 547 145 736 700 10;
+#X obj 580 375 sssad/datastore;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD drums/sequences 8_0_0_0_0_0_0_0_127_127_0_0_0_0_0_0_0-7_0_0_0_0_0_0_127_0_0_0_0_0_0_0_0_127-6_0_0_0_0_0_127_0_0_0_127_0_0_0_0_0_0-5_0_0_0_0_127_0_0_0_0_0_0_0_0_0_127_0-4_0_0_0_127_0_0_0_0_0_0_127_0_0_0_0_0-3_0_0_127_0_0_0_0_0_0_0_0_0_0_127_0_0-2_0_127_0_0_0_0_0_0_0_0_0_127_0_0_0_0-1_127_0_0_0_0_0_0_0_0_0_0_0_127_0_0_0
+\; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 580 449 pd datastore;
+#X obj 30 632 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 52 632 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 34 62 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 34 149 f;
+#X obj 62 149 + 1;
+#X msg 61 107 0;
+#X floatatom 34 189 5 0 0 0 - - -;
+#X obj 34 84 t f b;
+#X text 37 170 current tick;
+#X obj 129 79 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 129 154 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 193 128 sel 0;
+#X text 28 44 run using ticks;
+#X text 122 59 run using bangs;
+#X obj 34 128 metro 200;
+#X obj 129 128 metro 200;
+#X obj 129 102 t f f;
+#X msg 193 164 reset;
+#X msg 124 259 dump;
+#X obj 442 557 print seq_dump;
+#X text 349 246 first seq;
+#X text 373 276 sec seq;
+#X text 302 534 right outlet: seqs come flying out as indexed lists
+;
+#X text 575 346 sssad state saving;
+#X text 234 161 reset msg resets beat pos;
+#X text 336 223 load seqs via lists \, first element is the sequence
+index;
+#X msg 124 286 clear;
+#X text 165 285 the seqs;
+#X text 155 257 seqs to right outlet;
+#N canvas 1042 197 402 220 sends_examples 0;
+#X obj 25 151 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X msg 51 150 dump;
+#X text 20 127 send to left inlet;
+#X obj 25 80 s drums/seq_load;
+#X obj 51 184 s drums/in;
+#X text 24 22 send to right inlet;
+#X obj 256 37 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 256 124 f;
+#X obj 284 124 + 1;
+#X msg 283 82 0;
+#X obj 256 59 t f b;
+#X obj 256 103 metro 200;
+#X floatatom 256 155 5 0 0 0 - - -;
+#X text 250 19 run using ticks to send;
+#X msg 25 46 1 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1;
+#X obj 256 188 s drums/in;
+#X connect 0 0 4 0;
+#X connect 1 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 7 0 12 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 1;
+#X connect 10 0 11 0;
+#X connect 10 1 9 0;
+#X connect 11 0 7 0;
+#X connect 12 0 15 0;
+#X connect 14 0 3 0;
+#X restore 418 624 pd sends_examples;
+#N canvas 0 0 319 194 recvs_examples 0;
+#X obj 160 150 print recv_seq_dump;
+#X obj 160 119 r drums/seq_dump;
+#X text 155 100 recv from right outlet;
+#X obj 20 38 r drums/out;
+#X obj 20 99 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 39 99 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X text 13 15 recv from left outlet;
+#X obj 20 69 sel 1 2;
+#X connect 1 0 0 0;
+#X connect 3 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X restore 419 650 pd recvs_examples;
+#X msg 415 248 1 1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0;
+#X text 44 557 left outlet: drum beats out as indexed velocities;
+#X floatatom 77 666 5 0 0 0 - - -;
+#X text 114 667 vel vals;
+#X msg 442 277 2 0 0 60 0 0 0 65 0 0 70 0 0 127 120 127 100;
+#X text 276 50 Creation args: name;
+#X obj 34 314 rc-drumseq16_8 drums;
+#X obj 34 581 route 1 2 3 4 5 6 7 8;
+#X obj 77 632 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 98 632 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 119 632 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 141 632 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 165 632 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 187 632 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 14 8 rc-drumseq16: a 16 step drum/pattern sequencer with save
+state and 8 sequences;
+#X floatatom 179 670 5 0 0 0 - - -;
+#X text 353 98 toggle boxes toggle between 0 and vel level (default
+127) \, sliders set vel which is returned to 127 on a clear message
+;
+#X connect 4 0 9 0;
+#X connect 5 0 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X connect 7 0 5 1;
+#X connect 8 0 39 0;
+#X connect 9 0 16 0;
+#X connect 9 1 7 0;
+#X connect 11 0 18 0;
+#X connect 12 0 39 0;
+#X connect 13 0 19 0;
+#X connect 16 0 5 0;
+#X connect 17 0 12 0;
+#X connect 18 0 17 0;
+#X connect 18 1 13 0;
+#X connect 19 0 39 0;
+#X connect 20 0 39 0;
+#X connect 28 0 39 0;
+#X connect 33 0 39 1;
+#X connect 37 0 39 1;
+#X connect 39 0 40 0;
+#X connect 39 1 21 0;
+#X connect 40 0 2 0;
+#X connect 40 1 3 0;
+#X connect 40 1 35 0;
+#X connect 40 2 41 0;
+#X connect 40 3 42 0;
+#X connect 40 4 43 0;
+#X connect 40 5 44 0;
+#X connect 40 5 48 0;
+#X connect 40 6 45 0;
+#X connect 40 7 46 0;

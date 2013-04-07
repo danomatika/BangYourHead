@@ -1,0 +1,87 @@
+#N canvas 472 109 646 359 10;
+#X obj 516 72 sssad/datastore;
+#X obj 52 54 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 52 141 f;
+#X obj 80 141 + 1;
+#X msg 79 99 0;
+#N canvas 4 20 563 258 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD name/sequence 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0 0
+\; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 517 148 pd datastore;
+#X obj 52 290 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X floatatom 52 181 5 0 0 0 - - -;
+#X obj 52 76 t f b;
+#X text 75 288 bangs out;
+#X obj 405 298 print seq_dump;
+#X text 403 177 load a sequence manually via list;
+#X text 10 160 current tick;
+#X msg 209 152 dump;
+#X text 244 151 send seq out as a list;
+#X text 507 47 sssad state saving;
+#X text 418 277 get sequence dump out left outlet;
+#X obj 150 69 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 150 124 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X msg 214 120 reset;
+#X obj 214 84 sel 0;
+#X text 46 36 run using ticks;
+#X text 144 52 run using bangs;
+#X obj 150 98 metro 300;
+#X obj 52 120 metro 200;
+#X msg 184 189 clear;
+#X text 230 189 clear seq;
+#N canvas 0 0 508 194 send_recvs 0;
+#X obj 30 151 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 31 84 s name/in;
+#X obj 30 119 r name/out;
+#X obj 31 55 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X text 15 20 send / recieve examples;
+#X obj 197 151 print recv_seq_dump;
+#X text 295 116 get sequence dump to recieve;
+#X obj 197 119 r name/seq_dump;
+#X text 86 60 left inlet;
+#X text 83 142 left outlet;
+#X text 335 140 right outlet;
+#X obj 197 83 s name/seq_load;
+#X text 192 24 load sequence manually via send;
+#X text 349 66 right inlet;
+#X msg 197 51 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 7 0 5 0;
+#X connect 14 0 11 0;
+#X restore 205 325 pd send_recvs;
+#X text 257 120 reset seq pos to 0;
+#X msg 405 198 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1;
+#X text 197 302 open for sends and receives;
+#X text 11 10 rc-seq 16 beat xoxo toggle sequence;
+#X text 289 16 creation args: name;
+#X text 449 110 hit load;
+#X obj 52 229 rc-seq16 name;
+#X connect 1 0 8 0;
+#X connect 2 0 3 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 1;
+#X connect 7 0 34 0;
+#X connect 8 0 24 0;
+#X connect 8 1 4 0;
+#X connect 13 0 34 0;
+#X connect 17 0 20 0;
+#X connect 17 0 23 0;
+#X connect 18 0 34 0;
+#X connect 19 0 34 0;
+#X connect 20 0 19 0;
+#X connect 23 0 18 0;
+#X connect 24 0 2 0;
+#X connect 25 0 34 0;
+#X connect 29 0 34 1;
+#X connect 34 0 6 0;
+#X connect 34 1 10 0;

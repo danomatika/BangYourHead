@@ -1,0 +1,9 @@
+#N canvas 951 429 328 164 10;
+#X floatatom 49 128 5 0 0 0 - - -;
+#X floatatom 49 59 5 0 0 0 - - -;
+#X text 92 58 midi notes in;
+#X text 92 125 flipped / non-flipped out;
+#X obj 49 92 rc-noteflip;
+#X text 15 11 rc-noteflip: inverts midi notes;
+#X connect 1 0 4 0;
+#X connect 4 0 0 0;

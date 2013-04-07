@@ -1,0 +1,15 @@
+#N canvas 532 62 385 177 10;
+#X obj 51 109 rc-spigot~;
+#X obj 108 81 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 51 44 osc~ 440;
+#X obj 51 146 dac~;
+#X obj 51 78 *~ 0.1;
+#X text 11 9 rc-spigot~ a convenience patch to toggle a signal;
+#X text 135 79 signal through on/off;
+#X text 137 101 any nonzero float treated as 1;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 1 0 0 1;
+#X connect 2 0 4 0;
+#X connect 4 0 0 0;

@@ -1,0 +1,66 @@
+#N canvas 561 117 443 665 10;
+#X obj 127 196 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9100 1;
+#X obj 95 132 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6200 1;
+#X text 187 218 0-1;
+#X obj -126 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 92 162 tone \$1;
+#X text 147 162 0-1;
+#X obj 63 69 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4700 1;
+#X text 115 99 0-1;
+#X obj 150 260 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9600 1;
+#X text 210 282 0-1;
+#X msg 147 289 tune \$1;
+#X msg 60 99 amp \$1;
+#X obj -68 578 dac~;
+#X floatatom -53 522 5 0 1 0 - - -;
+#X obj -68 546 *~;
+#X floatatom 60 469 5 0 0 1 envelope - -;
+#X obj -4 490 tgl 15 0 empty empty playing 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg -47 118 64;
+#X msg -27 147 127;
+#X text -120 66 triggers;
+#X text -50 95 midi vel;
+#X text 52 44 controls;
+#X text -125 618 Dan Wilcox 2009;
+#X text -126 637 danomatika.com / robotcowboy.com;
+#X text -103 125 bang;
+#X text 8 523 output lvl = vel/127 * amp;
+#X msg 8 278 reset;
+#N canvas 0 0 450 300 state 0;
+#X msg 42 68 \; SSSAD /hlp/sd/snappy 0.630435 \; SSSAD /hlp/sd/tune
+0.775362 \; SSSAD /hlp/sd/tone 0.210145 \; SSSAD /hlp/sd/amp 0.702899
+\; SSSAD_ADMIN set \;;
+#X obj 42 37 inlet;
+#X connect 1 0 0 0;
+#X restore 165 415 pd state;
+#X obj 165 354 rc-sssad /hlp;
+#X msg 124 225 snappy \$1;
+#X text -132 13 rc-808snare~ : a gui tr808 style snare drum;
+#X obj -68 325 rc-808snare~ /hlp/sd;
+#X text -4 566 Based on similar from Andy Farnell (obiwannabe);
+#X text 0 582 and help from Damian Stewart (frey);
+#X connect 0 0 29 0;
+#X connect 1 0 4 0;
+#X connect 3 0 31 0;
+#X connect 4 0 31 1;
+#X connect 6 0 11 0;
+#X connect 8 0 10 0;
+#X connect 10 0 31 1;
+#X connect 11 0 31 1;
+#X connect 13 0 14 1;
+#X connect 14 0 12 0;
+#X connect 14 0 12 1;
+#X connect 17 0 31 0;
+#X connect 18 0 31 0;
+#X connect 26 0 31 1;
+#X connect 28 0 27 0;
+#X connect 29 0 31 1;
+#X connect 31 0 14 0;
+#X connect 31 1 16 0;
+#X connect 31 2 15 0;

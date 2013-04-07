@@ -1,0 +1,5 @@
+#N canvas 0 0 450 300 10;
+#X obj 61 78 rc-chan~;
+#X obj 257 78 rc-chan2~;
+#X text 245 39 stereo mixing channel;
+#X text 52 40 mono mixing channel;

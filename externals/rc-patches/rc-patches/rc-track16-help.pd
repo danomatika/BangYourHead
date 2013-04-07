@@ -1,0 +1,87 @@
+#N canvas 94 171 764 315 10;
+#X obj 565 50 sssad/datastore;
+#X obj 52 54 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 52 141 f;
+#X obj 80 141 + 1;
+#X msg 79 99 0;
+#N canvas 4 20 501 122 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD name/sequence 0 10 20 21 30 38 68 62 69 63 60
+69 102 109 110 117 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 565 117 pd datastore;
+#X floatatom 52 181 5 0 0 0 - - -;
+#X obj 52 76 t f b;
+#X obj 565 279 print seq_dump;
+#X text 396 165 load a sequence manually via list;
+#X text 8 160 current tick;
+#X msg 197 161 dump;
+#X text 232 160 send seq out as a list;
+#X text 556 29 sssad state saving;
+#X obj 150 69 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 150 124 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X msg 214 120 reset;
+#X obj 214 84 sel 0;
+#X text 46 36 run using ticks;
+#X text 144 52 run using bangs;
+#X obj 150 98 metro 300;
+#X obj 52 120 metro 200;
+#X msg 170 197 clear;
+#X text 216 197 clear seq;
+#X text 351 280 get sequence dump out right outlet;
+#X floatatom 52 288 5 0 0 0 - - -;
+#X text 89 286 numbers out;
+#X text 260 120 reset seq pos to 0;
+#N canvas 0 0 518 222 sends_recvs 0;
+#X obj 182 178 print recv_seq_dump;
+#X text 280 143 get sequence dump to recieve;
+#X obj 182 146 r name/seq_dump;
+#X obj 29 88 s name/in;
+#X obj 27 144 r name/out;
+#X obj 29 59 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X text 15 17 send / recieve examples;
+#X floatatom 27 180 5 0 0 0 - - -;
+#X obj 178 96 s name/seq_load;
+#X text 173 37 load sequence manually via send;
+#X text 61 60 left inlet;
+#X text 71 169 left outlet;
+#X text 315 172 right outlet;
+#X text 294 87 right inlet;
+#X msg 178 65 0 10 20 30 40 50 60 70 80 90 100 110 1 2 3 4 5 6 7 8
+;
+#X connect 2 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 14 0 8 0;
+#X restore 399 66 pd sends_recvs;
+#X obj 52 229 rc-track16 name;
+#X msg 400 186 100 127 60 20 40 67 89 83 15 20 80 115 80 90 100 10
+20 30 40 50;
+#X text 11 10 rc-track fixed length number sequence;
+#X text 259 27 Creation args: name;
+#X text 664 81 hit load;
+#X text 393 45 extra connections;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 1;
+#X connect 6 0 29 0;
+#X connect 7 0 21 0;
+#X connect 7 1 4 0;
+#X connect 11 0 29 0;
+#X connect 14 0 17 0;
+#X connect 14 0 20 0;
+#X connect 15 0 29 0;
+#X connect 16 0 29 0;
+#X connect 17 0 16 0;
+#X connect 20 0 15 0;
+#X connect 21 0 2 0;
+#X connect 22 0 29 0;
+#X connect 29 0 25 0;
+#X connect 29 1 8 0;
+#X connect 30 0 29 1;

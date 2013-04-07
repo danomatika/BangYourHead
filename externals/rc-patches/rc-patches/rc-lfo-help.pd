@@ -1,0 +1,74 @@
+#N canvas 581 155 424 619 10;
+#X obj 55 442 * 127;
+#X obj 55 472 vsl 15 128 0 127 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 9648 1;
+#X msg 317 193 1;
+#X msg 343 214 0;
+#X obj 300 522 sssad/datastore;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD lfo1/wave 0 \; SSSAD lfo1/grain 11.5942 \; SSSAD
+lfo1/period 8695.65 \; SSSAD lfo1/onoff 1 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 300 590 pd datastore;
+#X text 351 191 phase;
+#X text 15 24 sends out a slow oscillating signal as control messages
+;
+#X text 15 37 period is the length of the wave in ms;
+#X text 11 7 rc-lfo: a low frequency oscillator;
+#X msg 26 94 sin;
+#X msg 55 79 tri;
+#X msg 79 102 saw;
+#X text 98 76 change waveform;
+#X text 139 99 periods as floats;
+#X msg 145 120 200;
+#X msg 177 131 2000;
+#X obj 140 505 osc~ 440;
+#X obj 140 417 sig~;
+#X obj 140 439 *~ 2000;
+#X obj 140 463 +~ 100;
+#X obj 138 587 dac~;
+#X obj 140 526 *~ 0.5;
+#X obj 196 533 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X floatatom 55 419 5 0 0 0 - - -;
+#X text 194 447 100 - 2100 Hz;
+#X text 216 532 audio;
+#X text 298 498 state saving;
+#X text 14 50 grain is the resolution of the wave \, a timestep in
+ms;
+#X obj 55 293 rc-lfo lfo1;
+#X text 303 279 bang resets (aka 0);
+#X msg 374 237 bang;
+#X obj 139 555 rc-spigot~;
+#X msg 147 239 onoff \$1;
+#X obj 147 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 157 265 grain 20;
+#X text 184 219 control messages;
+#X msg 178 162 7000;
+#X text 110 375 outputs floats 0 - 1;
+#X connect 0 0 1 0;
+#X connect 2 0 29 1;
+#X connect 3 0 29 1;
+#X connect 10 0 29 0;
+#X connect 11 0 29 0;
+#X connect 12 0 29 0;
+#X connect 15 0 29 0;
+#X connect 16 0 29 0;
+#X connect 17 0 22 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 17 0;
+#X connect 22 0 32 0;
+#X connect 23 0 32 1;
+#X connect 24 0 0 0;
+#X connect 29 0 18 0;
+#X connect 29 0 24 0;
+#X connect 31 0 29 1;
+#X connect 32 0 21 0;
+#X connect 32 0 21 1;
+#X connect 33 0 29 0;
+#X connect 34 0 33 0;
+#X connect 35 0 29 0;
+#X connect 37 0 29 0;

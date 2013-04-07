@@ -1,0 +1,66 @@
+#N canvas 659 67 494 480 10;
+#X obj 222 130 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7700 1;
+#X obj -101 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 274 160 0-1;
+#X obj 220 70 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9500 1;
+#X text 272 100 0-1;
+#X obj 222 199 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8800 1;
+#X text 282 221 0-1;
+#X msg 219 228 tune \$1;
+#X msg 217 100 amp \$1;
+#X obj -34 446 dac~;
+#X floatatom -62 388 5 0 1 2 closed_hat - -;
+#X obj -77 412 *~;
+#X msg -39 105 64;
+#X msg -19 134 127;
+#X text -42 82 midi vel;
+#X text 130 363 danomatika.com / robotcowboy.com;
+#X text -78 117 bang;
+#X text 104 396 output lvl = vel/127 * amp;
+#X floatatom 66 390 5 0 1 2 open_hat - -;
+#X obj 51 414 *~;
+#X text 63 431 adapted from d-808hh~;
+#X text 63 449 2008 GPL v3 by Damian Stewart damian@frey.co.nz;
+#X text 130 346 GPL v3 Dan Wilcox 2009;
+#X obj 50 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 116 112 64;
+#X msg 136 141 127;
+#X text 113 89 midi vel;
+#X text 73 122 bang;
+#X text -107 64 CH triggers;
+#X text 48 71 OH triggers;
+#X msg 219 160 decay \$1;
+#X text 209 43 controls (for both);
+#X text -115 20 rc-808hihat~ : a tr808 style hi hat with gui;
+#X obj 132 270 rc-sssad /hlp;
+#X obj -76 251 rc-808hihat~ /hlp/hh;
+#N canvas 0 0 450 300 state 0;
+#X obj 60 25 inlet;
+#X msg 60 49 \; SSSAD /hlp/hh/tune 0.789855 \; SSSAD /hlp/hh/decay
+0.282609 \; SSSAD /hlp/hh/amp 0.789855 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 132 326 pd state;
+#X connect 0 0 30 0;
+#X connect 1 0 34 0;
+#X connect 3 0 8 0;
+#X connect 5 0 7 0;
+#X connect 7 0 34 2;
+#X connect 8 0 34 2;
+#X connect 10 0 11 1;
+#X connect 11 0 9 0;
+#X connect 12 0 34 0;
+#X connect 13 0 34 0;
+#X connect 18 0 19 1;
+#X connect 19 0 9 1;
+#X connect 23 0 34 1;
+#X connect 24 0 34 1;
+#X connect 25 0 34 1;
+#X connect 30 0 34 2;
+#X connect 33 0 35 0;
+#X connect 34 0 11 0;
+#X connect 34 1 19 0;

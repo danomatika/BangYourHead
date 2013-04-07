@@ -1,0 +1,19 @@
+#N canvas 497 607 458 249 10;
+#X text 18 11 rc-dust: a random impulse generator ala Supercollider
+;
+#X obj 31 83 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X floatatom 94 103 5 0 0 0 - - -;
+#X obj 31 171 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 62 42 kind of like a random metro for crackle triggering;
+#X text 76 213 right out of delay-help.pd;
+#X text 133 104 density \, low numbers yeild more crackle per second
+;
+#X text 55 80 run;
+#X text 62 168 bangs out;
+#X obj 31 135 rc-dust 300;
+#X text 219 168 Creation args: density;
+#X connect 1 0 9 0;
+#X connect 2 0 9 1;
+#X connect 9 0 3 0;

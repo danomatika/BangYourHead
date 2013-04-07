@@ -1,0 +1,121 @@
+#N canvas 310 74 602 488 10;
+#X obj 81 155 inlet;
+#X obj 101 453 outlet~;
+#X text 173 6 ADSR ENVELOPE;
+#X text 448 374 ssad state saving;
+#N canvas 0 0 407 357 state_saving 0;
+#X obj 17 57 sssad/sssad \$1/amp;
+#X obj 122 35 r \$0-amp;
+#X obj 17 79 s \$0-amp;
+#X obj 169 91 r \$0-A;
+#X obj 76 115 sssad/sssad \$1/A;
+#X obj 76 139 s \$0-A;
+#X obj 202 156 r \$0-D;
+#X obj 109 178 sssad/sssad \$1/D;
+#X obj 109 200 s \$0-D;
+#X obj 245 211 r \$0-S;
+#X obj 152 234 sssad/sssad \$1/S;
+#X obj 152 259 s \$0-S;
+#X obj 297 269 r \$0-R;
+#X obj 204 293 sssad/sssad \$1/R;
+#X obj 204 317 s \$0-R;
+#X text 10 9 sssad sends and recieves;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 6 0 7 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 1;
+#X connect 10 0 11 0;
+#X connect 12 0 13 1;
+#X connect 13 0 14 0;
+#X restore 452 398 pd state_saving;
+#X text 213 446 2007 Dan Wilcox Based on the s-abstractions by Chris
+McComick and the pd adsr patch;
+#X text 173 27 Gui for adsr: level \, attack time \, decay time \,
+sustain level \, release time. A \, D \, and R are in msec and S is
+in percent.;
+#X msg 520 140 dur 500;
+#X text 175 107 Left inlet: bangs to trigger note of arg \$2 length
+\, floats are interpretted as midi velocities \, msg for note duration:
+;
+#X text 175 75 Creation args: name \, length of envelope (ms) i.e.
+note dur;
+#X obj 293 168 inlet;
+#X obj 293 326 s \$0-amp;
+#X obj 332 272 s \$0-D;
+#X obj 352 249 s \$0-S;
+#X obj 372 222 s \$0-R;
+#X obj 1 15 cnv 15 128 97 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 53 23 hsl 70 15 0 1 0 0 \$0-amp \$0-amp amp 0 8 0 10 -191407
+-1 -1 1400 1;
+#X obj 53 46 hsl 70 15 0 100 0 0 \$0-A \$0-A attack 0 8 0 10 -191407
+-1 -1 600 1;
+#X obj 53 61 hsl 70 15 0 1000 0 0 \$0-D \$0-D decay 0 8 0 10 -191407
+-1 -1 4400 1;
+#X obj 53 76 hsl 70 15 0 100 0 0 \$0-S \$0-S sustain 0 8 0 10 -191407
+-1 -1 4600 1;
+#X obj 53 91 hsl 70 15 0 2000 0 0 \$0-R \$0-R release 0 8 0 10 -191407
+-1 -1 2900 1;
+#X obj 5 62 nbx 4 14 0 1000 0 0 \$0-D \$0-D empty -10 6 0 10 -261234
+-1 -1 637.681 256;
+#X obj 5 77 nbx 4 14 0 100 0 0 \$0-S \$0-S empty -10 6 0 10 -261234
+-1 -1 66.6667 256;
+#X obj 5 92 nbx 4 14 0 2000 0 0 \$0-R \$0-R empty -10 6 0 10 -261234
+-1 -1 840.58 256;
+#X obj 5 24 nbx 4 14 0 1 0 0 \$0-amp \$0-amp empty -20 6 0 10 -261234
+-1 -1 0.202899 256;
+#X obj 5 47 nbx 4 14 0 100 0 0 \$0-A \$0-A empty -10 6 0 10 -261234
+-1 -1 8.69565 256;
+#X obj 312 298 s \$0-A;
+#X obj 100 425 rc-adsr~_;
+#X obj 100 184 loadbang;
+#X obj 100 239 sel 0;
+#X obj 100 215 f \$2;
+#X msg 100 262 dur \$1;
+#X obj 151 390 r \$0-R;
+#X obj 140 365 r \$0-S;
+#X obj 130 340 r \$0-D;
+#X obj 120 315 r \$0-A;
+#X obj 110 288 r \$0-amp;
+#N canvas 0 0 450 300 defaults 0;
+#X obj 205 50 loadbang;
+#X obj 205 177 outlet;
+#X msg 164 120 A 0;
+#X msg 205 120 D 0;
+#X msg 246 121 S 0;
+#X msg 290 121 R 0;
+#X msg 106 121 amp 0;
+#X connect 0 0 6 0;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X restore 342 168 pd defaults;
+#X obj 293 195 route amp A D S R;
+#X connect 0 0 27 0;
+#X connect 10 0 38 0;
+#X connect 27 0 1 0;
+#X connect 28 0 30 0;
+#X connect 29 1 31 0;
+#X connect 30 0 29 0;
+#X connect 31 0 27 0;
+#X connect 32 0 27 5;
+#X connect 33 0 27 4;
+#X connect 34 0 27 3;
+#X connect 35 0 27 2;
+#X connect 36 0 27 1;
+#X connect 37 0 38 0;
+#X connect 38 0 11 0;
+#X connect 38 1 26 0;
+#X connect 38 2 12 0;
+#X connect 38 3 13 0;
+#X connect 38 4 14 0;
+#X coords 0 -1 1 1 130 115 1 0 0;

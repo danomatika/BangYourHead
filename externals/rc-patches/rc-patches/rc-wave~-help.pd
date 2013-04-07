@@ -1,0 +1,43 @@
+#N canvas 471 159 590 414 10;
+#X obj 130 349 *~;
+#X obj 122 384 dac~;
+#X obj 410 156 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 49 87 metro 500;
+#X obj 49 56 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0 1
+;
+#X obj 49 126 random 127;
+#X text 73 54 run to play notes;
+#X obj 49 154 clip 20 90;
+#X obj 460 75 sssad/datastore;
+#N canvas 4 20 539 194 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD env1/R 1101.45 \; SSSAD env1/S 23.1884 \; SSSAD
+env1/D 347.826 \; SSSAD env1/A 8.69565 \; SSSAD env1/amp 0.753623 \;
+SSSAD wave1/wavetable 0.0536176 0.0536176 0.155617 -0.0438502 -0.610519
+-0.610519 0.778959 0.801626 0.801626 0.801626 0.824292 0.846959 0.846959
+0.846959 0.257623 -0.0823785 -0.286379 -0.286379 -0.35438 -0.35438
+-0.35438 -0.35438 -0.35438 -0.309046 -0.309046 -0.263713 -0.263713
+-0.649048 0.166956 0.325623 0.461624 0.529624 0.620291 0.597624 0.597624
+0.597624 0.597624 0.597624 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 460 144 pd datastore;
+#X text 452 52 sssad state saving;
+#X text 7 9 rc-wave~ a simple wavetable oscillator;
+#X msg 127 155 clear;
+#X text 166 156 wipe table;
+#X obj 410 182 rc-adsr~ env1 100;
+#X text 255 28 Creation args: name \, table len (multiples of 4);
+#X text 223 185 table len \, default is 32;
+#X obj 49 185 rc-wave~ wave1 64;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 14 0;
+#X connect 3 0 2 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 7 0;
+#X connect 7 0 17 0;
+#X connect 12 0 17 0;
+#X connect 14 0 0 1;
+#X connect 17 0 0 0;

@@ -1,0 +1,153 @@
+#N canvas 270 216 1232 716 10;
+#X obj 519 102 sssad/datastore;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD drums/sequences 8_0_0_0_0_0_0_0_127_127_127_0_0_0_0_0_0_0_0_0_0_0_0_127_127_127_0_0_0_0_0_0_0-7_0_0_0_0_0_0_127_0_0_127_127_0_0_0_0_0_0_0_0_0_0_127_127_0_0_127_0_0_0_0_0_0-6_0_0_0_0_0_127_0_0_0_0_127_127_0_0_0_0_0_0_0_0_127_127_0_0_0_0_127_0_0_0_0_0-5_0_0_0_0_127_0_0_0_0_0_0_127_127_0_0_0_0_0_0_127_127_0_0_0_0_0_0_127_0_0_0_0-4_0_0_0_127_0_0_0_0_0_0_0_0_127_127_0_0_0_0_127_127_0_0_0_0_0_0_0_0_127_0_0_0-3_0_0_127_0_0_0_0_0_0_0_0_0_0_127_127_0_0_127_127_0_0_0_0_0_0_0_0_0_0_127_0_0-2_0_127_0_0_0_0_0_0_0_0_0_0_0_0_127_127_127_127_0_0_0_0_0_0_0_0_0_0_0_0_127_0-1_127_0_0_0_0_0_0_0_0_0_0_0_0_0_0_127_127_0_0_0_0_0_0_0_0_0_0_0_0_0_0_127
+\; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 519 176 pd datastore;
+#X obj 34 62 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 34 149 f;
+#X obj 62 149 + 1;
+#X msg 61 107 0;
+#X floatatom 34 189 5 0 0 0 - - -;
+#X obj 34 84 t f b;
+#X text 37 170 current tick;
+#X obj 129 79 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 129 154 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 193 128 sel 0;
+#X text 28 44 run using ticks;
+#X text 122 59 run using bangs;
+#X obj 34 128 metro 200;
+#X obj 129 128 metro 200;
+#X obj 129 102 t f f;
+#X msg 193 164 reset;
+#X msg 124 259 dump;
+#X text 764 226 first seq;
+#X text 780 263 sec seq;
+#X text 514 73 sssad state saving;
+#X text 234 161 reset msg resets beat pos;
+#X text 751 193 load seqs via lists \, first element is the sequence
+index;
+#X msg 124 286 clear;
+#X text 165 285 the seqs;
+#X text 155 257 seqs to right outlet;
+#X text 244 41 Creation args: name;
+#X obj 842 600 print seq_dump;
+#X text 702 577 right outlet: seqs come flying out as indexed lists
+;
+#N canvas 575 450 402 333 sends_examples 0;
+#X obj 25 151 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X msg 51 150 dump;
+#X text 20 127 send to left inlet;
+#X obj 25 80 s drums/seq_load;
+#X obj 51 184 s drums/in;
+#X text 24 22 send to right inlet;
+#X obj 163 152 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 163 239 f;
+#X obj 191 239 + 1;
+#X msg 190 197 0;
+#X obj 163 174 t f b;
+#X obj 163 218 metro 200;
+#X floatatom 163 270 5 0 0 0 - - -;
+#X text 157 134 run using ticks to send;
+#X msg 25 46 1 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 1 1 1 1;
+#X obj 163 303 s drums/in;
+#X connect 0 0 4 0;
+#X connect 1 0 4 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 7 0 12 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 1;
+#X connect 10 0 11 0;
+#X connect 10 1 9 0;
+#X connect 11 0 7 0;
+#X connect 12 0 15 0;
+#X connect 14 0 3 0;
+#X restore 442 226 pd sends_examples;
+#N canvas 0 0 319 194 recvs_examples 0;
+#X obj 160 150 print recv_seq_dump;
+#X obj 160 119 r drums/seq_dump;
+#X text 155 100 recv from right outlet;
+#X obj 20 38 r drums/out;
+#X obj 20 99 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 39 99 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X text 13 15 recv from left outlet;
+#X obj 20 69 sel 1 2;
+#X connect 1 0 0 0;
+#X connect 3 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X restore 443 252 pd recvs_examples;
+#X msg 830 228 1 1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 1
+0 0 1 1 1 1 1;
+#X msg 849 275 2 0 0 60 0 0 0 65 0 0 70 0 0 127 120 127 100 20 25 33
+32 45 58 39 22 67 90 88 99 127 127 127 127;
+#X text 257 295 toggle boxes toggle between 0 and vel level (default
+127) \, sliders set vel which is returned to 127 on a clear message
+;
+#X text 11 13 rc-drumseq32: a 32 step drum/pattern sequencer with save
+state;
+#X obj 34 340 rc-drumseq32_8 drums;
+#X obj 30 648 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 52 648 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X text 44 573 left outlet: drum beats out as indexed velocities;
+#X floatatom 77 682 5 0 0 0 - - -;
+#X text 114 683 vel vals;
+#X obj 34 597 route 1 2 3 4 5 6 7 8;
+#X obj 77 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 98 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 119 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 141 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 165 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 187 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 179 686 5 0 0 0 - - -;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 1;
+#X connect 5 0 3 1;
+#X connect 6 0 36 0;
+#X connect 7 0 14 0;
+#X connect 7 1 5 0;
+#X connect 9 0 16 0;
+#X connect 10 0 36 0;
+#X connect 11 0 17 0;
+#X connect 14 0 3 0;
+#X connect 15 0 10 0;
+#X connect 16 0 15 0;
+#X connect 16 1 11 0;
+#X connect 17 0 36 0;
+#X connect 18 0 36 0;
+#X connect 24 0 36 0;
+#X connect 32 0 36 1;
+#X connect 33 0 36 1;
+#X connect 36 0 42 0;
+#X connect 36 1 28 0;
+#X connect 42 0 37 0;
+#X connect 42 1 38 0;
+#X connect 42 1 40 0;
+#X connect 42 2 43 0;
+#X connect 42 3 44 0;
+#X connect 42 4 45 0;
+#X connect 42 5 46 0;
+#X connect 42 5 49 0;
+#X connect 42 6 47 0;
+#X connect 42 7 48 0;

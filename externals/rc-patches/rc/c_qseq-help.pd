@@ -1,0 +1,83 @@
+#N canvas 52 158 892 514 10;
+#N canvas 119 153 582 570 REFERENCE 0;
+#X text 24 31 Name: [c_qseq];
+#X text 24 51 Summary: a sequencer wrapper abstraction for qlist;
+#X text 25 242 Description: You can record a sequence of any list.
+It will be played back with the same timing. You can use arbitrary
+selectors and lists of any length.;
+#X text 24 289 If you want to save your sequence \, you will need the
+unique id to be the same when you open your patch again and read the
+file. Therefore \, it's recommended to use a symbol or a number as
+a unique id \, instead of \$0.;
+#X text 24 389 See also: [qlist] [c_seqplay] [seq] (requires cyclone)
+;
+#X text 25 186 Outlet 0: recorded messages during playback;
+#X text 24 120 Inlet 0: messages to record;
+#X text 24 144 Inlet 1: sequencer control;
+#X text 24 85 Argument 0: <float or symbol> unique id (don't use \$0)
+;
+#X text 24 435 Tags: Sequencer \, Control;
+#X text 23 350 This is a renamed [ya-seq] by Alexandre Quessy in pd-mtl.
+;
+#X text 25 209 Outlet 1: bangs when sequence is finished;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore -55 49 pd REFERENCE;
+#X obj -55 19 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 408 52 Example:;
+#X text 419 479 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X text 69 22 - a sequencer interface to qlist;
+#X obj 564 345 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 619 208 record;
+#X msg 619 230 stop;
+#X msg 619 187 play;
+#X msg 619 274 print;
+#X msg 618 164 tempo \$1;
+#X floatatom 618 147 5 0 0 0 - - -;
+#X msg 618 126 loop \$1;
+#X obj 618 108 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X floatatom 475 127 5 0 0 0 - - -;
+#X msg 475 144 a \$1;
+#X floatatom 513 128 5 0 0 0 - - -;
+#X floatatom 496 389 5 0 0 0 - - -;
+#X floatatom 454 388 5 0 0 0 - - -;
+#X msg 513 145 b \$1;
+#X text 680 188 1 is the original speed;
+#X obj 423 108 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 9900 1;
+#X obj 543 399 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 6900 1;
+#X text 418 91 Messages to be recorded;
+#X msg 420 127 foo \$1;
+#X obj 454 359 route a b foo;
+#X obj 513 250 c_qseq id;
+#X obj -52 21 c_qseq;
+#X msg 619 294 write sequence.txt;
+#X msg 620 314 read sequence.txt;
+#X msg 619 252 clear;
+#X text 586 345 banged when done;
+#X connect 6 0 26 1;
+#X connect 7 0 26 1;
+#X connect 8 0 26 1;
+#X connect 9 0 26 1;
+#X connect 10 0 26 1;
+#X connect 11 0 10 0;
+#X connect 12 0 26 1;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 26 0;
+#X connect 16 0 19 0;
+#X connect 19 0 26 0;
+#X connect 21 0 24 0;
+#X connect 24 0 26 0;
+#X connect 25 0 18 0;
+#X connect 25 1 17 0;
+#X connect 25 2 22 0;
+#X connect 26 0 25 0;
+#X connect 26 1 5 0;
+#X connect 28 0 26 1;
+#X connect 29 0 26 1;
+#X connect 30 0 26 1;

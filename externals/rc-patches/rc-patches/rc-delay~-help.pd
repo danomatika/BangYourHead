@@ -1,0 +1,78 @@
+#N canvas 174 148 548 634 10;
+#X obj 26 599 dac~;
+#X text 205 469 be careful with the feedback \, you can take it to
+1;
+#X text 204 488 but it will go crazy ...;
+#X obj 26 569 rc-spigot~;
+#X obj 83 545 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 101 357 onoff \$1;
+#X obj 101 330 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 154 59 Creation args: name;
+#X text 106 545 audio;
+#X text 180 115 control messages;
+#X text 23 15 rc-delay~: a simple feedback delay with gui;
+#X floatatom 77 67 5 0 0 0 - - -;
+#X obj 26 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#N canvas 0 22 450 300 tones 0;
+#X obj 44 151 rc-sawosc~_;
+#X obj 128 151 rc-adsr~_ 0.6 16 350 20 60;
+#X obj 44 189 *~;
+#X obj 44 121 t f b;
+#X msg 44 93 60;
+#X obj 44 61 inlet;
+#X obj 44 221 outlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 6 0;
+#X connect 3 0 0 0;
+#X connect 3 1 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X restore 26 121 pd tones;
+#X obj 26 93 metro 500;
+#X obj 232 290 hsl 128 15 0 1 0 0 empty empty 0-1 32 8 0 10 -262144
+-1 -1 0 1;
+#X obj 296 337 hsl 128 15 0 1 0 0 empty empty 0-1 32 8 0 10 -262144
+-1 -1 0 1;
+#X obj 118 148 hsl 128 15 0 1000 0 0 empty empty >0 32 8 0 10 -262144
+-1 -1 4000 1;
+#X obj 182 215 hsl 128 15 0 1 0 0 empty empty 0-1 32 8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 179 238 5 0 0 0 - - -;
+#X floatatom 229 313 5 0 0 0 - - -;
+#X floatatom 293 361 5 0 0 0 - - -;
+#X floatatom 115 169 5 0 0 0 - - -;
+#X text 202 425 there will be some zippering when changing the del
+time;
+#X text 246 594 danomatika.com | robotcowboy.com;
+#X text 245 576 Dan Wilcox 2008 \, 2009;
+#X msg 293 385 dry \$1;
+#X msg 229 335 wet \$1;
+#X msg 179 261 feedback \$1;
+#X msg 115 191 delay \$1;
+#X obj 26 406 rc-delay~ d;
+#X connect 3 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 3 1;
+#X connect 5 0 30 1;
+#X connect 6 0 5 0;
+#X connect 11 0 14 1;
+#X connect 12 0 14 0;
+#X connect 13 0 30 0;
+#X connect 14 0 13 0;
+#X connect 15 0 20 0;
+#X connect 16 0 21 0;
+#X connect 17 0 22 0;
+#X connect 18 0 19 0;
+#X connect 19 0 28 0;
+#X connect 20 0 27 0;
+#X connect 21 0 26 0;
+#X connect 22 0 29 0;
+#X connect 26 0 30 1;
+#X connect 27 0 30 1;
+#X connect 28 0 30 1;
+#X connect 29 0 30 1;
+#X connect 30 0 3 0;

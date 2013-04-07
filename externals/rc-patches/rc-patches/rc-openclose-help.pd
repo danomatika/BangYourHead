@@ -1,0 +1,21 @@
+#N canvas 716 529 343 296 10;
+#X obj 42 55 rc-openclose;
+#X obj 42 5 openpanel;
+#X obj 42 -21 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 12 -57 rc-openclose: opens and closes patches via patchname
+;
+#X text 124 -2 closes prev patch \, opens current;
+#X text 72 138 takes relative or absolute paths;
+#X obj 111 85 print closed;
+#X obj 42 110 print opened;
+#X msg 91 29 close;
+#X text 137 30 close the currently open patch;
+#X text 44 168 ignores files without the .pd extension;
+#X text 17 197 Dan Wilcox 2009;
+#X text 17 216 robotcowboy.com | danomatika.com;
+#X connect 0 0 7 0;
+#X connect 0 1 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 8 0 0 0;

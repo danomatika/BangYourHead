@@ -1,0 +1,36 @@
+#N canvas 104 199 378 394 10;
+#X obj 39 276 rc-nstep 8;
+#X obj 67 337 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 39 91 metro 200;
+#X obj 39 54 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 51 158 reset;
+#X obj 51 119 sel 0;
+#X floatatom 90 66 5 0 0 0 - - -;
+#X obj 96 308 print seq_dump;
+#X msg 76 198 dump;
+#X msg 133 225 1 0 0 0 1 0 0 0;
+#X msg 134 254 1 0 1 0 1 1 1 1;
+#X obj 39 361 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 58 360 bangs out;
+#X text 183 55 Creation args: seq length;
+#X text 16 10 rc-nstep: an arbitrary length bang sequence player;
+#X text 239 235 sequences in as lists;
+#X text 120 199 dump out the sequence;
+#X text 99 161 reset pos to 0;
+#X text 197 309 sequences out as lists;
+#X text 84 337 end of seq;
+#X connect 0 0 11 0;
+#X connect 0 1 1 0;
+#X connect 0 2 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 2 1;
+#X connect 8 0 0 0;
+#X connect 9 0 0 1;
+#X connect 10 0 0 1;

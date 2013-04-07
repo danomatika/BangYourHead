@@ -1,0 +1,12 @@
+#N canvas 4 51 454 372 10;
+#X obj 38 31 rc-count;
+#X text 101 30 yet another counter;
+#X obj 37 91 rc-lfo;
+#X text 230 117 message-based low freq oscillator;
+#X obj 40 217 rc-filename;
+#X text 130 207 turns relative path filenames into absolute paths;
+#X text 137 228 handles ../;
+#X obj 40 274 rc-openclose;
+#X text 128 273 open or close a patch automatically;
+#X obj 40 328 rc-spigot~;
+#X text 116 329 signal spigot;

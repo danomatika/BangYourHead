@@ -1,0 +1,64 @@
+#N canvas 443 301 535 604 10;
+#X floatatom 57 108 5 0 0 0 - - -;
+#X msg 101 119 60;
+#X msg 115 145 58;
+#X floatatom 57 398 5 0 0 0 - - -;
+#X obj 180 531 *~;
+#X obj 174 575 dac~;
+#X obj 376 483 sssad/datastore;
+#N canvas 4 20 535 244 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD arp1/max 94 \; SSSAD arp1/min 62 \; SSSAD arp1/int
+12 \; SSSAD arp1/flip 100 \; SSSAD arp1/speed 200 \; SSSAD arp1/onoff
+0 \; SSSAD synth1/amp 0.507246 \; SSSAD synth1/detune -12 \; SSSAD
+env1/R 753.623 \; SSSAD env1/S 11.5942 \; SSSAD env1/D 72.4638 \; SSSAD
+env1/A 1.44928 \; SSSAD env1/amp 0.787402 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 377 559 pd datastore;
+#X text 21 19 rc-arp an arpeggiator;
+#X text 242 321 int: interval between notes;
+#X text 235 335 flip: how quickly to change notes;
+#X text 230 308 speed: dur between notes;
+#X text 242 295 max: note range max;
+#X text 243 282 min: note range min;
+#X text 250 29 left inlet: midi notes;
+#X text 98 398 midi out;
+#X text 125 364 velocity out;
+#X text 97 101 midi in;
+#X obj 195 384 rc-adsr~ env1;
+#X obj 57 447 rc-sawosc~ synth1;
+#X obj 57 281 rc-arp arp1;
+#X msg 165 75 0;
+#X text 176 57 vel in;
+#X msg 195 94 127;
+#X text 230 92 notes/velocities run through when off;
+#X text 477 504 hit load;
+#X msg 237 152 onoff \$1;
+#X obj 237 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 255 177 speed 150;
+#X msg 328 183 flip 300;
+#X msg 370 206 int 3;
+#X msg 381 231 max 70;
+#X msg 394 255 min 45;
+#X text 329 147 control messages;
+#X text 243 44 right inlet: midi velocity & control messages;
+#X connect 0 0 20 0;
+#X connect 1 0 20 0;
+#X connect 2 0 20 0;
+#X connect 3 0 19 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 18 0 4 1;
+#X connect 19 0 4 0;
+#X connect 20 0 3 0;
+#X connect 20 1 18 0;
+#X connect 21 0 20 1;
+#X connect 23 0 20 1;
+#X connect 26 0 20 1;
+#X connect 27 0 26 0;
+#X connect 28 0 20 1;
+#X connect 29 0 20 1;
+#X connect 30 0 20 1;
+#X connect 31 0 20 1;
+#X connect 32 0 20 1;

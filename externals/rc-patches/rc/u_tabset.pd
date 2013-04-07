@@ -1,0 +1,51 @@
+#N canvas 577 77 460 267 10;
+#X obj 35 22 inlet;
+#X obj 86 111 u_listdrip;
+#X obj 113 191 f;
+#X obj 142 191 + 1;
+#X obj 86 138 route float;
+#X obj 86 165 t f b;
+#X msg 183 113 0;
+#X obj 86 76 t a a;
+#X obj 86 221 tabwrite \$1;
+#X obj 35 50 route set;
+#X msg 35 164 set \$1;
+#X obj 179 192 print c_tabset;
+#X obj 35 112 symbol;
+#X text 203 51 based on : zexy [tabset];
+#X text 132 20 usage: c_tabset <table name>;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 300 86 pd LICENSE-GPL;
+#X msg 179 165 warning: dropped non float "\$1";
+#X connect 0 0 9 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 8 1;
+#X connect 3 0 2 1;
+#X connect 4 0 5 0;
+#X connect 4 1 16 0;
+#X connect 5 0 8 0;
+#X connect 5 1 2 0;
+#X connect 6 0 2 1;
+#X connect 7 0 1 0;
+#X connect 7 1 6 0;
+#X connect 9 0 12 0;
+#X connect 9 1 7 0;
+#X connect 10 0 8 0;
+#X connect 12 0 10 0;
+#X connect 16 0 11 0;

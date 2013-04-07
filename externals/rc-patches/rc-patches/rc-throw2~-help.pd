@@ -1,0 +1,28 @@
+#N canvas 543 329 417 362 10;
+#X obj 33 216 osc~ 440;
+#X obj 33 243 *~ 0.25;
+#X obj 219 253 catch~ TEST2/right;
+#X obj 197 282 dac~;
+#X text 190 310 Dan Wilcox 2009;
+#X text 190 327 danomatika.com | robotcowboy.com;
+#X obj 34 319 rc-throw2~ TEST2;
+#X obj 196 222 catch~ TEST2/left;
+#X obj 34 288 rc-pan~_;
+#X obj 94 263 hsl 32 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2795 1;
+#X obj 91 235 lfo 2000 20;
+#X text 80 39 Creation args: catch root name;
+#X obj 35 119 rc-throw2~;
+#X obj 171 120 catch~ LEFT;
+#X obj 256 121 catch~ RIGHT;
+#X text 29 81 an empty name sends to LEFT and RIGHT by default;
+#X text 30 174 a named send sends to name/left and name/right;
+#X text 19 12 rc-throw2~: throws two signals to a named stereo catches
+;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 2 0 3 1;
+#X connect 7 0 3 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 1;
+#X connect 10 0 9 0;

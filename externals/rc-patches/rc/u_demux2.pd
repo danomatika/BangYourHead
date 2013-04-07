@@ -1,0 +1,41 @@
+#N canvas 541 183 219 308 10;
+#X obj 19 37 inlet;
+#X obj 19 217 route one two;
+#X obj 19 188 list trim;
+#X obj 88 36 inlet;
+#X obj 19 277 outlet;
+#X obj 56 249 outlet;
+#X msg 88 99 one;
+#X msg 107 126 two;
+#X obj 19 158 list prepend;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 112 186 pd LICENSE-GPL;
+#X text 17 10 based on : zexy [demultiplex];
+#X obj 88 62 sel 0 1;
+#X obj 145 63 loadbang;
+#X connect 0 0 8 0;
+#X connect 1 0 4 0;
+#X connect 1 1 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 11 0;
+#X connect 6 0 8 1;
+#X connect 7 0 8 1;
+#X connect 8 0 2 0;
+#X connect 11 0 6 0;
+#X connect 11 1 7 0;
+#X connect 12 0 6 0;

@@ -1,0 +1,52 @@
+#N canvas 318 132 845 512 10;
+#N canvas 114 137 582 570 REFERENCE 0;
+#X text 24 31 Name: [m_mavg];
+#X text 24 51 Summary: calculates a moving average for a given number
+of incoming floats;
+#X text 24 174 Inlet 1: <float> number of incoming floats to average
+;
+#X text 24 213 Outlet 0: the current average of the last n floats;
+#X text 25 99 Argument 0: number of floats to average (optional);
+#X text 24 256 Description: Calculates the average (arithmetic mean)
+using the following equation:;
+#X text 63 298 mean = sum(f[i]) / number of floats;
+#X text 24 362 See also: [u_listmean] [mavg] (requires zexy);
+#X text 23 434 Tags: Average \, Mapping;
+#X text 24 139 Inlet 0: floats \, symbols and non-floats are dropped
+\; [clear< message clears the current average;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X obj 585 146 random 10;
+#X obj 585 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 585 173 5 0 0 0 - - -;
+#X floatatom 585 365 5 0 0 0 - - -;
+#X obj 585 119 metro 500;
+#X msg 680 203 bang;
+#X floatatom 630 308 5 0 0 1 - - -;
+#X msg 681 231 symbol kaa;
+#X text 720 205 ignored;
+#X msg 494 235 clear;
+#X text 478 213 clear contents;
+#X obj 585 333 m_mavg 4;
+#X text 669 308 num floats to average;
+#X text 129 21 - a moving average filter;
+#X obj 8 20 m_mavg;
+#X msg 669 129 1 2 3 4 5;
+#X obj 669 158 u_listdrip;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 15 0;
+#X connect 8 0 4 0;
+#X connect 9 0 15 0;
+#X connect 10 0 15 1;
+#X connect 11 0 15 0;
+#X connect 13 0 15 0;
+#X connect 15 0 7 0;
+#X connect 19 0 20 0;
+#X connect 20 0 15 0;

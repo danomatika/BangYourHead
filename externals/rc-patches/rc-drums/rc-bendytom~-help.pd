@@ -1,0 +1,65 @@
+#N canvas 561 117 418 611 10;
+#X obj -126 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -68 578 dac~;
+#X floatatom -53 522 5 0 1 0 - - -;
+#X obj -68 546 *~;
+#X floatatom 60 469 5 0 0 1 envelope - -;
+#X obj -4 490 tgl 15 0 empty empty playing 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg -47 118 64;
+#X msg -27 147 127;
+#X text -120 66 triggers;
+#X text -50 95 midi vel;
+#X text 98 51 controls;
+#X text 6 564 Dan Wilcox 2009;
+#X text 5 583 danomatika.com / robotcowboy.com;
+#X text -103 125 bang;
+#X text 8 523 output lvl = vel/127 * amp;
+#X msg 8 278 reset;
+#N canvas 0 0 450 300 state 0;
+#X msg 42 68 \; SSSAD /hlp/sd/decay 0.253623 \; SSSAD /hlp/sd/tune
+92.8704 \; SSSAD /hlp/sd/tone 0.76087 \; SSSAD /hlp/sd/amp 0.268116
+\; SSSAD_ADMIN set \;;
+#X obj 42 37 inlet;
+#X connect 1 0 0 0;
+#X restore 165 415 pd state;
+#X obj 165 354 rc-sssad /hlp;
+#X obj -68 325 rc-bendytom~ /hlp/sd;
+#X obj 104 198 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 104 134 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 164 220 0-1;
+#X msg 101 164 tone \$1;
+#X text 156 164 0-1;
+#X obj 102 74 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 154 104 0-1;
+#X msg 102 285 tune \$1;
+#X msg 99 104 amp \$1;
+#X msg 101 227 decay \$1;
+#X obj 105 262 hsl 128 15 1 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 166 284 midi 1-127;
+#X text -132 13 rc-bendytom~ : an electro bendy tom with gui;
+#X text 161 328 saves with sssad;
+#X connect 0 0 18 0;
+#X connect 2 0 3 1;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+#X connect 6 0 18 0;
+#X connect 7 0 18 0;
+#X connect 15 0 18 1;
+#X connect 17 0 16 0;
+#X connect 18 0 3 0;
+#X connect 18 1 5 0;
+#X connect 18 2 4 0;
+#X connect 19 0 28 0;
+#X connect 20 0 22 0;
+#X connect 22 0 18 1;
+#X connect 24 0 27 0;
+#X connect 26 0 18 1;
+#X connect 27 0 18 1;
+#X connect 28 0 18 1;
+#X connect 29 0 26 0;

@@ -1,0 +1,78 @@
+#N canvas 234 130 845 512 10;
+#N canvas 474 128 582 570 REFERENCE 0;
+#X text 24 51 Summary: send note off for all midi notes in note vel
+pairs;
+#X text 25 99 No Arguments;
+#X text 24 139 Inlet 0: bang;
+#X text 24 213 Outlet 0: midi note velocity pair;
+#X text 24 362 See also: [m_majorscale] \, [m_minorscale] \, [m_chorddict]
+;
+#X text 23 434 Tags: Midi;
+#X text 24 31 Name: [u_allnotesoff];
+#X text 24 256 Description: A quick \, midi panic utility. Bang it
+to send a note off message to all midi notes 0 - 127 Great for turning
+off stuck notes.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 494 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 622 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 494 236 u_makepoly 6 1 s_spad \$0-synth;
+#N canvas 612 200 429 232 synth 0;
+#X obj 28 24 loadbang;
+#X msg 28 65 mod3d 0 \, mod3c 0 \, mod3b 0.520079 \, mod3a 0 \, mod2d
+0 \, mod2c 0 \, mod2b 0 \, mod2a 0 \, mod1d 0 \, mod1c 0.465512 \,
+mod1b 0.166614 \, mod1a 0.654016 \, osc3d 0 \, osc3c 0 \, osc3b 0 \,
+osc3a 0 \, osc2d 0 \, osc2c 0 \, osc2b 0 \, osc2a 0.779528 \, osc1d
+0.669764 \, osc1c 0.596929 \, osc1b 0.699528 \, osc1a 0.228346 \, env3r
+0 \, env3s 0 \, env3d 0 \, env3a 0 \, env2r 0.0323622 \, env2s 0.567795
+\, env2d 0.0708661 \, env2a 0.630394 \, env1r 0.0410236 \, env1s 0.322835
+\, env1d 0.111024 \, env1a 0.080315 \,;
+#X obj 28 187 outlet;
+#X text 95 26 string preset in [s_spad] help;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 671 208 pd synth settings;
+#N canvas 472 269 287 314 random 0;
+#X obj 24 27 inlet;
+#X obj 24 150 t b b;
+#X obj 24 121 until;
+#X obj 24 248 pack f f;
+#X obj 24 281 outlet;
+#X obj 24 212 + 32;
+#X obj 24 181 random 48;
+#X obj 102 181 random 36;
+#X obj 102 214 + 64;
+#X obj 24 88 + 1;
+#X obj 24 60 random 5;
+#X text 91 62 1 - 6 voices;
+#X text 79 139 note 32 - 60;
+#X text 174 179 vel 36 - 100;
+#X connect 0 0 10 0;
+#X connect 1 0 6 0;
+#X connect 1 1 7 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 1;
+#X connect 9 0 2 0;
+#X connect 10 0 9 0;
+#X restore 494 155 pd random noteons;
+#X obj 494 287 soundoutput;
+#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - send noteoff for all midi notes;
+#X obj 8 20 u_allnotesoff;
+#X obj 622 155 u_allnotesoff;
+#X connect 3 0 7 0;
+#X connect 4 0 12 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X connect 7 0 5 0;
+#X connect 12 0 5 0;

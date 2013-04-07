@@ -1,0 +1,18 @@
+#N canvas 0 0 319 282 10;
+#X obj 83 248 dac~;
+#X obj 83 193 rc-gain~;
+#X msg 83 80 bang;
+#X floatatom 132 110 5 0 0 0 - - -;
+#X text 120 77 trigger;
+#X text 167 112 freq;
+#X obj 83 161 rc-pish~ 100 1000;
+#X floatatom 182 136 5 0 0 0 - - -;
+#X text 220 136 filter;
+#X text 11 13 rc-pish~: a super simple crunchy noise drum;
+#X text 36 45 Creation args: frequency \, filter cutoff;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 6 0;
+#X connect 3 0 6 1;
+#X connect 6 0 1 0;
+#X connect 7 0 6 2;

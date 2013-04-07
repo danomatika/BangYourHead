@@ -1,0 +1,86 @@
+#N canvas 576 62 445 692 10;
+#X obj 40 110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 654 dac~;
+#X text 61 108 play;
+#X obj 225 595 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 29 623 rc-spigot~;
+#X text 166 84 load from a filename;
+#X text 211 572 audio on;
+#X msg 76 211 reset;
+#X obj 152 540 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 168 624 rc-spigot~;
+#X text 115 210 reset reverse to off \, speed to 1;
+#X text 175 539 bangs when sample is done;
+#X msg 68 185 0;
+#X text 98 184 stop;
+#X obj 318 573 sssad/datastore;
+#N canvas 4 22 535 244 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD samp1/reverse \; SSSAD samp1/speed 1 \; SSSAD
+samp1/filename /home/dano/Creative/robotcowboy_pd/rc_patches/media/aw.wav
+\; SSSAD gain1/amp 0 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 318 642 pd datastore;
+#X text 259 611 hit load;
+#X msg 115 370 1;
+#X msg 143 370 2;
+#X msg 251 370 60 127;
+#X msg 301 370 60 64;
+#X msg 202 370 55 127;
+#X msg 172 370 -1;
+#X msg 92 402 0.5;
+#X text 190 459 Creation args: name;
+#X floatatom 82 258 5 0 1 0 - - -;
+#X obj 85 236 hsl 50 15 0 2 0 0 empty empty empty -2 -6 0 10 -262144
+-1 -1 0 1;
+#X msg 82 279 speed \$1;
+#X obj 92 303 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X text 140 256 speed 1 = normal \, 2 = 2x \, 0.5 = 1/2 \, etc;
+#X text 140 302 reverse \, 1 or 0 \, on or off;
+#X msg 92 325 rev \$1;
+#X obj 29 564 rc-gain~ gain1;
+#X msg 51 133 60;
+#X msg 58 160 127;
+#X text 19 27 left inlet: bang triggering \, vel triggering \, and
+control messages;
+#X text 89 133 play using midi velocities \, 0 - 127;
+#X text 9 4 rc-sample~: a gui one shot stereo sample player;
+#X text 102 344 speed and midi note-vel pair triggers;
+#X obj 29 437 rc-sample~ samp1;
+#X msg 29 82 load media/bang.wav;
+#X text 311 405 stop;
+#X msg 276 407 60 0;
+#X obj 29 58 loadbang;
+#X connect 0 0 39 0;
+#X connect 3 0 4 1;
+#X connect 3 0 9 1;
+#X connect 4 0 1 0;
+#X connect 7 0 39 0;
+#X connect 9 0 1 1;
+#X connect 12 0 39 0;
+#X connect 17 0 39 1;
+#X connect 18 0 39 1;
+#X connect 19 0 39 1;
+#X connect 20 0 39 1;
+#X connect 21 0 39 1;
+#X connect 22 0 39 1;
+#X connect 23 0 39 1;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 27 0 39 0;
+#X connect 28 0 31 0;
+#X connect 31 0 39 0;
+#X connect 32 0 4 0;
+#X connect 32 1 9 0;
+#X connect 33 0 39 0;
+#X connect 34 0 39 0;
+#X connect 39 0 32 0;
+#X connect 39 1 32 1;
+#X connect 39 2 8 0;
+#X connect 40 0 39 0;
+#X connect 42 0 39 1;
+#X connect 43 0 40 0;

@@ -1,0 +1,5 @@
+#N canvas 48 377 450 300 10;
+#X obj 74 85 rc-record~;
+#X obj 75 159 rc-record_mp3~;
+#X text 184 98 record a stereo wav;
+#X text 189 170 record a stereo mp3;

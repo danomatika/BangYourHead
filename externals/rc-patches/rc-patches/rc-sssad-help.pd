@@ -1,0 +1,64 @@
+#N canvas 552 134 835 631 10;
+#X msg 28 386 save;
+#X msg 77 416 load;
+#X msg 72 387 clear;
+#X msg 262 408 \; SSSAD /la/delay2/del 8.46888 \; SSSAD /la/delay2/feedback
+0.246377 \; SSSAD /la/delay2/onoff 0 \; SSSAD /la/delay2/wet 0.246377
+\; SSSAD /la/delay2/dry 0.231884 \; SSSAD_ADMIN set \;;
+#X msg 28 522 \; SSSAD /ka/delay1/del 380 \; SSSAD /ka/delay1/feedback
+0.5 \; SSSAD /ka/delay1/onoff 1 \; SSSAD /ka/delay1/wet 1 \; SSSAD
+/ka/delay1/dry 0 \; SSSAD_ADMIN set \;;
+#N canvas 752 470 450 300 hide 0;
+#X obj 10 10 inlet;
+#X msg 10 30 \; SSSAD /la/delay2/del 8.46888 \; SSSAD /la/delay2/feedback
+0.246377 \; SSSAD /la/delay2/onoff 0 \; SSSAD /la/delay2/wet 0.246377
+\; SSSAD /la/delay2/dry 0.231884 \; SSSAD /ka/delay1/del 380 \; SSSAD
+/ka/delay1/feedback 0.884058 \; SSSAD /ka/delay1/onoff 0 \; SSSAD /ka/delay1/wet
+1 \; SSSAD /ka/delay1/dry 0.623188 \; SSSAD porto/speed 1375.36 \;
+SSSAD porto/onoff 0 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 562 387 pd hide msg in a patch;
+#X obj 555 162 rc-portamento porto;
+#X text 569 136 global object;
+#X obj 27 222 rc-delay~ /ka/delay1;
+#X obj 257 172 rc-delay~ /la/delay2;
+#X text 265 146 local object in /la;
+#X text 42 198 local object in /ka;
+#X text 25 352 save everything /ka;
+#X text 258 297 save everything /la;
+#X text 554 235 just save everything!;
+#X text 45 55 Creation arg: local_prefix;
+#X text 317 14 The local_prefix is an osc address style prefix to the
+object name of sssad enabled patches aka;
+#X text 357 45 [rc-patch /ka/name];
+#X text 318 64 The contents of /ka/name will only be saved and loaded
+by rc-sssad if its creation arg is "/ka".;
+#X text 458 544 rc-sssad's do not cross trigger the save command \,
+only the issuing object will write to the message.;
+#X text 224 560 the state is saved to a msg;
+#X text 460 588 Based off of the datastore patch and sssad abstractions
+by Frank Barknecht and the diy2 808_local & 808_global patches.;
+#X text 16 100 TODO: replace OSCroute's with abs;
+#X text 58 116 to get rid of empty \$1 errors;
+#X text 500 411 (note: will save all SSSAD keys in all open patches.)
+;
+#X obj 562 302 rc-sssad;
+#X msg 534 263 set /la;
+#X msg 594 263 set /ka;
+#X msg 659 262 set GLOBAL;
+#X text 732 262 change prefixes;
+#X obj 262 329 rc-sssad /la;
+#X obj 28 443 rc-sssad /ka;
+#X text 317 96 If local_prefix is empty (or GLOBAL) \, the object will
+save globally. The prefix can be changed using a "set" message.;
+#X text 609 515 2008 \, 2010 Dan Wilcox;
+#X text 16 13 rc-sssad: a sssad state saving object w/ gui;
+#X connect 0 0 31 0;
+#X connect 1 0 31 0;
+#X connect 2 0 31 0;
+#X connect 25 0 5 0;
+#X connect 26 0 25 0;
+#X connect 27 0 25 0;
+#X connect 28 0 25 0;
+#X connect 30 0 3 0;
+#X connect 31 0 4 0;

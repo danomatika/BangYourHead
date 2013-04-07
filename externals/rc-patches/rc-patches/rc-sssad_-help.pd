@@ -1,0 +1,47 @@
+#N canvas 686 53 653 610 10;
+#X msg 42 492 \;;
+#X msg 22 126 save;
+#X msg 67 187 clear;
+#X msg 42 156 load;
+#X msg 92 259 savefile test.txt;
+#X msg 101 294 loadfile test.txt;
+#X text 46 49 Creation arg: local_prefix;
+#X text 288 7 The local_prefix is an osc address style prefix to the
+object name of sssad enabled patches aka;
+#X text 328 38 [rc-patch /ka/name];
+#X text 289 57 The contents of /ka/name will only be saved and loaded
+by rc-sssad if its creation arg is "/ka".;
+#X text 289 92 The prefix can be set using a "set" message. Sending
+"set GLOBAL" resets rc-sssad to global SSSAD.;
+#X text 288 130 The savefile and loadfile commands take the filename
+as an argument.;
+#X obj 401 241 rc-delay~ /p1/delay1;
+#X obj 400 362 rc-delay~ /p2/delay2;
+#X msg 144 391 set /p1;
+#X msg 155 419 set /p2;
+#X msg 131 361 set GLOBAL;
+#X text 177 333 set the prefix;
+#X text 90 148 save/load to a message box;
+#X text 273 506 2008 \, 2010 Dan Wilcox;
+#X text 217 390 save everything /p1;
+#X text 217 419 save everything /p2;
+#X text 217 359 save everything;
+#X text 273 574 Based off of the datastore patch and sssad abstractions
+by Frank Barknecht and the diy2 808_local & 808_global patches.;
+#X text 17 7 rc-sssad_: a sssad state saving object;
+#X obj 402 177 rc-portamento porto;
+#X text 220 271 save/load to a file;
+#X obj 42 453 rc-sssad_ /p1;
+#X text 273 530 rc-sssad's do not cross trigger the save command \,
+only the issuing object will write the settings.;
+#X text 67 474 the state is saved to a msg (unless saved to a file)
+;
+#X connect 1 0 27 0;
+#X connect 2 0 27 0;
+#X connect 3 0 27 0;
+#X connect 4 0 27 0;
+#X connect 5 0 27 0;
+#X connect 14 0 27 0;
+#X connect 15 0 27 0;
+#X connect 16 0 27 0;
+#X connect 27 0 0 0;

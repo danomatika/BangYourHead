@@ -1,0 +1,59 @@
+#N canvas 306 235 881 511 10;
+#N canvas 238 168 582 570 REFERENCE 0;
+#X text 24 91 Argument 0: <symbol> - Name of the table to set (optional).
+;
+#X text 24 124 Inlet 0:;
+#X text 24 233 Description: Wrapper for [tabwrite] that accepts new
+table values as a list of floats. List indexes correspond to table
+indexes \, from 0 - [list length].;
+#X text 24 31 Name: [u_tabset];
+#X text 24 434 Tags: Tables \, Utilities;
+#X text 24 185 set <symbol> - Set the target table name.;
+#X text 24 149 <float> list - New contents of the table as a list of
+floats. Non floats are dropped.;
+#X text 24 334 See also: [tabwrite] [tabread] [tabset] (requires zexy)
+;
+#X text 24 51 Summary: set the contents of a table via a list \, equivalent
+to [tabset] in the zexy external;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 129 21 - set the contents of a table via a list;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0_array1 9 float 1;
+#A 0 0.1 0.2 0.3 0.6 0.7 0.1 0.05 0.25 0.1;
+#X array \$0_array2 9 float 1;
+#A 0 -1 -0.7 -0.5 -0.3 -0.2 -0.1 -0.05 -1 -0.25;
+#X coords 0 1 8 -1 200 140 1;
+#X restore 470 333 graph;
+#X msg 621 210 set \$1;
+#X floatatom 590 126 4 0 0 0 - - -;
+#X obj 621 189 symbol \$0_array1;
+#X msg 621 171 bang;
+#X msg 723 170 bang;
+#X obj 723 188 symbol \$0_array2;
+#X msg 664 239 hello;
+#X msg 572 94 0 0 0 0 0 0 0 0 0 0 0;
+#X msg 534 37 1 0.7 0.5 0.3 0.2 0.1 0.05 0.25 0.1;
+#X msg 556 66 -1 -0.7 -0.5 -0.3 -0.2 -0.1 -0.05 -1 -0.5 -1 -0.25;
+#X text 626 126 float is a single length list ...;
+#X text 626 151 change target table;
+#X text 708 237 symbols are dropped;
+#X msg 679 266 0.1 0.2 0.3 four five 0.6 0.7;
+#X text 487 482 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X obj 8 20 u_tabset;
+#X obj 572 306 u_tabset \$0_array1;
+#X connect 5 0 21 0;
+#X connect 6 0 21 0;
+#X connect 7 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X connect 11 0 21 0;
+#X connect 12 0 21 0;
+#X connect 13 0 21 0;
+#X connect 14 0 21 0;
+#X connect 18 0 21 0;

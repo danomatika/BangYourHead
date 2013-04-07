@@ -1,0 +1,52 @@
+#N canvas 664 58 531 529 10;
+#X floatatom 74 135 5 0 0 0 - - -;
+#X obj 30 475 dac~;
+#X obj 289 248 rc-adsr~ env1 500;
+#X obj 29 83 random 90;
+#X obj 29 110 moses 20;
+#X obj 29 58 metro 100;
+#X obj 29 21 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 80 37 5 0 0 0 - - -;
+#X obj 340 412 sssad/datastore;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD synth1/pulsewidth 0.724638 \; SSSAD synth1/phase
+0.186522 \; SSSAD synth1/amp 0.594203 \; SSSAD env1/R 869.565 \; SSSAD
+env1/S 21.7391 \; SSSAD env1/D 217.391 \; SSSAD env1/A 4.34783 \; SSSAD
+env1/amp 0.681159 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 341 483 pd datastore;
+#X text 52 18 run;
+#X text 120 34 metro speed;
+#X text 89 110 filter out notes under 20;
+#X text 331 382 sssad state saving;
+#X text 55 230 midi in;
+#X obj 30 419 *~;
+#X text 178 279 amplitude \, 0-1;
+#X text 178 307 phase \, 0-1;
+#X text 177 337 pulsewidth \, 0-1;
+#X text 279 432 hit load;
+#X msg 152 177 amp 0.6;
+#X msg 177 203 phase 0.8;
+#X msg 186 230 pulse 0.7;
+#X msg 289 166 bang;
+#X text 136 158 control messages;
+#X text 176 70 Creation args: name;
+#X obj 29 253 rc-square~ synth1;
+#X text 24 -16 rc-square~: a simple gui squarewave oscillator;
+#X connect 0 0 23 0;
+#X connect 0 0 26 0;
+#X connect 2 0 15 1;
+#X connect 3 0 4 0;
+#X connect 4 1 0 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 1;
+#X connect 15 0 1 0;
+#X connect 15 0 1 1;
+#X connect 20 0 26 1;
+#X connect 21 0 26 1;
+#X connect 22 0 26 1;
+#X connect 23 0 2 0;
+#X connect 26 0 15 0;

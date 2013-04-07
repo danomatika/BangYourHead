@@ -1,0 +1,3 @@
+s_crossfm - a cross frequency modulation synth
+s_crossfmpm - a cross frequency / phase modulation synth
+s_crosspm - a cross phase modulation synth

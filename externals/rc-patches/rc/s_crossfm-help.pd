@@ -1,0 +1,107 @@
+#N canvas 336 296 1024 515 10;
+#X declare -path ../rc;
+#X declare -path ../extra;
+#N canvas 377 58 582 570 REFERENCE 0;
+#X text 24 31 Name: [s_crossfm];
+#X text 24 51 Summary: a chaotic/noisy fm synth using cross frequency
+modulation;
+#X text 24 91 Argument 0: root note frequency (optional) \, default
+is 1 Hz;
+#X text 24 196 Inlet 4: osc 2 modulation index;
+#X text 24 179 Inlet 3: osc 1 modulation index;
+#X text 24 161 Inlet 2: osc 2 modulation frequency;
+#X text 24 144 Inlet 1: osc 1 modulation frequency;
+#X text 24 231 Outlet 0: osc 1 audio out;
+#X text 24 251 Outlet 1: osc 2 audio out;
+#X text 24 434 Tags: Synth \, Audio \, Frequency Modulation;
+#X text 24 295 Description: This cross fm implementation is based on
+the CSound opcode from:;
+#X text 40 328 http://www.csounds.com/journal/issue12/crossfm.html
+;
+#X text 24 124 Inlet 0: root note frequency (default is 1 Hz);
+#X text 24 378 See also: [s_crosspm] [s_crossfmpm] [s_fm4] [s_fmoscil]
+[xfm~] (requires creb);
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 617 441 soundoutput;
+#X text 129 21 - a cross frequency modulation synth;
+#X floatatom 633 232 5 0 0 0 - - -;
+#X floatatom 712 232 5 0 0 0 - - -;
+#X floatatom 802 232 5 0 0 0 - - -;
+#X floatatom 907 231 5 0 0 0 - - -;
+#X obj 633 259 lop~ 1;
+#X obj 712 259 lop~ 1;
+#X obj 802 259 lop~ 1;
+#X obj 907 258 lop~ 1;
+#X obj 709 76 hsl 300 15 1 20000 1 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 5800 1;
+#X obj 709 98 hsl 300 15 1 20000 1 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 710 123 hsl 300 15 1 20000 1 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 4500 1;
+#X obj 710 148 hsl 300 15 1 20000 1 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 2900 1;
+#X floatatom 491 230 5 0 0 0 - - -;
+#X obj 621 318 s_crossfm;
+#N canvas 520 41 389 248 SCOPE 0;
+#X obj 75 194 gem_scope;
+#X obj 168 152 g_tgl alpha;
+#X obj 232 38 declare -path ../extra;
+#X obj 75 59 inlet~;
+#X obj 106 92 inlet~;
+#X text 14 11 graph the chaos on a GEM oscilloscope \, requires pd-extended
+& GEM;
+#X text 183 198 <---- run it;
+#X obj 168 95 closebang;
+#X msg 168 122 run 0;
+#X connect 1 0 0 3;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X restore 637 412 pd SCOPE FUN;
+#X text 801 210 mod index 1;
+#X text 906 210 mod index 2;
+#X text 530 230 root freq;
+#X obj 494 176 hsl 128 15 1 20000 1 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 2953 1;
+#X msg 469 129 1;
+#X msg 509 130 5;
+#X msg 545 130 10;
+#X msg 582 130 100;
+#X msg 618 130 400;
+#X text 493 485 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X text 630 209 mod freq 1;
+#X text 706 209 mod freq 2;
+#X obj 617 384 *~ 0.5;
+#X obj 720 384 *~ 0.5;
+#X obj 8 20 s_crossfm;
+#X connect 5 0 9 0;
+#X connect 6 0 10 0;
+#X connect 7 0 11 0;
+#X connect 8 0 12 0;
+#X connect 9 0 18 1;
+#X connect 10 0 18 2;
+#X connect 11 0 18 3;
+#X connect 12 0 18 4;
+#X connect 13 0 5 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 8 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 18 0 32 0;
+#X connect 18 1 19 1;
+#X connect 18 1 33 0;
+#X connect 23 0 17 0;
+#X connect 24 0 23 0;
+#X connect 25 0 23 0;
+#X connect 26 0 23 0;
+#X connect 27 0 23 0;
+#X connect 28 0 23 0;
+#X connect 32 0 3 0;
+#X connect 33 0 3 1;

@@ -1,0 +1,66 @@
+#N canvas 812 175 516 476 10;
+#X obj 21 420 dac~;
+#X floatatom 32 63 5 0 0 0 - - -;
+#X obj 32 87 osc~;
+#X obj 142 321 tabwrite~ output;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array output 100 float 1;
+#A 0 -0.964338 -0.949467 -0.932065 -0.912203 -0.889934 -0.865315 -0.838413
+-0.809276 -0.778001 -0.744673 -0.709379 -0.672212 -0.63326 -0.592629
+-0.550434 -0.506786 -0.461801 -0.415591 -0.368277 -0.319991 -0.270861
+-0.221016 -0.170586 -0.119702 -0.0685019 -0.0171218 0.0343039 0.0856398
+0.136747 0.187493 0.237744 0.287367 0.336232 0.384203 0.431157 0.476972
+0.521528 0.564708 0.606391 0.646463 0.684829 0.721387 0.756041 0.788695
+0.81925 0.847643 0.873798 0.897646 0.919126 0.938154 0.954705 0.968737
+0.980211 0.989099 0.995354 0.998975 0.99996 0.998306 0.994017 0.987089
+0.977543 0.965417 0.950743 0.933559 0.913903 0.891817 0.867377 0.840648
+0.8117 0.780607 0.747434 0.712288 0.675263 0.636455 0.595967 0.553891
+0.510351 0.465464 0.419349 0.372126 0.323915 0.274845 0.22505 0.174662
+0.123812 0.072633 0.0212616 -0.0301653 -0.0815125 -0.132645 -0.183427
+-0.233721 -0.283397 -0.332325 -0.380376 -0.427424 -0.473332 -0.51799
+-0.56128 -0.603088;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 289 200 graph;
+#X obj 142 286 metro 100;
+#X obj 142 260 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 30 377 rc-spigot~;
+#X obj 87 354 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 31 309 *~ 0.5;
+#X text 165 258 graph;
+#X text 12 11 rc-ringmod~: a ring modulator with wet/dry mix control
+;
+#X msg 171 87 wet 0.5;
+#X msg 229 97 dry 0.25;
+#X msg 120 117 onoff \$1;
+#X obj 120 92 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 154 56 control messages;
+#X text 39 139 audio in;
+#X text 110 354 audio;
+#X obj 289 377 sssad/datastore;
+#X text 286 354 sssad state saving;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD rm1/frq 104.703 \; SSSAD rm1/dry 0.362319 \;
+SSSAD rm1/wet 0.753623 \; SSSAD rm1/onoff 1 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 290 447 pd datastore;
+#X obj 31 164 rc-ringmod~ rm1;
+#X msg 243 131 freq 667;
+#X connect 1 0 2 0;
+#X connect 2 0 22 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 0 0;
+#X connect 7 0 0 1;
+#X connect 8 0 7 1;
+#X connect 9 0 7 0;
+#X connect 12 0 22 1;
+#X connect 13 0 22 1;
+#X connect 14 0 22 1;
+#X connect 15 0 14 0;
+#X connect 22 0 3 0;
+#X connect 22 0 9 0;
+#X connect 23 0 22 1;

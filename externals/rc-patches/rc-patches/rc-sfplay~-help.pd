@@ -1,0 +1,37 @@
+#N canvas 594 309 359 394 10;
+#X msg 88 135 1;
+#X msg 126 159 0;
+#X msg 163 182 bang;
+#X obj 63 345 dac~;
+#X obj 64 300 rc-spigot~;
+#X obj 121 277 tgl 15 0 empty empty audio 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 64 246 *~ 0.5;
+#X obj 121 238 bng 15 250 50 0 empty empty done_playing 17 7 0 10 -262144
+-1 -1;
+#X obj 64 210 rc-sfplay~;
+#X text 24 18 rc-sfplay~: a simple stereo soundfile player;
+#X text 201 44 wrapper around readsf~;
+#X obj 64 46 loadbang;
+#X text 156 158 turn off;
+#X text 116 133 plays on floats > 0;
+#X text 202 182 bang to play;
+#X msg 64 74 open media/bang.wav;
+#X obj 231 332 readsf~;
+#X text 160 302 see readsf~ help for more info;
+#X msg 78 104 play media/aw.wav;
+#X text 190 73 load file \, don't play;
+#X text 191 104 load file and play;
+#X text 171 368 Dan Wilcox 2008 \, 2010;
+#X connect 0 0 8 0;
+#X connect 1 0 8 0;
+#X connect 2 0 8 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;
+#X connect 8 0 6 0;
+#X connect 8 2 7 0;
+#X connect 11 0 15 0;
+#X connect 15 0 8 0;
+#X connect 18 0 8 0;

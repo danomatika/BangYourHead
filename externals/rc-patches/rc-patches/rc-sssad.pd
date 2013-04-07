@@ -1,0 +1,65 @@
+#N canvas 532 288 513 417 10;
+#X obj 294 321 s \$0-load;
+#X obj 252 349 s \$0-save;
+#X msg 252 320 bang;
+#X msg 294 296 bang;
+#X obj 1 17 cnv 15 83 30 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 5 29 bng 15 250 50 0 \$0-save \$0-save save -3 -6 0 10 -204786
+-66577 -1;
+#X obj 35 29 bng 15 250 50 0 \$0-load \$0-load load -4 -6 0 10 -203904
+-1 -1;
+#X obj 252 208 inlet control;
+#X text 107 39 Creation arg: local_prefix;
+#X text 385 349 2008 Dan Wilcox;
+#X text 107 62 The local_prefix is an osc address style prefix to the
+object name of sssad enabled patches aka;
+#X text 147 93 [rc-patch /ka/name];
+#X text 108 112 The contents of /ka/name will only be saved and loaded
+by rc-sssad if its creation arg is "/ka".;
+#X text 20 379 Based off of the datastore patch and sssad abstractions
+by Frank Barknecht and the diy2 808_local & 808_global patches.;
+#X msg 335 270 bang;
+#X obj 335 296 s \$0-clear;
+#X obj 64 33 bng 10 250 50 0 \$0-clear \$0-clear clear -5 -6 0 8 -261234
+-1 -1;
+#X obj 36 320 outlet SSSADDATA in message;
+#X text 106 6 saves state saving enabled (sssad) patch settings to
+a message;
+#X obj 252 233 route save load clear set;
+#X obj 403 261 symbol;
+#X text 108 147 The prefix can be set using a "set" message. Sending
+"set GLOBAL" resets rc-sssad to global SSSAD.;
+#N canvas 0 22 339 199 recvs 0;
+#X obj 28 34 r \$0-save;
+#X obj 101 33 r \$0-load;
+#X obj 173 33 r \$0-clear;
+#X obj 101 156 outlet;
+#X msg 28 61 save;
+#X msg 101 59 load;
+#X msg 173 59 clear;
+#X msg 254 60 set \$1;
+#X obj 254 33 r \$0-prefix;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 0;
+#X connect 7 0 3 0;
+#X connect 8 0 7 0;
+#X restore 36 258 pd recvs;
+#X obj 403 286 s \$0-prefix;
+#X obj 36 289 rc-sssad_ \$1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 7 0 19 0;
+#X connect 14 0 15 0;
+#X connect 19 0 2 0;
+#X connect 19 1 3 0;
+#X connect 19 2 14 0;
+#X connect 19 3 20 0;
+#X connect 20 0 23 0;
+#X connect 22 0 24 0;
+#X connect 24 0 17 0;
+#X coords 0 -1 1 1 85 50 1 0 0;

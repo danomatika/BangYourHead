@@ -1,0 +1,6 @@
+u_allnotesoff - send noteoff for all midi notes
+u_demux2 - demultiplex from 1 inlet between 2 outlets
+u_list2symbol - convert a list into a symbol
+u_listmean - calculate the arithmetic mean of a list
+u_mux2 - multiplex between 2 inlets to 1 outlet
+u_tabset - set the contents of a table via a list

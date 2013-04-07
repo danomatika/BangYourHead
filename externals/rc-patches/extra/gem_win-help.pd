@@ -1,0 +1,57 @@
+#N canvas 541 184 672 476 10;
+#X declare -path ../rc;
+#X obj 31 55 tgl 30 0 empty empty run 32 7 0 10 -262144 -1 -1 0 1;
+#X obj 85 157 loadbang;
+#X obj 73 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 106 280 defaultView;
+#X obj 402 163 v gem_width;
+#X obj 482 163 v gem_height;
+#X floatatom 402 187 5 0 0 0 - - -;
+#X floatatom 482 188 5 0 0 0 - - -;
+#X obj 402 138 t b b;
+#X text 397 419 danomatika.com | robotcowboy.com;
+#X text 398 434 https://github.com/danomatika/rc-patches;
+#X text 191 280 set the default GEM viewport of -1 1 -1 1 (default)
+;
+#X msg 95 222 size 200 200;
+#X text 104 436 <-- optional frame rate creation arg;
+#X msg 121 331 color 0.8 0.8 0.8;
+#X text 244 331 accepts all other [gemwin] commands;
+#X msg 85 187 title gem_win help \, frame 30 \, size 500 500;
+#X msg 160 381 dimen 300 300;
+#X obj 402 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 142 356 color 0 0 0;
+#X text 314 90 window dimen (pixel size) is stored in 2 global values
+;
+#X obj 31 436 gem_win 30;
+#X msg 31 95 run \$1;
+#X text 97 124 rendering is on by default;
+#X text 258 356 see;
+#X text 334 370 help;
+#X obj 285 357 gemwin;
+#X text 87 64 <float> 0-1 creates/destroys the window;
+#X text 182 221 set the window (and viewport) to a given pixel size
+;
+#X text 197 241 upper left corner is 0 0 and lower right is width height
+;
+#X text 310 30 adds some automation and accepts all [gemwin] commands
+;
+#X text 398 404 2012 Dan Wilcox GPL v3;
+#X text 20 17 [gem_win]: a utility wrapper around [gemwin];
+#X connect 0 0 22 0;
+#X connect 1 0 16 0;
+#X connect 2 0 21 0;
+#X connect 3 0 21 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 8 0 4 0;
+#X connect 8 1 5 0;
+#X connect 12 0 21 0;
+#X connect 14 0 21 0;
+#X connect 16 0 21 0;
+#X connect 17 0 21 0;
+#X connect 18 0 8 0;
+#X connect 19 0 21 0;
+#X connect 22 0 21 0;

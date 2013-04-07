@@ -1,0 +1,76 @@
+#N canvas 423 356 411 334 10;
+#X obj 19 136 inlet;
+#X obj 18 299 outlet~;
+#X obj 61 167 r \$0-phase;
+#X text 166 21 simple midi controlled square wave;
+#X obj 40 241 r \$0-amp;
+#X text 252 275 ssad state saving;
+#N canvas 0 22 407 249 state_saving 0;
+#X obj 17 57 sssad/sssad \$1/amp;
+#X obj 122 35 r \$0-amp;
+#X obj 17 79 s \$0-amp;
+#X text 10 9 sssad sends and recieves;
+#X obj 193 91 r \$0-phase;
+#X obj 76 115 sssad/sssad \$1/phase;
+#X obj 76 139 s \$0-phase;
+#X obj 256 154 r \$0-pulsewidth;
+#X obj 109 178 sssad/sssad \$1/pulsewidth;
+#X obj 109 200 s \$0-pulsewidth;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 4 0 5 1;
+#X connect 5 0 6 0;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X restore 256 299 pd state_saving;
+#X obj 82 190 r \$0-pulsewidth;
+#X obj 19 266 *~ 0;
+#X obj 221 138 inlet;
+#X obj 221 164 route amp phase pulse;
+#X obj 221 234 s \$0-amp;
+#X obj 262 212 s \$0-phase;
+#X obj 303 190 s \$0-pulsewidth;
+#X text 71 135 midi in;
+#X text 219 114 control messages;
+#X obj 1 16 cnv 15 128 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 53 22 hsl 70 15 0 1 0 0 \$0-amp \$0-amp amp 0 8 0 10 -191407
+-1 -1 3450 1;
+#X obj 53 43 hsl 70 15 0 0.99 0 0 \$0-phase \$0-phase phase 0 8 0 10
+-191407 -1 -1 0 1;
+#X obj 53 58 hsl 70 15 0 1 0 0 \$0-pulsewidth \$0-pulsewidth pulsewidth
+0 8 0 10 -191407 -1 -1 3450 1;
+#X obj 5 59 nbx 4 14 0 1 0 0 \$0-pulsewidth \$0-pulsewidth empty 0
+-6 0 10 -261234 -1 -1 0.5 256;
+#X obj 5 23 nbx 4 14 0 1 0 0 \$0-amp \$0-amp empty 0 -6 0 10 -261234
+-1 -1 0.5 256;
+#X obj 5 44 nbx 4 14 0 0.99 0 0 \$0-phase \$0-phase empty 0 -6 0 10
+-261234 -1 -1 0 256;
+#X text 112 301 2007 Dan Wilcox;
+#X text 176 59 Creation args: name;
+#N canvas 0 22 450 300 defaults 0;
+#X obj 114 96 loadbang;
+#X msg 44 121 amp 0.5;
+#X msg 119 122 phase 0;
+#X msg 201 124 pulse 0.5;
+#X obj 116 170 outlet;
+#X connect 0 0 3 0;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X restore 278 138 pd defaults;
+#X obj 19 216 rc-square~_;
+#X connect 0 0 26 0;
+#X connect 2 0 26 2;
+#X connect 4 0 8 1;
+#X connect 7 0 26 3;
+#X connect 8 0 1 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 10 2 13 0;
+#X connect 25 0 10 0;
+#X connect 26 0 8 0;
+#X coords 0 -1 1 1 130 80 1 0 0;

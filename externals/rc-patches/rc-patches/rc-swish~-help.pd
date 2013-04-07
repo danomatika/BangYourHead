@@ -1,0 +1,18 @@
+#N canvas 4 51 319 282 10;
+#X obj 83 248 dac~;
+#X obj 83 193 rc-gain~;
+#X msg 84 82 bang;
+#X floatatom 136 111 5 0 0 0 - - -;
+#X text 121 79 trigger;
+#X text 171 113 freq;
+#X floatatom 189 136 5 0 0 0 - - -;
+#X text 227 136 filter;
+#X text 36 45 Creation args: frequency \, filter cutoff;
+#X text 11 13 rc-swish~: a super simple noise snare drum;
+#X obj 84 161 rc-swish~ 300 1000;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 10 0;
+#X connect 3 0 10 1;
+#X connect 6 0 10 2;
+#X connect 10 0 1 0;

@@ -1,0 +1,14 @@
+#N canvas 776 555 505 173 10;
+#X obj 36 134 outlet;
+#X obj 36 60 inlet;
+#X text 21 8 Flips midi notes around the center note;
+#X obj 36 101 expr (63 - $f1) + 64;
+#X text 192 60 63 (63 - note num) + 64 = flipped notes across 63;
+#X text 209 78 Ex. 23 : (63 - 23) + 64 = 104;
+#X text 227 93 118 : (63 - 118) + 64 = 9;
+#X text 89 135 Opposite Note;
+#X text 75 61 midi in;
+#X text 297 133 Dan Wilcox 2007;
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X coords 0 0 1 1 80 40 0;

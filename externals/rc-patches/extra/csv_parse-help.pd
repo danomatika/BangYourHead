@@ -1,0 +1,57 @@
+#N canvas 698 31 462 719 10;
+#X declare -lib moocow;
+#X declare -lib list-abs;
+#X declare -lib mrpeach;
+#X obj -127 210 tgl 15 0 empty empty connected 17 7 0 10 -262144 -1
+-1 0 1;
+#X msg -172 71 get http://earthquake.usgs.gov/earthquakes/catalogs/eqs1hour-M1.txt
+;
+#X msg -151 158 raw 1;
+#X obj -151 131 loadbang;
+#X text -188 676 danomatika.com | robotcowboy.com;
+#X text -187 661 2011 Dan Wilcox GPL v3;
+#X text -187 691 https://github.com/danomatika/rc-patches;
+#X text -109 158 output raw bytes;
+#X text -174 44 fetch earthquake data during the last hour;
+#X obj -145 433 print line;
+#X text -129 404 outputs each line as a list;
+#X symbolatom -172 588 45 0 0 1 Datetime - -;
+#X floatatom -145 563 10 0 0 1 Lat - -;
+#X floatatom -118 540 10 0 0 1 Lon - -;
+#X floatatom -91 515 10 0 0 1 Magnitude - -;
+#X obj -172 482 packel 4 5 6 7;
+#X text -73 480 parse earthquake data;
+#X obj -172 405 t a a;
+#X text -102 337 parse raw csv bytes into lists \, one per line;
+#X obj -121 370 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -102 369 bangs when a line is finished;
+#X msg -109 274 34 \, 97 \, 32 \, 98 \, 32 \, 99 \, 32 \, 100 \, 34
+\, 44 \, 49 \, 50 \, 51 \, 13 \, 10;
+#X msg -108 302 34 97 32 98 32 99 32 100 34 44 49 50 51 13 10;
+#X text 174 301 "a b c d" \, 123;
+#X text -135 248 raw bytes in as floats or lists;
+#X text -175 632 aka: "a fancy \, string" --> a fancy string;
+#X text -175 617 note: quotes and commas inside quoted strings are
+swallowed;
+#X obj -172 457 list;
+#X text -187 11 csv_parse: parse raw bytes of a csv file into lists
+;
+#X obj -172 338 csv_parse;
+#X obj -172 186 http_get;
+#X connect 1 0 30 0;
+#X connect 2 0 30 0;
+#X connect 3 0 2 0;
+#X connect 15 0 11 0;
+#X connect 15 1 12 0;
+#X connect 15 2 13 0;
+#X connect 15 3 14 0;
+#X connect 17 0 27 0;
+#X connect 17 1 9 0;
+#X connect 21 0 29 0;
+#X connect 22 0 29 0;
+#X connect 27 0 15 0;
+#X connect 29 0 17 0;
+#X connect 29 1 19 0;
+#X connect 30 0 29 0;
+#X connect 30 2 0 0;

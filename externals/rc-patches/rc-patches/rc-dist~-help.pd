@@ -1,0 +1,29 @@
+#N canvas 225 526 372 350 10;
+#X floatatom 37 62 5 0 0 0 - - -;
+#X obj 36 283 rc-gain~;
+#X obj 36 329 dac~;
+#X obj 37 92 osc~ 440;
+#X obj 36 221 rc-dist~ dist 0.75;
+#X msg 263 189 onoff \$1;
+#X obj 263 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 174 104 amp \$1;
+#X msg 205 154 dist \$1;
+#X obj 208 130 hsl 128 15 0 1 0 0 empty empty 0-1 132 8 0 10 -262144
+-1 -1 0 1;
+#X obj 177 82 hsl 128 15 0 1 0 0 empty empty 0-1 132 8 0 10 -262144
+-1 -1 0 1;
+#X text 73 33 Creation args: name dist;
+#X text 8 8 rc-dist~ : simple fuzz-like distortion with gui;
+#X text 192 244 amp level used only when on;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 7 0 4 1;
+#X connect 8 0 4 1;
+#X connect 9 0 8 0;
+#X connect 10 0 7 0;

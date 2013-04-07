@@ -1,0 +1,29 @@
+#N canvas 917 154 325 410 10;
+#X text 81 34 note: will overwrite exisiting files;
+#X text 4 12 stereo mp3 recording object;
+#X obj 116 234 osc~ 440;
+#X obj 157 273 osc~ 220;
+#X obj 39 86 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0 1
+;
+#X text 177 234 left;
+#X text 218 273 right;
+#X text 16 64 record on/off;
+#X msg 94 170 set hello;
+#X msg 76 140 set test;
+#X text 132 68 give it the full path;
+#X symbolatom 76 357 21 0 0 0 file - -;
+#X obj 157 330 tgl 15 0 empty empty recording 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 76 119 set the filename;
+#X text 155 144 takes absolute paths;
+#X text 104 197 or realtive paths to parent patch;
+#X obj 76 303 rc-record_mp3~;
+#X text 4 377 Dan Wilcox 2009;
+#X text 2 390 robotcowboy.com|danomatika.com;
+#X connect 2 0 16 1;
+#X connect 3 0 16 2;
+#X connect 4 0 16 0;
+#X connect 8 0 16 0;
+#X connect 9 0 16 0;
+#X connect 16 0 11 0;
+#X connect 16 1 12 0;

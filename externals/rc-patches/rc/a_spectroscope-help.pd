@@ -1,0 +1,78 @@
+#N canvas 93 98 1031 515 10;
+#N canvas 0 71 582 570 REFERENCE 0;
+#X text 24 31 Name: [a_spectroscope];
+#X text 24 51 Summary: a frequency spectrum gui \, not precise enough
+for scientific work!;
+#X text 24 105 Inlet 0: audio signal to graph;
+#X text 24 132 Inlet 1: control messages: onoff 0 or 1 \, refresh rate
+in ms \, xscale x-axis sensitivity \, yscale y-axis sensitivity \,
+reset all settings;
+#X text 24 221 Description: This is a simple fft table grapher for
+checking the frequency spread of audio signals. It's not super precise
+but useful.;
+#X text 24 334 See also: [a_scope] [fft~] [rfft~];
+#X text 24 435 Tags: Audio \, Analysis \, Frequency \, Spectrum;
+#X text 24 273 Warning: This takes some cpu \, so it's best to leave
+it off when not needed. Also \, the higher the refresh rate \, the
+more cpu will be used.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore -55 49 pd REFERENCE;
+#X obj -55 19 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 408 52 Example:;
+#X text 419 479 rc-patches (https://githum.com/danomatika/rc-patches)
+- 2012;
+#X text -51 21 a_spectroscope;
+#X text 69 22 - a frequency spectrum gui;
+#X obj 519 197 noise~;
+#X msg 716 83 refresh \$1;
+#X msg 650 56 onoff \$1;
+#X obj 650 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 719 39 hsl 128 15 10 1000 0 0 empty empty 10-1000 32 8 0 10
+-262144 -1 -1 0 1;
+#X floatatom 716 61 5 0 0 0 - - -;
+#X obj 784 109 hsl 128 15 0 128 0 0 empty empty 0-128 32 8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 781 131 5 0 0 0 - - -;
+#X msg 781 153 xscale \$1;
+#X obj 823 180 hsl 128 15 1 100 1 0 empty empty 0-100 32 8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 820 202 5 0 0 0 - - -;
+#X msg 820 224 yscale \$1;
+#X msg 843 255 reset;
+#X obj 442 164 hsl 128 15 20 20000 0 0 empty empty 20-20k 32 8 0 10
+-262144 -1 -1 5167 1;
+#X obj 439 248 *~ 0.25;
+#X floatatom 439 191 10 0 0 0 - - -;
+#X text 763 451 <-- reset;
+#X text 761 299 <-- refresh & onoff;
+#X obj 439 110 loadbang;
+#X msg 439 137 440;
+#X obj 439 219 osc~;
+#X obj 519 248 *~ 0;
+#X obj 543 222 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12600 1;
+#X obj 439 296 a_spectroscope;
+#X obj 781 376 u_loadmeter;
+#X connect 6 0 27 0;
+#X connect 7 0 29 1;
+#X connect 8 0 29 1;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 7 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 29 1;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 29 1;
+#X connect 18 0 29 1;
+#X connect 19 0 21 0;
+#X connect 20 0 29 0;
+#X connect 21 0 26 0;
+#X connect 24 0 25 0;
+#X connect 25 0 19 0;
+#X connect 26 0 20 0;
+#X connect 27 0 29 0;
+#X connect 28 0 27 1;

@@ -1,0 +1,100 @@
+#N canvas 223 247 528 328 10;
+#X obj 78 20 inlet~ freq1;
+#X obj 163 20 inlet~ freq2;
+#X obj 78 295 outlet~ osc1;
+#X obj 216 296 outlet~ osc2;
+#X obj 78 204 osc~;
+#X obj 216 205 osc~;
+#X obj 136 256 s~ \$0-wave1;
+#X obj 268 256 s~ \$0-wave2;
+#X text 207 151 based on crossfm from http://www.csounds.com/journal/issue12/crossfm.html
+;
+#X obj 346 21 inlet~ index2;
+#X obj 253 21 inlet~ index1;
+#N canvas 417 275 566 365 xfm 0;
+#X obj 78 334 outlet~;
+#X obj 453 331 outlet~;
+#X obj 367 331 r~ \$0-wave2;
+#X obj 141 334 r~ \$0-wave1;
+#X obj 78 28 inlet~ freq m 1;
+#X obj 452 26 inlet~ freq m 2;
+#X obj 346 27 inlet~ index 2;
+#X obj 197 27 inlet~ index 1;
+#X obj 182 128 *~;
+#X obj 78 252 +~;
+#X obj 331 215 *~;
+#X obj 452 253 +~;
+#X obj 331 129 *~;
+#X obj 183 215 *~;
+#X obj 2 27 inlet freq;
+#X obj 452 94 *~ 1;
+#X obj 78 99 *~ 1;
+#X connect 2 0 13 0;
+#X connect 3 0 10 0;
+#X connect 4 0 16 0;
+#X connect 5 0 15 0;
+#X connect 6 0 12 1;
+#X connect 7 0 8 1;
+#X connect 8 0 10 1;
+#X connect 9 0 0 0;
+#X connect 10 0 11 1;
+#X connect 11 0 1 0;
+#X connect 12 0 13 1;
+#X connect 13 0 9 1;
+#X connect 14 0 15 1;
+#X connect 14 0 16 1;
+#X connect 15 0 11 0;
+#X connect 15 0 12 0;
+#X connect 16 0 9 0;
+#X connect 16 0 8 0;
+#X restore 78 157 pd xfm guts;
+#X obj 9 21 inlet freq;
+#N canvas 0 22 187 189 \$1 0;
+#X obj 27 82 sel 0;
+#X obj 27 25 loadbang;
+#X msg 27 111 1;
+#X obj 42 155 outlet;
+#X obj 27 54 f \$1;
+#X obj 95 26 inlet;
+#X obj 95 76 route float;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X restore 9 49 pd \$1 arg;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 226 125 pd LICENSE-GPL;
+#X obj 216 256 hip~;
+#X obj 78 256 hip~;
+#X connect 0 0 11 1;
+#X connect 1 0 11 4;
+#X connect 4 0 6 0;
+#X connect 4 0 16 0;
+#X connect 5 0 7 0;
+#X connect 5 0 15 0;
+#X connect 9 0 11 2;
+#X connect 10 0 11 3;
+#X connect 11 0 4 0;
+#X connect 11 1 5 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 15 0 3 0;
+#X connect 16 0 2 0;

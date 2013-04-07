@@ -1,0 +1,7 @@
+#N canvas 88 200 397 282 10;
+#X obj 47 80 rc-sample~;
+#X obj 48 212 rc-sfplay~;
+#X obj 47 36 rc-sample~_;
+#X text 140 211 readsf~ wrapper;
+#X text 139 34 one shot sampler;
+#X text 210 105 one sampler gui;

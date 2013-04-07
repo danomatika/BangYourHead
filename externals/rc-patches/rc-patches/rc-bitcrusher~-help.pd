@@ -1,0 +1,42 @@
+#N canvas 114 588 405 415 10;
+#X obj 58 290 *~ 0.5;
+#X obj 58 52 osc~ 400;
+#X obj 82 120 rc-spigot~;
+#X text 16 17 rc-bitcrusher~: sample and hold an incoming signal;
+#X obj 57 344 rc-spigot~;
+#X obj 114 319 tgl 15 0 empty empty audio 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 56 384 dac~;
+#X obj 139 93 tgl 15 0 empty empty mic 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 222 123 wet 0.75;
+#X msg 250 155 dry 0.25;
+#X msg 275 185 bits 88;
+#X msg 186 98 onoff;
+#X obj 186 73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 236 309 sssad/datastore;
+#X obj 59 199 rc-bitcrusher~ bc;
+#X text 243 58 Creation args: name;
+#N canvas 0 0 450 300 datastore 0;
+#X obj 10 10 r SSSADDATA;
+#X msg 10 30 \; SSSAD bc/bits 97.5507 \; SSSAD bc/dry 1 \; SSSAD bc/wet
+0.184783 \; SSSAD bc/onoff \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 237 383 pd datastore;
+#X obj 83 86 adc~ 2;
+#X text 284 130 control messages;
+#X connect 0 0 4 0;
+#X connect 1 0 14 0;
+#X connect 2 0 14 0;
+#X connect 4 0 6 0;
+#X connect 4 0 6 1;
+#X connect 5 0 4 1;
+#X connect 7 0 2 1;
+#X connect 8 0 14 1;
+#X connect 9 0 14 1;
+#X connect 10 0 14 1;
+#X connect 11 0 14 1;
+#X connect 12 0 11 0;
+#X connect 14 0 0 0;
+#X connect 17 0 2 0;

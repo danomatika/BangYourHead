@@ -1,0 +1,25 @@
+#N canvas 799 153 450 346 10;
+#X msg 112 190 clear;
+#X msg 54 135 66;
+#X msg 91 113 64;
+#X msg 96 138 65;
+#X text 137 126 notes in;
+#X text 166 191 clear the filter list;
+#X floatatom 54 319 5 0 0 0 - - -;
+#X text 41 62 strips the midi octave from the note and compares its
+position on the scale to a given scale filter list;
+#X text 11 10 rc-notefilter: let a note through only if it is in the
+given scale;
+#X msg 172 256 0 4 7;
+#X msg 145 230 0 3 7 5 9;
+#X text 250 254 scale list in;
+#X obj 54 292 rc-scalefilter;
+#X text 189 301 Dan Wilcox 2009;
+#X text 189 318 danomatika.com | robotcowboy.com;
+#X connect 0 0 12 0;
+#X connect 1 0 12 0;
+#X connect 2 0 12 0;
+#X connect 3 0 12 0;
+#X connect 9 0 12 1;
+#X connect 10 0 12 1;
+#X connect 12 0 6 0;

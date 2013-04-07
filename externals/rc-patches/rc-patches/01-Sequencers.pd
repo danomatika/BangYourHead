@@ -1,0 +1,24 @@
+#N struct 1203cursor float x;
+#N canvas 4 51 858 753 10;
+#X obj 25 14 rc-nstep;
+#X obj 25 61 rc-seq16;
+#X obj 24 286 rc-track16;
+#N canvas 108 56 866 822 drumseqs 0;
+#X obj -134 35 rc-drumseq16;
+#X obj -134 183 rc-drumseq32;
+#X obj -133 332 rc-drumseq16_8;
+#X obj -134 567 rc-drumseq32_8;
+#X text 343 79 drum sequencers with velocity sliders per beat;
+#X restore 26 389 pd drumseqs;
+#X obj 181 373 rc-patternbuddy;
+#X text 23 359 drum sequencers;
+#X obj 25 129 rc-seqtable;
+#X obj 30 495 rc-arranger;
+#X text 31 468 song wide master arranger \, from s-abstractions by
+Chris McCormick;
+#X text 197 172 table-based note sequencer;
+#X text 205 198 can grab from incoming streams;
+#X text 315 264 numbox-based note sequencer;
+#X text 90 12 variable length bang sequencer;
+#X text 321 72 16 step bang sequencer gui;
+#X text 399 390 stores multiple patterns from a drumsequencer;
