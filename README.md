@@ -35,7 +35,6 @@ What do I use it for?
 
 ### A few projects using Pd-Extended
 
-* [**sCrAmBlEd? HaCkZ!** by Sven König](http://www.youtube.com/watch?v=eRlhKaxcKpA)
 * [**Voices & Piano** by Peter Ablinger & IEM](http://www.youtube.com/watch?v=muCPjK4nGY4)
 * [**Egregore** by Cyrille Henry & Nicolas Montgermont](https://vimeo.com/24932723)
 * [**Music for Flesh II** by Marco Donnarumma](http://vimeo.com/36580607)
