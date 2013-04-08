@@ -1,0 +1,86 @@
+#N canvas 159 24 839 640 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-array1 44100 float 2;
+#X coords 0 1 44099 -1 200 140 1 0 0;
+#X restore 370 -57 graph;
+#X obj 57 -62 adc~ 1;
+#X obj 89 23 bng 15 250 50 0 empty empty record_to_array1 17 7 0 10
+-262144 -1 -1;
+#X obj 57 -28 clip~ -1 1;
+#X obj 32 175 phasor~ 1;
+#X obj 32 269 *~ 44100;
+#X obj 178 465 dac~;
+#X obj 32 409 *~ 0.5;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-array2 44100 float 2;
+#X coords 0 1 44099 -1 200 140 1 0 0;
+#X restore 580 -57 graph;
+#X obj 230 25 bng 15 250 50 0 empty empty record_to_array2 17 7 0 10
+-262144 -1 -1;
+#X obj 338 172 phasor~ 1;
+#X obj 338 411 *~ 0.5;
+#X floatatom 32 135 5 0 0 2 base_playback_speed - -;
+#X obj 338 356 +~ 500;
+#X obj 374 310 hsl 128 15 0 44100 0 0 empty empty start_pos -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 386 217 hsl 128 15 0 44100 0 0 empty empty length -2 -8 0 10
+-262144 -1 -1 12700 1;
+#X obj 68 309 hsl 128 15 0 44100 0 0 empty empty start_pos -2 -8 0
+10 -262144 -1 -1 3700 1;
+#X obj 80 216 hsl 128 15 0 44100 0 0 empty empty length -2 -8 0 10
+-262144 -1 -1 12700 1;
+#X obj 32 358 +~ 500;
+#X obj 57 59 tabwrite~ \$0-array1;
+#X obj 198 61 tabwrite~ \$0-array2;
+#X obj 32 383 tabread~ \$0-array1;
+#X obj 338 384 tabread~ \$0-array2;
+#X floatatom 77 242 10 0 0 0 - - -;
+#X floatatom 65 333 10 0 0 0 - - -;
+#X floatatom 371 332 10 0 0 0 - - -;
+#X floatatom 383 245 10 0 0 0 - - -;
+#X floatatom 338 137 5 0 0 2 base_playback_speed - -;
+#X obj 560 142 \$0;
+#X msg 560 113 bang;
+#X msg 560 168 \; \$1-array1 const \; \$1-array2 const 0;
+#X text 599 112 <-- clear the arrays;
+#X text 28 93 array1 playback;
+#X text 333 99 array2 playback;
+#X obj 338 270 *~ 44100;
+#X text 368 -110 The arrays have a size of 44100 If the samplerate
+is 44100 \, that means they hold 1 second of sound each.;
+#X text 124 -62 Record from the first input channel;
+#X text 22 -105 A simple 2 sample looping sampler.;
+#X text 460 383 <-- we're using [tabread~] \, also checkout [tabread4~]
+whcih does interpolation from end to beginning for nicer looping;
+#X text 42 154 sends out numbers from 0 - 1 at a given freq;
+#X text 90 269 scale 0-1 to 44100 \, the len of the array;
+#X text 80 358 add a number to move out start pos;
+#X text 152 385 read from the array;
+#X text 81 408 lower amplitude;
+#X connect 1 0 3 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 3 0 20 0;
+#X connect 4 0 5 0;
+#X connect 5 0 18 0;
+#X connect 7 0 6 0;
+#X connect 9 0 20 0;
+#X connect 10 0 34 0;
+#X connect 11 0 6 1;
+#X connect 12 0 4 0;
+#X connect 13 0 22 0;
+#X connect 14 0 25 0;
+#X connect 15 0 26 0;
+#X connect 16 0 24 0;
+#X connect 17 0 23 0;
+#X connect 18 0 21 0;
+#X connect 21 0 7 0;
+#X connect 22 0 11 0;
+#X connect 23 0 5 1;
+#X connect 24 0 18 1;
+#X connect 25 0 13 1;
+#X connect 26 0 34 1;
+#X connect 27 0 10 0;
+#X connect 28 0 30 0;
+#X connect 29 0 28 0;
+#X connect 34 0 13 0;

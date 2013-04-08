@@ -1,0 +1,84 @@
+#N canvas 413 24 478 658 10;
+#X declare -path ../rc;
+#X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X declare -path ../externals/rjlib/rj -path ../externals/pd;
+#X obj -22 230 gemhead;
+#X obj -41 5 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
+0;
+#X msg 0 142 reset;
+#X obj -27 174 gem_win;
+#X obj -13 85 loadbang;
+#X text 50 53 set the window title \, the framerate \,;
+#X obj -22 261 color 1 0 0;
+#X obj -22 329 color 0 0 1;
+#X obj -22 426 color 1 1 1;
+#X text 61 334 blue rect;
+#X text 64 428 white rects;
+#X obj -22 600 color 1 1 0;
+#X text 62 600 yellow rect;
+#X text 43 141 reset the window;
+#X text 167 294 draw a red rect;
+#X text 151 387 gem_rect takes pos and size arguments: x y w h;
+#X text 61 261 set the color \, R G B values between 0-1;
+#X floatatom 1 360 5 0 0 0 x - -;
+#X floatatom 52 360 5 0 0 0 y - -;
+#X floatatom 103 360 5 0 0 0 w - -;
+#X floatatom 153 361 5 0 0 0 h - -;
+#X text 197 361 change the rect in realtime;
+#X text 225 179 2011 Dan Wilcox;
+#N canvas 0 22 388 150 externals 0;
+#X text 15 15 add search paths to local libraries here;
+#X obj 17 46 declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X obj 16 105 declare -path ../externals/rjlib/rj -path ../externals/pd
+;
+#X restore 236 14 pd externals;
+#X text 55 220 This is a GEM render chain \, everything connected under
+the [gemhead] is drawn to the screen.;
+#X msg -13 113 title Mondrian \, frame 30 \, dimen 400 400 \, pixelView
+;
+#X text 50 69 the window size \, and use a pixel viewport;
+#X obj -27 45 g_tgl run;
+#X obj -22 569 gem_rect 365 305 35 35 corner;
+#X obj -22 534 gem_rect 0 110 95 185 corner;
+#X obj -22 497 gem_rect 0 0 95 95 corner;
+#X obj -22 462 gem_rect 105 305 250 95 corner;
+#X obj -22 295 gem_rect 105 0 295 295 corner;
+#X obj -22 629 gem_rect 365 355 35 45 corner;
+#X obj -22 388 gem_rect 0 305 95 95 corner;
+#X text 207 430 screen xy coordinates are;
+#X text 206 448 lower left: 0 0;
+#X text 208 465 upper right: width height;
+#X floatatom 229 630 5 0 0 0 - - -;
+#X floatatom 315 630 5 0 0 0 - - -;
+#X obj 229 600 v gem_width;
+#X obj 315 600 v gem_height;
+#X obj 229 576 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 208 512 if you use [gem_win] \, you can get;
+#X text 209 528 the screen size using these;
+#X text 210 547 global values:;
+#X connect 0 0 6 0;
+#X connect 2 0 3 0;
+#X connect 4 0 25 0;
+#X connect 6 0 32 0;
+#X connect 7 0 34 0;
+#X connect 8 0 31 0;
+#X connect 11 0 33 0;
+#X connect 17 0 34 1;
+#X connect 18 0 34 2;
+#X connect 19 0 34 3;
+#X connect 20 0 34 4;
+#X connect 25 0 3 0;
+#X connect 27 0 3 0;
+#X connect 28 0 11 0;
+#X connect 29 0 28 0;
+#X connect 30 0 29 0;
+#X connect 31 0 30 0;
+#X connect 32 0 7 0;
+#X connect 34 0 8 0;
+#X connect 40 0 38 0;
+#X connect 41 0 39 0;
+#X connect 42 0 40 0;
+#X connect 42 0 41 0;

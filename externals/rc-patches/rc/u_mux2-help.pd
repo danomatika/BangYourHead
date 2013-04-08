@@ -16,8 +16,6 @@ outlet. Equivalent to [mux 1 2] in zexy and similar to [gate] in Max/MSP
 #X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X text 468 51 Example:;
-#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2012;
 #X msg 546 140 abcd;
 #X msg 643 139 1234;
 #X obj 595 324 u_show;
@@ -31,11 +29,13 @@ outlet. Equivalent to [mux 1 2] in zexy and similar to [gate] in Max/MSP
 #X obj 595 284 u_mux2;
 #X obj 8 20 u_mux2;
 #X text 129 21 - multiplex between 2 inlets to 1 outlet;
-#X connect 4 0 13 0;
-#X connect 5 0 13 1;
-#X connect 6 0 7 0;
-#X connect 8 0 13 0;
-#X connect 9 0 13 1;
-#X connect 10 0 12 0;
-#X connect 12 0 13 2;
-#X connect 13 0 6 0;
+#X text 470 477 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
+#X connect 3 0 12 0;
+#X connect 4 0 12 1;
+#X connect 5 0 6 0;
+#X connect 7 0 12 0;
+#X connect 8 0 12 1;
+#X connect 9 0 11 0;
+#X connect 11 0 12 2;
+#X connect 12 0 5 0;

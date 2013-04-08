@@ -17,8 +17,6 @@ outlet. Equivalent to [demux 1 2] in zexy.;
 #X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X text 468 51 Example:;
-#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2012;
 #X msg 618 153 q w e;
 #X obj 643 250 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
@@ -34,13 +32,15 @@ outlet. Equivalent to [demux 1 2] in zexy.;
 #X obj 8 20 u_demux2;
 #X obj 598 321 u_demux2;
 #X text 129 21 - demultiplex from 1 inlet between 2 outlets;
-#X connect 4 0 16 0;
-#X connect 5 0 7 0;
-#X connect 7 0 16 1;
-#X connect 8 0 9 0;
-#X connect 10 0 11 0;
-#X connect 12 0 16 0;
-#X connect 13 0 16 0;
-#X connect 14 0 16 0;
-#X connect 16 0 8 0;
-#X connect 16 1 10 0;
+#X text 470 477 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
+#X connect 3 0 15 0;
+#X connect 4 0 6 0;
+#X connect 6 0 15 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 11 0 15 0;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;
+#X connect 15 0 7 0;
+#X connect 15 1 9 0;

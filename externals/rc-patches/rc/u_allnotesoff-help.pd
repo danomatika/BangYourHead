@@ -65,14 +65,14 @@ osc3a 0 \, osc2d 0 \, osc2c 0 \, osc2b 0 \, osc2a 0.779528 \, osc1d
 #X connect 10 0 9 0;
 #X restore 494 155 pd random noteons;
 #X obj 494 287 soundoutput;
-#X text 470 477 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2013;
 #X text 129 21 - send noteoff for all midi notes;
 #X obj 8 20 u_allnotesoff;
 #X obj 622 155 u_allnotesoff;
+#X text 470 477 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
 #X connect 3 0 7 0;
-#X connect 4 0 12 0;
+#X connect 4 0 11 0;
 #X connect 5 0 8 0;
 #X connect 6 0 5 1;
 #X connect 7 0 5 0;
-#X connect 12 0 5 0;
+#X connect 11 0 5 0;

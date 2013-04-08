@@ -1,0 +1,15 @@
+#N canvas 765 70 192 268 10;
+#N canvas 852 186 450 300 SUBPATCHES 0;
+#X restore 18 23 pd SUBPATCHES;
+#N canvas 827 166 450 300 ABSTRACTIONS 0;
+#X restore 18 79 pd ABSTRACTIONS;
+#N canvas 840 197 450 300 ARGUMENT 0;
+#X restore 18 107 pd ARGUMENT VARIABLES;
+#N canvas 912 142 450 300 INLETS_AND_OUTLETS 0;
+#X restore 18 51 pd INLETS_AND_OUTLETS;
+#N canvas 846 270 450 300 DOLLAR_ZERO 0;
+#X restore 18 136 pd DOLLAR_ZERO;
+#X text 16 234 Version: 04-08 2013;
+#X text 16 219 Author: Dan Wilcox;
+#X text 14 167 This is a stub for now.;
+#X text 15 186 To be filled out later.;

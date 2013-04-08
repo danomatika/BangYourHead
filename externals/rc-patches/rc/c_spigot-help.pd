@@ -21,12 +21,12 @@ floats are treated as a 1 aka on.;
 #X obj 510 127 osc~ 440;
 #X obj 510 161 *~ 0.1;
 #X text 69 22 - toggle a signal without clicking;
-#X text 419 479 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2012;
 #X obj 510 233 c_spigot;
 #X obj -52 21 c_spigot;
-#X connect 4 0 9 1;
+#X text 419 479 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
+#X connect 4 0 8 1;
 #X connect 5 0 6 0;
-#X connect 6 0 9 0;
-#X connect 9 0 3 0;
-#X connect 9 0 3 1;
+#X connect 6 0 8 0;
+#X connect 8 0 3 0;
+#X connect 8 0 3 1;

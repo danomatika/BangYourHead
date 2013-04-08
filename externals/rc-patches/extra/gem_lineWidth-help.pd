@@ -1,0 +1,37 @@
+#N canvas 543 46 396 390 10;
+#X declare -path ../rc;
+#X text 96 340 danomatika.com | robotcowboy.com;
+#X text 97 325 2011 Dan Wilcox GPL v3;
+#X text 97 355 https://github.com/danomatika/rc-patches;
+#X obj 31 94 gemhead;
+#X text 144 83 creation args: size;
+#X floatatom 124 126 5 0 0 0 - - -;
+#X text 164 125 sizes < 1 are ignored;
+#X obj 76 229 loadbang;
+#X msg 212 225 run \$1;
+#X obj 212 198 tgl 15 0 empty empty <--_start_gem_window 17 7 0 10
+-262144 -1 -1 1 1;
+#N canvas 190 199 191 110 setup 0;
+#X obj 18 70 outlet;
+#X obj 18 15 loadbang;
+#X msg 18 41 dimen 400 400 \, pixelView;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X restore 264 225 pd setup;
+#X obj 31 158 gem_lineWidth 10;
+#X msg 76 258 draw line;
+#X obj 31 289 gem_rect 200 200 50 50;
+#X obj 212 257 gem_win;
+#X text 13 16 [gem_pointSize]: change width of GL_LINES;
+#X text 62 49 unfortunately \, does not work with rectangle or square
+;
+#X obj 31 196 gem_line 50 50 350 350;
+#X connect 3 0 11 0;
+#X connect 5 0 11 1;
+#X connect 7 0 12 0;
+#X connect 8 0 14 0;
+#X connect 9 0 8 0;
+#X connect 10 0 14 0;
+#X connect 11 0 17 0;
+#X connect 12 0 13 0;
+#X connect 17 0 13 0;

@@ -25,8 +25,6 @@ a unique id \, instead of \$0.;
 #X obj -55 19 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X text 408 52 Example:;
-#X text 419 479 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2012;
 #X text 69 22 - a sequencer interface to qlist;
 #X obj 564 345 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
@@ -37,7 +35,7 @@ a unique id \, instead of \$0.;
 #X msg 618 164 tempo \$1;
 #X floatatom 618 147 5 0 0 0 - - -;
 #X msg 618 126 loop \$1;
-#X obj 618 108 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+#X obj 618 108 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
 1;
 #X floatatom 475 127 5 0 0 0 - - -;
 #X msg 475 144 a \$1;
@@ -47,9 +45,9 @@ a unique id \, instead of \$0.;
 #X msg 513 145 b \$1;
 #X text 680 188 1 is the original speed;
 #X obj 423 108 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
--1 -1 9900 1;
+-1 -1 0 1;
 #X obj 543 399 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
--1 -1 6900 1;
+-1 -1 0 1;
 #X text 418 91 Messages to be recorded;
 #X msg 420 127 foo \$1;
 #X obj 454 359 route a b foo;
@@ -59,25 +57,27 @@ a unique id \, instead of \$0.;
 #X msg 620 314 read sequence.txt;
 #X msg 619 252 clear;
 #X text 586 345 banged when done;
-#X connect 6 0 26 1;
-#X connect 7 0 26 1;
-#X connect 8 0 26 1;
-#X connect 9 0 26 1;
-#X connect 10 0 26 1;
-#X connect 11 0 10 0;
-#X connect 12 0 26 1;
-#X connect 13 0 12 0;
-#X connect 14 0 15 0;
-#X connect 15 0 26 0;
-#X connect 16 0 19 0;
-#X connect 19 0 26 0;
-#X connect 21 0 24 0;
-#X connect 24 0 26 0;
-#X connect 25 0 18 0;
-#X connect 25 1 17 0;
-#X connect 25 2 22 0;
-#X connect 26 0 25 0;
-#X connect 26 1 5 0;
-#X connect 28 0 26 1;
-#X connect 29 0 26 1;
-#X connect 30 0 26 1;
+#X text 419 479 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
+#X connect 5 0 25 1;
+#X connect 6 0 25 1;
+#X connect 7 0 25 1;
+#X connect 8 0 25 1;
+#X connect 9 0 25 1;
+#X connect 10 0 9 0;
+#X connect 11 0 25 1;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 25 0;
+#X connect 15 0 18 0;
+#X connect 18 0 25 0;
+#X connect 20 0 23 0;
+#X connect 23 0 25 0;
+#X connect 24 0 17 0;
+#X connect 24 1 16 0;
+#X connect 24 2 21 0;
+#X connect 25 0 24 0;
+#X connect 25 1 4 0;
+#X connect 27 0 25 1;
+#X connect 28 0 25 1;
+#X connect 29 0 25 1;

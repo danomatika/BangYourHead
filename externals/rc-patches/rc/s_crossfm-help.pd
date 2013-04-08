@@ -1,4 +1,4 @@
-#N canvas 336 296 1024 515 10;
+#N canvas 246 164 1024 515 10;
 #X declare -path ../rc;
 #X declare -path ../extra;
 #N canvas 377 58 582 570 REFERENCE 0;
@@ -67,19 +67,19 @@ the CSound opcode from:;
 #X text 906 210 mod index 2;
 #X text 530 230 root freq;
 #X obj 494 176 hsl 128 15 1 20000 1 0 empty empty empty -2 -8 0 10
--262144 -1 -1 2953 1;
+-262144 -1 -1 0 1;
 #X msg 469 129 1;
 #X msg 509 130 5;
 #X msg 545 130 10;
 #X msg 582 130 100;
 #X msg 618 130 400;
-#X text 493 485 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2012;
 #X text 630 209 mod freq 1;
 #X text 706 209 mod freq 2;
 #X obj 617 384 *~ 0.5;
 #X obj 720 384 *~ 0.5;
 #X obj 8 20 s_crossfm;
+#X text 493 485 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
 #X connect 5 0 9 0;
 #X connect 6 0 10 0;
 #X connect 7 0 11 0;
@@ -94,14 +94,14 @@ the CSound opcode from:;
 #X connect 16 0 8 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 18 0 32 0;
+#X connect 18 0 31 0;
 #X connect 18 1 19 1;
-#X connect 18 1 33 0;
+#X connect 18 1 32 0;
 #X connect 23 0 17 0;
 #X connect 24 0 23 0;
 #X connect 25 0 23 0;
 #X connect 26 0 23 0;
 #X connect 27 0 23 0;
 #X connect 28 0 23 0;
-#X connect 32 0 3 0;
-#X connect 33 0 3 1;
+#X connect 31 0 3 0;
+#X connect 32 0 3 1;

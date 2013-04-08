@@ -1,1 +1,3 @@
 a_spectroscope - a frequency spectrum gui
+a_vu - a mono vu meter
+a_vu2 - a stereo vu meter

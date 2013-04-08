@@ -1,7 +1,7 @@
-<div style="text-align: center;">
-<img src="https://raw.github.com/danomatika/BangYourHead/master/pd_headbang.png"/>
-<p><strong>An Introduction to Pure Data</strong></p>
-</div>
+<p align="center">
+<img src="https://raw.github.com/danomatika/BangYourHead/master/pd_headbang.png"/><br>
+<strong>An Introduction to Pure Data</strong>
+</p>
 
 2012-2013 [Dan Wilcox](http://danomatika.com)
 
@@ -9,13 +9,14 @@ With various contributions from around the web, notably:
 
 * [rjlib](https://github.com/rjdj/rjlib): great external library
 * [Roman Haefeli](http://romanhaefeli.net/): Pd basics patch
+* [Noisybox.net](http://noisybox.net/computers/pd/): rockin' bang your head~ logo
 
 What is Pure Data?
 ------------------
 
-<div style="text-align: center;">
+<p align="center">
 <img src="https://raw.github.com/danomatika/BangYourHead/master/pd_patch.png"/>
-</div>
+</p>
 
 Pure Data is an open source graphical patching environment for audio and multimedia similar to [Max/MSP](http://cycling74.com/products/max/). It was created by [Miller Puckette](http://crca.ucsd.edu/~msp/) (who also created Max) in 1996 and is now a community project with contributors from around the world.
 

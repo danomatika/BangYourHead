@@ -1,0 +1,59 @@
+#N canvas 116 257 864 513 10;
+#N canvas 377 58 582 570 REFERENCE 0;
+#X text 23 294 Description: This is a wrapper around [vu] using [env~]
+for easy vu deployment. It analysis the incoming signal with a block
+size of 8192 and passes it through unchanged.;
+#X text 24 434 Tags: Analysis \, Audio \, VU Meter;
+#X text 24 51 Summary: a two channel vu meter with audio passthrough
+;
+#X text 24 30 Name: [a_vu2];
+#X text 24 124 Inlet 0: audio 1 in;
+#X text 24 142 Inlet 1: audio 2 in;
+#X text 24 231 Outlet 0: audio 1 out;
+#X text 24 248 Outlet 0: audio 2 out;
+#X text 24 378 See also: [a_vu] [vu];
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 6 47 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 588 400 soundoutput;
+#X obj 526 125 osc~ 440;
+#X obj 526 158 *~;
+#X obj 592 125 osc~ 0.25;
+#X text 482 485 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X msg 9 20 a_vu2;
+#X text 129 21 - a stereo vu meter;
+#X obj 679 157 *~;
+#X obj 745 126 osc~ 0.25;
+#X obj 679 126 osc~ 880;
+#X obj 588 237 a_vu2;
+#N canvas 823 152 204 213 set 0;
+#X obj 42 53 loadbang;
+#X obj 42 29 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 42 90 0;
+#X msg 98 126 1;
+#X obj 98 91 delay 1000;
+#X obj 98 157 outlet;
+#X obj 42 157 outlet;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X restore 643 89 pd set phases;
+#X obj 672 201 g_tgl on;
+#X connect 4 0 5 0;
+#X connect 5 0 13 0;
+#X connect 6 0 5 1;
+#X connect 10 0 13 1;
+#X connect 11 0 10 1;
+#X connect 12 0 10 0;
+#X connect 13 0 3 0;
+#X connect 13 1 3 1;
+#X connect 14 0 6 1;
+#X connect 14 1 11 1;
+#X connect 15 0 13 2;

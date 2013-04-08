@@ -1,0 +1,72 @@
+#N canvas 610 35 554 681 10;
+#X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X declare -path ../externals/rjlib/rj -path ../externals/pd;
+#X obj -11 272 gemhead;
+#X obj -41 5 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
+0;
+#X msg 0 142 reset;
+#X obj -27 174 gem_win;
+#X obj -13 85 loadbang;
+#X text 59 56 set the window title \, the framerate \,;
+#X text 43 141 reset the window;
+#X obj 9 312 gemmouse;
+#X floatatom 9 350 5 0 0 0 mouseX - -;
+#X floatatom 53 369 5 0 0 0 mouseY - -;
+#X obj -11 615 colorRGB 1 1 1;
+#X obj 49 565 spigot;
+#X obj 52 590 hsl 128 15 0 1 0 0 empty empty 0-1 8 8 0 10 -262144 -1
+-1 0 1;
+#X obj 82 544 tgl 15 0 empty empty turn_on_the_pulse 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 52 470 hsl 128 15 0 1 0 0 empty empty 0-1_speed 8 8 0 10 -262144
+-1 -1 0 1;
+#X text 95 363 scale the pos from 0-400 to 0-1 and use it to set the
+red and blue;
+#X text 88 615 set the color;
+#X text 167 648 draw a rectangle over the whole window;
+#X text 72 314 get the mouse position;
+#X text 165 507 this low frequency oscillator sweeps the blue value
+back and forth from 0-1;
+#X text 197 447 set the waveform type for the pulse;
+#X obj 49 513 c_lfo lfo1 500 20;
+#X obj 29 432 m_scale 0 400 0 1;
+#X obj 9 401 m_scale 0 400 0 1;
+#X msg 197 470 waveform sine;
+#X msg 296 470 waveform tri;
+#X msg 392 470 waveform saw;
+#X obj -27 39 g_tgl run;
+#X msg -13 113 title Mondrain \, frame 30 \, dimen 400 400 \, pixelView
+;
+#X text 59 72 the window size \, and use a pixel viewport;
+#N canvas 0 22 387 152 externals 0;
+#X text 11 16 add search paths to local libraries here;
+#X obj 13 47 declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X obj 12 106 declare -path ../externals/rjlib/rj -path ../externals/pd
+;
+#X restore 236 13 pd externals;
+#X text -17 222 This is a GEM render chain \, everything connected
+under the [gemhead] is drawn to the screen.;
+#X text 219 181 2011 Dan Wilcox;
+#X obj -11 649 gem_rect 0 0 400 400 corner;
+#X connect 0 0 10 0;
+#X connect 2 0 3 0;
+#X connect 4 0 28 0;
+#X connect 7 0 8 0;
+#X connect 7 1 9 0;
+#X connect 8 0 23 0;
+#X connect 9 0 22 0;
+#X connect 10 0 33 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 3;
+#X connect 13 0 11 1;
+#X connect 14 0 21 0;
+#X connect 21 0 11 0;
+#X connect 22 0 10 2;
+#X connect 23 0 10 1;
+#X connect 24 0 21 1;
+#X connect 25 0 21 1;
+#X connect 26 0 21 1;
+#X connect 27 0 3 0;
+#X connect 28 0 3 0;

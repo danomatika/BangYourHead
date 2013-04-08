@@ -1,4 +1,4 @@
-#N canvas 306 235 881 511 10;
+#N canvas 245 114 881 511 10;
 #N canvas 238 168 582 570 REFERENCE 0;
 #X text 24 91 Argument 0: <symbol> - Name of the table to set (optional).
 ;
@@ -42,18 +42,18 @@ to [tabset] in the zexy external;
 #X text 626 151 change target table;
 #X text 708 237 symbols are dropped;
 #X msg 679 266 0.1 0.2 0.3 four five 0.6 0.7;
-#X text 487 482 rc-patches (https://githum.com/danomatika/rc-patches)
-- 2012;
 #X obj 8 20 u_tabset;
 #X obj 572 306 u_tabset \$0_array1;
-#X connect 5 0 21 0;
-#X connect 6 0 21 0;
+#X text 487 482 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
+#X connect 5 0 20 0;
+#X connect 6 0 20 0;
 #X connect 7 0 5 0;
 #X connect 8 0 7 0;
 #X connect 9 0 10 0;
 #X connect 10 0 5 0;
-#X connect 11 0 21 0;
-#X connect 12 0 21 0;
-#X connect 13 0 21 0;
-#X connect 14 0 21 0;
-#X connect 18 0 21 0;
+#X connect 11 0 20 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 0;
+#X connect 14 0 20 0;
+#X connect 18 0 20 0;
