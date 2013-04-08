@@ -1,0 +1,17 @@
+#N canvas 509 72 194 296 10;
+#X text 15 263 Version: 04-08 2013;
+#X text 15 248 Author: Dan Wilcox;
+#X text 13 196 This is a stub for now.;
+#X text 14 215 To be filled out later.;
+#N canvas 560 174 450 300 CONNECTION_ORDER 0;
+#X restore 14 53 pd CONNECTION_ORDER;
+#N canvas 559 217 450 300 ITS_UGLY 0;
+#X restore 14 24 pd ITS_UGLY;
+#N canvas 556 255 450 300 WHERES_JITTER? 0;
+#X restore 15 165 pd WHERES_JITTER?;
+#N canvas 558 195 450 300 MAXLIB_AND_CYCLONE 0;
+#X restore 15 138 pd MAXLIB_AND_CYCLONE;
+#N canvas 632 186 450 300 HOW_DO_I_FIND_THINGS? 0;
+#X restore 14 82 pd HOW_DO_I_FIND_THINGS?;
+#N canvas 661 216 450 300 EQUIVALENT_OBJECTS 0;
+#X restore 15 110 pd EQUIVALENT_OBJECTS;
