@@ -58,3 +58,7 @@ See [Pure Data Start Here](http://puredata.info/docs/StartHere)
 There are also a few books online, see [Pure Data Books About Pd](http://puredata.info/docs/BooksAboutPd)
 
 If you run into specific issues or have general questions, see the [Pure Data FAQ](http://puredata.info/docs/faq)
+
+### Other Useful Links
+
+* [Ed Kelly's PD Workshop Wiki](http://puredata.wikispaces.com/)
