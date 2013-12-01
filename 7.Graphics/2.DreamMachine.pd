@@ -1,4 +1,5 @@
 #N canvas 610 35 554 681 10;
+#X declare -path ../rc;
 #X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
 -path ../externals/rc-patches/rc-patches;
 #X declare -path ../externals/rjlib/rj -path ../externals/pd;
@@ -16,11 +17,11 @@
 #X obj -11 615 colorRGB 1 1 1;
 #X obj 49 565 spigot;
 #X obj 52 590 hsl 128 15 0 1 0 0 empty empty 0-1 8 8 0 10 -262144 -1
--1 0 1;
+-1 8226 1;
 #X obj 82 544 tgl 15 0 empty empty turn_on_the_pulse 17 7 0 10 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 52 470 hsl 128 15 0 1 0 0 empty empty 0-1_speed 8 8 0 10 -262144
--1 -1 0 1;
+-1 -1 12700 1;
 #X text 95 363 scale the pos from 0-400 to 0-1 and use it to set the
 red and blue;
 #X text 88 615 set the color;
@@ -36,8 +37,6 @@ back and forth from 0-1;
 #X msg 296 470 waveform tri;
 #X msg 392 470 waveform saw;
 #X obj -27 39 g_tgl run;
-#X msg -13 113 title Mondrain \, frame 30 \, dimen 400 400 \, pixelView
-;
 #X text 59 72 the window size \, and use a pixel viewport;
 #N canvas 0 22 387 152 externals 0;
 #X text 11 16 add search paths to local libraries here;
@@ -50,14 +49,19 @@ back and forth from 0-1;
 under the [gemhead] is drawn to the screen.;
 #X text 219 181 2011 Dan Wilcox;
 #X obj -11 649 gem_rect 0 0 400 400 corner;
+#X msg -13 113 title DreamMachine \, frame 30 \, dimen 400 400 \, pixelView
+;
+#X obj 155 418 loadbang;
+#X msg 82 489 1;
+#X msg 155 444 0.5;
 #X connect 0 0 10 0;
 #X connect 2 0 3 0;
-#X connect 4 0 28 0;
+#X connect 4 0 33 0;
 #X connect 7 0 8 0;
 #X connect 7 1 9 0;
 #X connect 8 0 23 0;
 #X connect 9 0 22 0;
-#X connect 10 0 33 0;
+#X connect 10 0 32 0;
 #X connect 11 0 12 0;
 #X connect 12 0 10 3;
 #X connect 13 0 11 1;
@@ -69,4 +73,9 @@ under the [gemhead] is drawn to the screen.;
 #X connect 25 0 21 1;
 #X connect 26 0 21 1;
 #X connect 27 0 3 0;
-#X connect 28 0 3 0;
+#X connect 33 0 3 0;
+#X connect 34 0 36 0;
+#X connect 34 0 24 0;
+#X connect 35 0 13 0;
+#X connect 36 0 14 0;
+#X connect 36 0 35 0;
