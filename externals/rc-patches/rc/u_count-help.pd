@@ -1,0 +1,78 @@
+#N canvas 115 63 868 521 10;
+#N canvas 66 140 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_count];
+#X text 24 91 Argument 0: <float> upper limit \, leaving this empty
+creates a counter without a limit;
+#X text 23 192 Inlet 1: <float> - set upper limit \, <= 0 yields clears
+the limit so the counter is unlimited;
+#X text 24 236 Outlet 0: current count;
+#X text 24 256 Outlet 1: bang when limit is reached;
+#X text 24 372 See also: [c_multimetro] \, [c_nseq];
+#X text 24 294 Description: Hey \, yet another counter! Bang to advance
+the count \, set the counting mode (up or down) \, set the current
+pos \, and change the limit. Useful creating simple sequencers as well
+as anything that requires an [f ]x[+ 1].;
+#X text 24 434 Tags: counter \, sequence \, utility;
+#X text 24 130 Inlet 0: "bang" - send count \, <float> - change current
+pos \, "set" <float> - set current pos on next bang \, "reset" - reset
+pos to 0 \, "up" - set mode to count upwards \, "down" - set mode to
+count downwards;
+#X text 24 51 Summary: an counter with an upper limit that wraps back
+to 0 \, can count up or down;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 593 148 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 593 96 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X floatatom 593 413 5 0 0 0 - - -;
+#X obj 593 121 metro 500;
+#X msg 691 269 4;
+#X msg 647 167 reset;
+#X msg 692 297 16;
+#X text 615 95 start bangs;
+#X text 632 413 left outlet: count;
+#X obj 650 392 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X text 725 294 lower limit is 0;
+#X text 677 389 bangs when reaching limit;
+#X text 643 145 reset count;
+#X msg 659 202 up;
+#X msg 680 231 down;
+#X msg 692 323 0;
+#X text 726 324 turn off upper limit;
+#X obj 593 358 u_count 16;
+#X text 695 205 mode: increment/decrement;
+#X obj 8 20 u_count;
+#X floatatom 481 149 5 0 0 0 - - -;
+#X text 470 125 change current pos;
+#X msg 533 148 4;
+#X msg 483 318 set \$1;
+#X text 725 267 set upper limit;
+#X text 457 242 set current pos;
+#X floatatom 483 267 5 0 0 0 - - -;
+#X msg 503 290 4;
+#X obj 533 188 t f;
+#X text 129 21 - up/down counter;
+#X connect 4 0 21 0;
+#X connect 5 0 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 21 1;
+#X connect 9 0 21 0;
+#X connect 10 0 21 1;
+#X connect 17 0 21 0;
+#X connect 18 0 21 0;
+#X connect 19 0 21 1;
+#X connect 21 0 6 0;
+#X connect 21 1 13 0;
+#X connect 24 0 32 0;
+#X connect 26 0 32 0;
+#X connect 27 0 21 0;
+#X connect 30 0 27 0;
+#X connect 31 0 27 0;
+#X connect 32 0 21 0;

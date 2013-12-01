@@ -1,0 +1,47 @@
+#N canvas 116 150 868 521 10;
+#N canvas 23 58 582 570 REFERENCE 0;
+#X text 24 30 Name: [u_remote];
+#X text 24 51 Summary: an easy way to send to state saving objects
+remotely;
+#X text 24 120 Argument 1: target object unique id;
+#X text 24 97 Argument 0: target object type;
+#X text 24 153 Inlet 0: incoming messages to send;
+#X text 24 234 Description: This is a simple wrapper around the rj
+state saving system that allows sending to a specific object by name.
+The target object must use [u_loader] & [u_dispatch] and only accepts
+messages that are state savable.;
+#X text 24 334 See also: [u_loader] [u_dispatch] [send];
+#X text 24 434 Tags: target objetc \, send \, state saving;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 8 20 u_remote;
+#X msg 518 125 A 50 \, D 80 \, S 70 \, R 300;
+#X floatatom 560 166 5 0 0 1 A - -;
+#X floatatom 624 166 5 0 0 1 D - -;
+#X floatatom 686 166 5 0 0 1 S(%) - -;
+#X floatatom 758 166 5 0 0 1 R - -;
+#X msg 560 185 A \$1;
+#X msg 624 185 D \$1;
+#X msg 686 186 S \$1;
+#X msg 758 186 R \$1;
+#X obj 545 343 c_madsrj myadsr;
+#X obj 542 250 u_remote c_madsrj myadsr;
+#X text 701 252 sends from here;
+#X text 717 360 to here;
+#X text 481 430 works with an object that uses [u_dispatch] for state
+saving;
+#X text 129 21 - send remote messages to state saving objects;
+#X connect 5 0 15 0;
+#X connect 6 0 10 0;
+#X connect 7 0 11 0;
+#X connect 8 0 12 0;
+#X connect 9 0 13 0;
+#X connect 10 0 15 0;
+#X connect 11 0 15 0;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;

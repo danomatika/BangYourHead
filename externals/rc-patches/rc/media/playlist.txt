@@ -1,0 +1,13 @@
+Improv.pd
+RunningMan_pad.pd
+StarBurst.pd
+Velocipede_v2.pd
+ArpeggiateNow_v2.pd
+RunningMan_v2.pd
+Dynamite.pd
+HoldMeGently_v2.pd
+SubOptimal.pd
+Ache.pd
+BallOfLove.pd
+PleaseOfficer_v2.pd
+MartianPlain_v2.pd

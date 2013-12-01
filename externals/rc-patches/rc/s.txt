@@ -1,3 +1,5 @@
-s_crossfm - a cross frequency modulation synth
-s_crossfmpm - a cross frequency / phase modulation synth
-s_crosspm - a cross phase modulation synth
+s_303 - roland tb 303 style bass synth (requires ggee)
+s_crossfm - cross frequency modulation synth
+s_crossfmpm - cross frequency / phase modulation synth
+s_crosspm - cross phase modulation synth
+s_sample - one shot sample player

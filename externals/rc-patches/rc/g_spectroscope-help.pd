@@ -1,0 +1,60 @@
+#N canvas 93 98 1002 517 10;
+#N canvas 0 71 582 570 REFERENCE 0;
+#X text 24 51 Summary: a frequency spectrum gui \, not precise enough
+for scientific work!;
+#X text 24 105 Inlet 0: audio signal to graph;
+#X text 24 132 Inlet 1: control messages: onoff 0 or 1 \, refresh rate
+in ms \, xscale x-axis sensitivity \, yscale y-axis sensitivity \,
+reset all settings;
+#X text 24 221 Description: This is a simple fft table grapher for
+checking the frequency spread of audio signals. It's not super precise
+but useful.;
+#X text 24 273 Warning: This takes some cpu \, so it's best to leave
+it off when not needed. Also \, the higher the refresh rate \, the
+more cpu will be used.;
+#X text 24 31 Name: [g_spectroscope];
+#X text 24 334 See also: [g_scope] [fft~] [rfft~];
+#X text 24 435 Tags: GUI \, Audio \, Frequency \, Spectrum;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore -55 49 pd REFERENCE;
+#X obj -55 19 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 408 52 Example:;
+#X obj 519 183 noise~;
+#X msg 802 248 reset;
+#X obj 442 150 hsl 128 15 20 20000 0 0 empty empty 20-20k 32 8 0 10
+-262144 -1 -1 2267 1;
+#X obj 439 234 *~ 0.25;
+#X floatatom 439 177 10 0 0 0 - - -;
+#X text 763 437 <-- reset;
+#X text 761 285 <-- refresh & onoff;
+#X obj 439 96 loadbang;
+#X msg 439 123 440;
+#X obj 439 205 osc~;
+#X obj 519 234 *~ 0;
+#X obj 543 208 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7300 1;
+#X obj 781 362 u_loadmeter;
+#X text 419 479 rc-patches (https://github.com/danomatika/rc-patches)
+- 2012;
+#X text 69 22 - frequency spectrum gui;
+#X obj 439 282 g_spectroscope;
+#X text -51 21 g_spectroscope;
+#X obj 748 206 g_hsl yscale 0 100;
+#X obj 748 172 g_hsl xscale 0 128;
+#X obj 748 138 g_hsl refresh 10 1000;
+#X obj 748 100 g_tgl onoff;
+#X connect 3 0 13 0;
+#X connect 4 0 18 1;
+#X connect 5 0 7 0;
+#X connect 6 0 18 0;
+#X connect 7 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X connect 13 0 18 0;
+#X connect 14 0 13 1;
+#X connect 20 0 18 1;
+#X connect 21 0 20 0;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;

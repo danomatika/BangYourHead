@@ -1,0 +1,39 @@
+#N canvas 115 63 888 523 10;
+#N canvas 617 101 582 570 REFERENCE 0;
+#X text 24 31 Name: [e_ringmod];
+#X text 24 51 Summary: ring modulator;
+#X text 24 91 Argument 0: <float or symbol> unique id (don't use \$0)
+;
+#X text 24 124 Inlet 0: audio signal in;
+#X text 24 144 Inlet 1: "dry" <float> - dry/wet mix (default is 0)
+\, "freq" <float> - modulation frequency;
+#X text 24 187 Outlet 0: modulated audio out;
+#X text 24 234 Description: This is the ring modulator from the PD
+audio examples. It includes a built in wet/dry mix.;
+#X text 24 334 See also: [e_chorus] [e_powdist] [e_alias];
+#X text 23 434 Tags: ring modulation \, effect \, audio;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 562 352 soundoutput;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 673 180 g_hsl freq 0 20000;
+#X obj 673 213 g_hsl dry 0 1;
+#X floatatom 562 130 5 0 0 0 - - -;
+#X obj 562 154 osc~ 440;
+#X text 129 21 - ring modulator;
+#X obj 562 247 e_ringmod myringmod;
+#X obj 673 128 loadbang;
+#X msg 673 155 freq 90;
+#X obj 8 20 e_ringmod;
+#X connect 5 0 6 0;
+#X connect 6 0 10 1;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 10 0 3 0;
+#X connect 10 0 3 1;
+#X connect 11 0 12 0;
+#X connect 12 0 5 0;

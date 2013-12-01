@@ -1,0 +1,131 @@
+#N canvas 538 325 852 519 10;
+#N canvas 94 66 582 570 REFERENCE 0;
+#X text 24 31 Name: [s_fmbass];
+#X text 24 51 Summary: a simple fm plucked bass;
+#X text 24 91 Argument 0: <float or symbol> unique id (don't use \$0)
+;
+#X text 24 124 Inlet 0: midi note & velocity pairs;
+#X text 25 189 Outlet 0: audio out;
+#X text 24 234 Description: This is a simple fm plucked bass good for
+stacatto bass lines. Controls are all relative \, 0-1. If you want
+an fm synth with more options/control \, use [s_fm4].;
+#X text 24 144 Inlet 1: "index1" & "index2" <float> - modulation indices
+(0-1) \, A D S R <float> - relative ADSR control (0-1);
+#X text 24 334 See also: [s_fm4] [s_fmoscil] [s_303];
+#X text 24 433 Tags: fm \, bass \, synth \, audio;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 549 410 soundoutput;
+#X text 473 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 549 369 s_fmbass fmbass;
+#X msg 549 157 60 64;
+#X msg 573 183 62 64;
+#X msg 593 236 64 100;
+#X msg 585 211 64 64;
+#X obj 488 99 tgl 15 0 empty empty play_seq 17 7 0 10 -262144 -1 -1
+0 1;
+#N canvas 0 22 376 329 seq 0;
+#X obj 94 127 sel 0 1 2 3 4 5 6 7;
+#X obj 94 73 metro 250;
+#X obj 179 163 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 212 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 245 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 276 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 311 165 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 70 161 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 105 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 143 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 185 299 outlet;
+#X obj 94 20 inlet;
+#X obj 45 49 sel 0;
+#X msg 45 72 reset;
+#X msg 179 185 38;
+#X msg 245 186 50;
+#X msg 276 186 34;
+#X msg 70 183 38;
+#X msg 143 185 40;
+#X msg 212 186 45;
+#X msg 105 184 45;
+#X msg 311 187 rest;
+#X obj 185 241 makenote 64 100;
+#X obj 185 270 pack f f;
+#X floatatom 145 47 5 0 0 0 - - -;
+#X obj 94 99 u_count 8;
+#X connect 0 0 7 0;
+#X connect 0 1 8 0;
+#X connect 0 2 9 0;
+#X connect 0 3 2 0;
+#X connect 0 4 3 0;
+#X connect 0 5 4 0;
+#X connect 0 6 5 0;
+#X connect 0 7 6 0;
+#X connect 1 0 25 0;
+#X connect 2 0 14 0;
+#X connect 3 0 19 0;
+#X connect 4 0 15 0;
+#X connect 5 0 16 0;
+#X connect 6 0 21 0;
+#X connect 7 0 17 0;
+#X connect 8 0 20 0;
+#X connect 9 0 18 0;
+#X connect 11 0 1 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 25 0;
+#X connect 14 0 22 0;
+#X connect 15 0 22 0;
+#X connect 16 0 22 0;
+#X connect 17 0 22 0;
+#X connect 18 0 22 0;
+#X connect 19 0 22 0;
+#X connect 20 0 22 0;
+#X connect 22 0 23 0;
+#X connect 22 1 23 1;
+#X connect 23 0 10 0;
+#X connect 24 0 1 1;
+#X connect 25 0 0 0;
+#X restore 488 125 pd seq;
+#X obj 673 174 g_hsl index1 0 1;
+#X obj 673 206 g_hsl index2 0 1;
+#X obj 673 240 g_hsl A 0 1;
+#X obj 673 272 g_hsl D 0 1;
+#X obj 673 305 g_hsl S 0 1;
+#X obj 673 338 g_hsl R 0 1;
+#X obj 549 329 pack f f;
+#X obj 549 277 makenote 64 500;
+#X msg 673 143 symbol reset;
+#X obj 8 20 s_fmbass;
+#X text 129 21 - fm plucked bass;
+#X obj 561 303 notein;
+#X connect 5 0 3 0;
+#X connect 5 0 3 1;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 5 1;
+#X connect 18 0 5 0;
+#X connect 19 0 18 0;
+#X connect 19 1 18 1;
+#X connect 20 0 12 0;
+#X connect 23 0 18 0;
+#X connect 23 1 18 1;

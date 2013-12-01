@@ -1,0 +1,55 @@
+#N canvas 498 150 868 521 10;
+#N canvas 623 160 582 570 REFERENCE 0;
+#X text 24 31 Name: [c_ear];
+#X text 24 51 Summary: AR envelope generator with quadratic curves
+;
+#X text 24 91 Argument 0: attack time (ms);
+#X text 25 110 Argument 1: release time (ms);
+#X text 24 141 Inlet 0: <bang> or "start" - trigger attack \, "stop"
+- trigger release;
+#X text 24 176 Inlet 1: attack time (ms);
+#X text 24 196 Inlet 2: release time (ms);
+#X text 24 230 Outlet 0: envelope signal;
+#X text 24 369 See also: [c_ead];
+#X text 24 434 Tags: envelope generator;
+#X text 24 285 Description: [c_ear] is an attack/release envelope with
+a convex attack and concave release phase. The phases are curved with
+a quadratic pow(4) bend. This is similar to [c_ead] except you manually
+trigger the release.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - AR envelope generator with quadratic curves;
+#X obj 537 419 tabwrite~ \$0-env;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-env 1000 float 2;
+#X coords 0 1 1000 -1 200 140 1;
+#X restore 644 101 graph;
+#X msg 487 370 bang;
+#X floatatom 568 323 5 0 0 1 attack - -;
+#X floatatom 600 347 5 0 0 1 release - -;
+#X msg 537 283 start;
+#X msg 510 332 stop;
+#X obj 510 195 t b b;
+#X obj 510 167 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 555 220 5 0 0 1 decay - -;
+#X obj 8 20 c_ear;
+#X obj 510 244 delay 10;
+#X obj 537 373 c_ear 10 15;
+#X connect 7 0 5 0;
+#X connect 8 0 17 1;
+#X connect 9 0 17 2;
+#X connect 10 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 16 0;
+#X connect 12 1 10 0;
+#X connect 12 1 7 0;
+#X connect 13 0 12 0;
+#X connect 14 0 16 1;
+#X connect 16 0 11 0;
+#X connect 17 0 5 0;

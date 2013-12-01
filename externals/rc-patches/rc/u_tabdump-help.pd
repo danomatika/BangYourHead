@@ -1,0 +1,77 @@
+#N canvas 293 146 881 511 10;
+#N canvas 122 166 582 570 REFERENCE 0;
+#X text 24 434 Tags: Tables \, Utilities;
+#X text 24 31 Name: [u_tabdump];
+#X text 24 51 Summary: dump the contents of a table as a list \, equivalent
+to [tabset] in the zexy external;
+#X text 24 108 Argument 1: <float> - length of the table (optional)
+;
+#X text 24 91 Argument 0: <symbol> - Name of the table to dump (optional)
+;
+#X text 24 141 Inlet 0: bang - output the table contents \; set <symbol>
+- set the target table name;
+#X text 23 176 Inlet 1: set the table size \, if the size is longer
+than the tables actual length \, the last value will be repeated;
+#X text 24 233 Description: Wrapper for [tabread] that takes a table
+name and size and outputs the tabel contents as a list. This is very
+similar to zexy [tabdump] except for requring the explict size as it's
+currently not easy to get a tables actual length in pd-vanilla ...
+;
+#X text 24 334 See also: [tabread] [tabwrite] [u_tabset] [tabdump]
+(requires zexy);
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 550 146 symbol \$0_array1;
+#X msg 550 128 bang;
+#X msg 667 128 bang;
+#X obj 667 146 symbol \$0_array2;
+#X text 555 108 change target table;
+#X msg 527 76 bang;
+#N canvas 45 464 351 197 fillarrays 0;
+#X obj 18 18 loadbang;
+#X obj 18 47 f \$0;
+#X msg 84 19 bang;
+#X msg 18 78 \; \$1_array1 resize 6 \; \$1_array2 resize 9 \; \$1_array1
+0 0.1 0.3 0.2 0.5 0.2 -0.1 \; \$1_array2 0 0.1 0.1 0.2 0.3 0.5 0.8
+0.13 0.21 0.34;
+#X text 35 152 start at index 0;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X restore 651 299 pd fillarrays;
+#X text 129 21 - dump the contents of a table as a list;
+#X text 569 76 dump the table;
+#X text 487 482 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X msg 550 167 set \$1;
+#X msg 667 169 set \$1;
+#X msg 741 185 9;
+#X text 668 205 right inlet: set table size;
+#X obj 527 234 u_show;
+#X msg 527 261 0.1 0.1 0.2 0.3 0.5 0.8 0.13 0.21 0.34;
+#X msg 597 167 6;
+#X obj 527 205 u_tabdump \$0_array1 6;
+#X obj 8 20 u_tabdump;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0_array1 6 float 1;
+#A 0 0.1 0.3 0.2 0.5 0.2 -0.1;
+#X array \$0_array2 9 float 1;
+#A 0 0.1 0.1 0.2 0.3 0.5 0.8 0.13 0.21 0.34;
+#X coords 0 1 8 -1 200 140 1 0 0;
+#X restore 545 330 graph;
+#X connect 3 0 13 0;
+#X connect 3 0 19 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 14 0;
+#X connect 6 0 15 0;
+#X connect 8 0 20 0;
+#X connect 13 0 20 0;
+#X connect 14 0 20 0;
+#X connect 15 0 20 1;
+#X connect 17 0 18 0;
+#X connect 19 0 20 1;
+#X connect 20 0 17 0;

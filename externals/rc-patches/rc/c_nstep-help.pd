@@ -1,0 +1,72 @@
+#N canvas 185 101 862 519 10;
+#N canvas 149 155 582 570 REFERENCE 0;
+#X text 24 31 Name: [c_nstep];
+#X text 24 51 Summary: a simple \, variable length step sequencer using
+bangs;
+#X text 23 169 Inlet 1: incoming sequence in a list;
+#X text 24 201 Outlet 0: sequence bangs;
+#X text 24 221 Outlet 1: bang on end of sequence;
+#X text 24 241 Outlet 2: sequence out as a list;
+#X text 24 279 Description: This is a flexible length version of Karlheinz
+Essel's [16-step] in the rtc lib \, minus the built-in bpm metro. Useful
+for simple sequence triggering in conjunction with the list objects
+to generate patterns.;
+#X text 24 434 Tags: sequencer \, list;
+#X text 24 354 See also: [c_qseq] \, [c_seqplay] \, [c_markov] \, [u_listrandom]
+\, [c_mulitpass];
+#X text 24 94 Argument 0: <float> optional sequence length \, default
+is 16;
+#X text 23 132 Inlet 0: <float> 1 & 0: start/stop \, "reset": reset
+seq pos to 0 \, "dump": dump seq as a list \, "size": set seq length
+;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 485 478 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 512 417 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 487 115 metro 200;
+#X obj 487 78 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 499 172 reset;
+#X obj 499 143 sel 0;
+#X floatatom 538 90 5 0 0 0 - - -;
+#X msg 563 253 dump;
+#X msg 581 280 1 0 0 0 1 0 0 0;
+#X msg 582 304 1 0 1 0 1 1 1 1;
+#X obj 487 441 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 506 440 bangs out;
+#X text 687 290 sequences in as lists;
+#X text 605 255 dump out the sequence;
+#X text 538 172 reset pos to 0;
+#X text 594 353 sequences out as lists;
+#X text 529 417 end of seq;
+#X obj 487 324 c_nstep 8;
+#X obj 538 353 u_show;
+#X msg 521 199 4;
+#X msg 556 199 8;
+#X text 587 212 change sequence length dynamically;
+#X msg 521 227 length \$1;
+#X text 128 21 - arbitrary length bang sequence player;
+#X obj 8 20 c_nstep;
+#X msg 538 381;
+#X connect 5 0 20 0;
+#X connect 6 0 8 0;
+#X connect 6 0 5 0;
+#X connect 7 0 20 0;
+#X connect 8 0 7 0;
+#X connect 9 0 5 1;
+#X connect 10 0 20 0;
+#X connect 11 0 20 1;
+#X connect 12 0 20 1;
+#X connect 20 0 13 0;
+#X connect 20 1 4 0;
+#X connect 20 2 21 0;
+#X connect 21 0 28 0;
+#X connect 22 0 25 0;
+#X connect 23 0 25 0;
+#X connect 25 0 20 0;

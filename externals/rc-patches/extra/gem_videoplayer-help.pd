@@ -7,7 +7,7 @@
 #X obj 39 58 gemhead;
 #X msg 441 295 run \$1;
 #X obj 441 268 tgl 15 0 empty empty <--_start_gem_window 17 7 0 10
--262144 -1 -1 1 1;
+-262144 -1 -1 0 1;
 #X obj 441 327 gem_win;
 #N canvas 190 199 191 110 setup 0;
 #X obj 18 70 outlet;
@@ -16,44 +16,44 @@
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
 #X restore 493 295 pd setup;
-#X msg 89 138 open data/test_clip.mov;
-#X obj 270 299 bng 15 250 50 0 empty empty finished 17 7 0 10 -262144
+#X obj 276 299 bng 15 250 50 0 empty empty finished 17 7 0 10 -262144
 -1 -1;
-#X obj 154 300 unpack f f f;
-#X floatatom 154 391 5 0 0 1 length_in_frames - -;
-#X floatatom 188 362 5 0 0 1 width - -;
-#X floatatom 223 333 5 0 0 1 height - -;
-#X obj 61 85 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 157 300 unpack f f f;
+#X floatatom 157 391 5 0 0 1 length_in_frames - -;
+#X floatatom 191 362 5 0 0 1 width - -;
+#X floatatom 226 333 5 0 0 1 height - -;
+#X obj 61 85 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
-#X floatatom 116 203 5 0 0 1 framerate - -;
-#X floatatom 193 223 5 0 0 1 position - -;
-#X floatatom 270 240 5 0 0 1 loopsize_in_frames - -;
+#X floatatom 118 203 5 0 0 1 framerate - -;
+#X floatatom 197 223 5 0 0 1 position - -;
+#X floatatom 276 240 5 0 0 1 loopsize_in_frames - -;
 #X msg 61 108 play \$1;
 #X text 17 14 a simple video player wrapper around [pix_film];
 #X text 265 56 includes framecounter and texture;
 #X text 337 97 creation args: file framerate play?;
 #X text 87 84 play the video clip?;
 #X text 242 138 open a video file;
-#X obj 39 270 gem_videoplayer data/test_clip.mov 30 1;
 #X msg 106 168 texture quality 0;
 #X text 220 168 also accepts commands to the builtin [pix_texture]
 ;
 #X text 192 433 render the video to a rectangle;
-#X obj 39 434 gem_rect 0 100 400 300;
-#X connect 3 0 24 0;
+#X obj 39 270 gem_videoplayer media/test_clip.mov 30 1;
+#X msg 89 138 open media/test_clip.mov;
+#X obj 39 434 gem_rect 200 200 400 300;
+#X connect 3 0 26 0;
 #X connect 4 0 6 0;
 #X connect 5 0 4 0;
 #X connect 7 0 6 0;
-#X connect 8 0 24 0;
-#X connect 10 0 11 0;
-#X connect 10 1 12 0;
-#X connect 10 2 13 0;
-#X connect 14 0 18 0;
-#X connect 15 0 24 1;
-#X connect 16 0 24 2;
-#X connect 17 0 24 3;
-#X connect 18 0 24 0;
-#X connect 24 0 28 0;
-#X connect 24 1 10 0;
-#X connect 24 2 9 0;
-#X connect 25 0 24 0;
+#X connect 9 0 10 0;
+#X connect 9 1 11 0;
+#X connect 9 2 12 0;
+#X connect 13 0 17 0;
+#X connect 14 0 26 1;
+#X connect 15 0 26 2;
+#X connect 16 0 26 3;
+#X connect 17 0 26 0;
+#X connect 23 0 26 0;
+#X connect 26 0 28 0;
+#X connect 26 1 9 0;
+#X connect 26 2 8 0;
+#X connect 27 0 26 0;

@@ -11,7 +11,7 @@ pairs;
 #X text 24 31 Name: [u_allnotesoff];
 #X text 24 256 Description: A quick \, midi panic utility. Bang it
 to send a note off message to all midi notes 0 - 127 Great for turning
-off stuck notes.;
+off stuck notes. Note: this is not the CC 123 message.;
 #X coords 0 -1 1 1 450 450 1 10 10;
 #X restore 5 48 pd REFERENCE;
 #X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577

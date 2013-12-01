@@ -1,0 +1,54 @@
+#N canvas 133 190 868 521 10;
+#N canvas 377 58 582 570 REFERENCE 0;
+#X text 24 31 Name: [m_fadtodb];
+#X text 24 124 Inlet 0: <float> - slider value in (0 - 150);
+#X text 24 51 Summary: convert linear slider values from 0-150 to match
+vu db levels;
+#X text 24 164 Outlet 0: <float> - vu db out (-99 - +12 db);
+#X text 24 221 Description: This is a clone of iem [fadtodb] by literally
+dumping it's contents into a lookup table because I wanted to keep
+my nice faders in pd-vanilla/libpd. Basically \, this allows you to
+match the scale of a slider to a vu and convert the resulting db values
+back to rms \, resulting in a fader. Align your slider height as close
+to the vu as you can \, set it's range from 0 - 150 \, run it's output
+through [m_fadtodb] \, and subtract 100 before dumping it into the
+vu. Done. Then use [dbtorms] to control signal amplitude.;
+#X text 23 379 See also: [dbtorms] [rmstodb];
+#X text 24 434 Tags: conversion \, scale \, slider \, fader \, db;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 663 173 vsl 30 119 0 120 0 0 empty empty empty 0 -9 0 10 -128992
+-4034 -4034 0 1;
+#X obj 694 173 vu 30 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 572 275 - 100;
+#X floatatom 572 174 5 0 0 0 - - -;
+#X floatatom 572 237 5 0 0 0 - - -;
+#X obj 572 204 m_fadtodb;
+#X text 522 116 match db values from a slider to a vu;
+#X obj 501 335 dbtorms;
+#X floatatom 501 367 5 0 0 0 - - -;
+#X obj 486 401 *~;
+#X text 541 369 use this number to make a fader ...;
+#X obj 8 20 m_fadtodb;
+#X text 129 21 - convert fader scale to vu db;
+#N canvas 634 421 450 300 audio 0;
+#X obj 52 34 outlet~;
+#X restore 486 308 pd audio in;
+#N canvas 683 593 450 300 faded 0;
+#X obj 36 44 inlet~;
+#X restore 486 440 pd faded audio out;
+#X connect 4 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 9 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 9 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 1;
+#X connect 13 0 18 0;
+#X connect 17 0 13 0;

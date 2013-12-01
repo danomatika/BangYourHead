@@ -1,0 +1,4 @@
+e_3bandeq-myeq high 1;
+e_3bandeq-myeq med 1;
+e_3bandeq-myeq dry 0;
+e_3bandeq-myeq low 1;

@@ -1,0 +1,103 @@
+#N canvas 830 205 367 493 10;
+#X obj 25 52 inlet;
+#X obj 206 139 inlet;
+#X obj 25 466 outlet;
+#X obj 25 242 f 0;
+#X obj 80 242 + 1;
+#X obj 206 228 f \$1;
+#X msg 25 112 bang;
+#X text 245 142 set new upper limit;
+#X text 8 9 simple counter;
+#X text 140 22 creation arg: upper limit;
+#X obj 218 203 loadbang;
+#X obj 80 466 outlet;
+#X msg 80 444 bang;
+#X text 125 454 bang on reset;
+#X obj 80 336 >= 4;
+#X obj 80 359 sel 1;
+#X obj 143 337 < 0;
+#X obj 143 360 sel 1;
+#X obj 75 160 f 0;
+#X msg 80 385 0;
+#X obj 83 136 t b f;
+#X obj 83 113 r \$0-resetnum;
+#X obj 143 423 s \$0-resetnum;
+#X obj 143 389 f 3;
+#X obj 206 251 moses 1;
+#X msg 131 154 1;
+#X msg 166 155 -1;
+#X obj 131 181 t b f;
+#X text 68 51 bang to increase/decrease count;
+#X obj 272 330 - 1;
+#X obj 80 272 spigot;
+#X obj 245 277 t b a;
+#X msg 245 305 1;
+#X msg 206 276 0;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 255 460 pd LICENSE-GPL;
+#X obj 40 194 clip 0 4;
+#X obj 19 154 t b f;
+#X obj 25 79 route bang float reset up down set;
+#X obj 206 173 route float;
+#X connect 0 0 37 0;
+#X connect 1 0 38 0;
+#X connect 3 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 4 0 30 0;
+#X connect 5 0 24 0;
+#X connect 6 0 3 0;
+#X connect 10 0 5 0;
+#X connect 12 0 11 0;
+#X connect 14 0 15 0;
+#X connect 15 0 19 0;
+#X connect 16 0 17 0;
+#X connect 17 0 23 0;
+#X connect 18 0 3 1;
+#X connect 19 0 22 0;
+#X connect 19 0 12 0;
+#X connect 20 0 18 0;
+#X connect 20 1 18 1;
+#X connect 21 0 20 0;
+#X connect 23 0 22 0;
+#X connect 23 0 12 0;
+#X connect 24 0 33 0;
+#X connect 24 1 31 0;
+#X connect 24 1 35 2;
+#X connect 25 0 27 0;
+#X connect 26 0 27 0;
+#X connect 27 1 4 1;
+#X connect 29 0 23 1;
+#X connect 30 0 14 0;
+#X connect 30 0 16 0;
+#X connect 31 0 32 0;
+#X connect 31 1 29 0;
+#X connect 31 1 14 1;
+#X connect 32 0 30 1;
+#X connect 33 0 30 1;
+#X connect 33 0 35 2;
+#X connect 35 0 3 1;
+#X connect 36 0 3 0;
+#X connect 36 1 35 0;
+#X connect 37 0 6 0;
+#X connect 37 1 36 0;
+#X connect 37 2 18 0;
+#X connect 37 3 25 0;
+#X connect 37 4 26 0;
+#X connect 37 5 35 0;
+#X connect 38 0 5 0;

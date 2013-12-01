@@ -1,0 +1,4 @@
+g_scope - simple oscilloscope gui
+g_spectroscope - frequency spectrum gui
+g_vu - mono vu meter
+g_vu2 - stereo vu meter

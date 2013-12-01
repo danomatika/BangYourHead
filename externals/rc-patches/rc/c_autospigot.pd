@@ -1,0 +1,73 @@
+#N canvas 209 30 350 417 10;
+#X obj 20 21 inlet~;
+#X obj 91 226 spigot;
+#X msg 132 195 0;
+#X msg 165 195 1;
+#X obj 42 98 env~ 2048;
+#X msg 101 311 1;
+#X msg 64 310 0;
+#X obj 19 379 outlet~;
+#X obj 64 280 moses;
+#X obj 196 23 inlet;
+#X obj 165 164 bng 15 250 50 0 empty empty calibrate 20 8 0 10 -191407
+-1 -1;
+#X obj 111 22 loadbang;
+#X obj 111 53 f \$1;
+#X obj 111 82 sel 0;
+#X obj 111 111 delay 500;
+#X obj 42 127 t f f b;
+#X obj 81 162 u_count 5;
+#X obj 19 342 c_spigot;
+#X obj 61 195 m_mavg 5;
+#X obj 197 112 route calibrate float;
+#X obj 258 194 clip 0 100;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 229 378 pd LICENSE-GPL;
+#X obj 91 253 + 8;
+#X text 119 253 magic number here ...;
+#X obj 126 378 outlet;
+#X connect 0 0 4 0;
+#X connect 0 0 17 0;
+#X connect 1 0 22 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 4 0 15 0;
+#X connect 5 0 17 1;
+#X connect 5 0 24 0;
+#X connect 6 0 17 1;
+#X connect 6 0 24 0;
+#X connect 8 0 6 0;
+#X connect 8 1 5 0;
+#X connect 9 0 19 0;
+#X connect 10 0 3 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 1 20 0;
+#X connect 14 0 10 0;
+#X connect 15 0 8 0;
+#X connect 15 1 18 0;
+#X connect 15 2 16 0;
+#X connect 16 1 2 0;
+#X connect 17 0 7 0;
+#X connect 18 0 1 0;
+#X connect 19 0 10 0;
+#X connect 19 1 20 0;
+#X connect 20 0 8 1;
+#X connect 22 0 8 1;
+#X coords 0 0 1 1 80 40 0;

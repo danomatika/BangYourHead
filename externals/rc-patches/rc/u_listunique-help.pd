@@ -1,0 +1,49 @@
+#N canvas 115 63 868 521 10;
+#N canvas 95 207 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_listunique];
+#X text 24 51 Summary: remove duplicates from a list;
+#X text 24 113 Inlet 0: incoming list to remove duplicate entries from
+;
+#X text 24 134 Inlet 1: <float> - number of allowed repetitions (default
+1);
+#X text 25 166 Outlet 0: "uniquified" list;
+#X text 24 234 Description: Thid is the list-abs [list-unique] object
+by Frank Barnecht. Added here for rc/rj completeness.;
+#X text 24 334 See also: [u_listrev] [u_listmap] [u_listfilter] [u_listnth]
+[u_listfind];
+#X text 24 434 Tags: list \, unique \, remove duplicates \, utility
+;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - remove duplicates from a list;
+#X msg 499 356 bang;
+#X text 599 295 number of allowed repetitions (default 1);
+#X floatatom 556 295 5 0 0 0 - - -;
+#X msg 506 149 1 1 1 1 1 1 1 1;
+#X msg 487 127 1 2 3 2 1;
+#X text 484 106 list to uniquify;
+#X obj 514 190 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 541 261 + 1;
+#X obj 514 211 t b a;
+#X msg 514 236 list H e l l o - W o r l d;
+#X obj 487 319 u_listunique;
+#X obj 487 385 u_show;
+#X obj 8 20 u_listunique;
+#X msg 487 415;
+#X connect 5 0 16 0;
+#X connect 7 0 15 1;
+#X connect 8 0 15 0;
+#X connect 9 0 15 0;
+#X connect 11 0 13 0;
+#X connect 12 0 7 0;
+#X connect 13 0 14 0;
+#X connect 13 1 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;

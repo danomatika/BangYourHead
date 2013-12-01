@@ -1,0 +1,80 @@
+#N struct 1052-symarray float x array symbols 1052-sym;
+#N struct 1052-sym symbol name float on;
+#N struct 1056-symarray float x array symbols 1056-sym;
+#N struct 1056-sym symbol name float on;
+#N struct 1060-symarray float x array symbols 1060-sym;
+#N struct 1060-sym symbol name float on;
+#N canvas 192 53 868 521 10;
+#X declare -path .;
+#N canvas 49 116 484 490 REFERENCE 0;
+#X text 24 31 Name: [c_playlist];
+#X text 24 51 Summary: this is a simple playlist which reads from a
+text file;
+#X text 24 88 Argument 0: optional playlist to load \, make sure the
+playlist file's folder is added to your path using [declare];
+#X text 24 127 Inlet 0: "next" & "prev" - next or previous in the list
+\; <float> - choose item in list by index \, numbers are clipped between
+0 & list len \; "reset" - set current index to 0 \, doesn't send;
+#X text 24 187 Inlet 1: "read" - load a playlist \; "clear" - clear
+the current list \; "print" - print the current list;
+#X text 24 240 Outlet 0: <symbol> list item;
+#X text 24 260 Outlet 1: <float> playlist length;
+#X text 24 332 Description: The playlist format is very simple: a text
+file with each item on a separate line \, empty lines are ignored.
+Use this in conjunction with [u_openclose] to automatically open/close
+the current playlist item.;
+#X text 24 400 See also: [u_dumpfile] \, [u_symbolarray] \, [u_openclose]
+;
+#X text 24 434 Tags: playlist \, text file \, lists;
+#X text 24 301 Outlet 3: bangs on end of list;
+#X text 24 281 Outlet 2: playlist length \, updated when loading;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 470 46 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - manages a playlist from a text file;
+#X obj 574 212 c_playlist;
+#X obj 716 422 declare -path .;
+#X msg 711 195 print;
+#X floatatom 628 86 5 0 0 0 - - -;
+#X msg 529 100 next;
+#X msg 574 100 prev;
+#X msg 495 361 next;
+#X symbolatom 495 422 20 0 0 0 - - -;
+#X symbolatom 574 320 20 0 0 0 - - -;
+#X obj 631 242 bng 15 250 50 0 empty empty end_of_list 17 7 0 10 -262144
+-1 -1;
+#X text 536 361 load file via creation arg;
+#X msg 487 156 reset;
+#X msg 692 168 clear;
+#X msg 673 139 read media/playlist.txt;
+#X obj 529 72 metro 500;
+#X obj 529 39 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 477 134 back to 0;
+#X text 670 85 choose via index;
+#X text 670 116 load a playlist file;
+#X floatatom 612 268 5 0 0 1 length - -;
+#X text 494 449 make sure to add paths when using relative filenames
+;
+#X floatatom 593 294 5 0 0 1 pos - -;
+#X obj 8 20 c_playlist;
+#X obj 495 391 c_playlist media/playlist.txt;
+#X connect 5 0 13 0;
+#X connect 5 1 26 0;
+#X connect 5 2 24 0;
+#X connect 5 3 14 0;
+#X connect 7 0 5 1;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 10 0 5 0;
+#X connect 11 0 28 0;
+#X connect 16 0 5 0;
+#X connect 17 0 5 1;
+#X connect 18 0 5 1;
+#X connect 19 0 9 0;
+#X connect 20 0 19 0;
+#X connect 28 0 12 0;

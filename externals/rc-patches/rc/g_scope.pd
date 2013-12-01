@@ -1,0 +1,97 @@
+#N canvas 534 209 542 500 10;
+#X obj 24 174 inlet~ audio;
+#X obj 43 420 metro 100;
+#X obj 207 141 inlet control;
+#X obj 220 404 pack 1.01 512 -1.01;
+#X obj 304 355 t f f;
+#X obj 331 380 * -1;
+#X obj 43 330 sel 0;
+#X msg 43 358 0;
+#X msg 75 357 1;
+#X obj 207 272 s \$0-onoff;
+#X obj 345 200 s \$0-yscale;
+#X obj 299 223 s \$0-xscale;
+#X text 339 248 refresh 10 - 1000 (ms);
+#X text 380 224 xscale 128 - 1024;
+#X text 424 198 yscale 0.2 - 2;
+#X obj 253 248 s \$0-refresh;
+#X text 189 2 a simple oscilloscope for signals -1.01 - 1.01;
+#X text 190 85 2009 Dan Wilcox;
+#X text 190 101 danomatika.com | robotcowboy.com;
+#X obj 304 327 r \$0-yscale;
+#X msg 206 360 resize \$1;
+#X obj 206 329 t f f;
+#X msg 220 429 bounds 0 \$1 \$2 \$3;
+#X obj 206 301 r \$0-xscale;
+#N canvas 0 22 450 300 defaults 0;
+#X obj 73 205 outlet;
+#X obj 138 86 loadbang;
+#X msg 73 117 bang;
+#X msg 73 165 onoff 1 \, refresh 100 \, xscale 512 \, yscale 1;
+#X obj 73 63 r \$0-reset;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X restore 325 142 pd defaults;
+#X obj 207 172 route onoff refresh xscale yscale reset;
+#X obj 43 302 r \$0-onoff;
+#X obj 94 392 r \$0-refresh;
+#X obj 24 262 clip~ -1 1;
+#X obj 456 172 s \$0-reset;
+#X obj 99 206 r \$0-yscale;
+#X obj 52 233 * -1;
+#X obj 99 233 - 0.009;
+#X text 190 37 shameless copy/adaptation of Frank Barknecht's [oscilloscope]
+which I found on the pd-list in 2008 or so;
+#X obj 1 3 cnv 15 164 126 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 4 18 cnv 15 148 98 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 6 117 hsl 145 10 128 1024 0 0 \$0-xscale \$0-xscale empty -2
+-8 0 10 -261234 -66577 -1 4082 1;
+#X obj 153 19 vsl 10 95 0.2 2 0 0 \$0-yscale \$0-yscale empty 0 -9
+0 10 -261234 -66577 -1 4219 1;
+#X obj 153 117 bng 10 250 50 0 \$0-reset \$0-reset empty 17 7 0 10
+-99865 -228856 -1;
+#X obj 153 5 tgl 10 0 \$0-onoff \$0-onoff empty 17 7 0 10 -99865 -4034
+-1 0 1;
+#X obj 108 5 nbx 4 10 10 1000 0 0 \$0-refresh \$0-refresh empty 0 -8
+0 10 -99865 -228856 -228856 251.654 256;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-g_scope 512 float 0;
+#X coords 0 1 512 -1 150 100 1 0 0;
+#X restore 3 17 graph;
+#X obj 24 461 tabwrite~ \$0-g_scope;
+#X obj 206 459 s \$0-g-scope;
+#X connect 0 0 28 0;
+#X connect 1 0 42 0;
+#X connect 2 0 25 0;
+#X connect 3 0 22 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 2;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 19 0 4 0;
+#X connect 20 0 43 0;
+#X connect 21 0 20 0;
+#X connect 21 1 3 1;
+#X connect 22 0 43 0;
+#X connect 23 0 21 0;
+#X connect 24 0 25 0;
+#X connect 25 0 9 0;
+#X connect 25 1 15 0;
+#X connect 25 2 11 0;
+#X connect 25 3 10 0;
+#X connect 25 4 29 0;
+#X connect 26 0 6 0;
+#X connect 27 0 1 1;
+#X connect 28 0 42 0;
+#X connect 30 0 32 0;
+#X connect 31 0 28 1;
+#X connect 32 0 28 2;
+#X connect 32 0 31 0;
+#X coords 0 -1 1 1 166 130 1 0 0;

@@ -1,0 +1,54 @@
+#N canvas 455 157 868 521 10;
+#N canvas 529 213 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_listsort];
+#X text 24 51 Summary: sort an incoming list of floats in ascending
+or descending order \, non-numbers are dropped;
+#X text 25 113 Argument 0: <float>/<symbol> - sort direction \, 0/"asc"
+for ascending & 1/"desc" for descending;
+#X text 24 157 Inlet 0: incoming list to sort;
+#X text 24 177 Inlet 1: <float>/<symbol> - sort direction \, 0/"asc"
+for ascending & 1/"desc" for descending;
+#X text 24 223 Outlet 0: sorted list;
+#X text 24 267 Description: This is the list-abs [list-sort] object
+by Michael Seta. Added here for rc/rj completeness.;
+#X text 24 345 See also: [u_listunique] [u_listmap] [u_listfilter]
+;
+#X text 24 434 Tags: list \, sort \, order \, utility;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 639 321 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 683 321 asc;
+#X msg 721 321 desc;
+#X msg 552 82 bang;
+#X obj 552 133 t b a;
+#X msg 552 217 91 35 78 70 85 46 64 10 93 83;
+#X msg 583 279 100 2 wrong type 3;
+#X msg 552 434;
+#X text 582 252 non-floats are removed with a warning;
+#X obj 552 360 u_listsort desc;
+#X obj 552 405 u_show;
+#X obj 552 108 u_listrandom 100 10;
+#X obj 579 159 list prepend set;
+#X obj 579 186 list trim;
+#X text 116 21 - sort a list of floatsin ascending or descending order
+;
+#X obj 8 20 u_listsort;
+#X connect 4 0 13 1;
+#X connect 5 0 13 1;
+#X connect 6 0 13 1;
+#X connect 7 0 15 0;
+#X connect 8 0 9 0;
+#X connect 8 1 16 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 8 0;
+#X connect 16 0 17 0;
+#X connect 17 0 9 0;

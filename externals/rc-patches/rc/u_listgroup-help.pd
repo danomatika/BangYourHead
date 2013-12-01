@@ -1,0 +1,50 @@
+#N canvas 45 41 868 521 10;
+#N canvas 377 58 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_listgroup];
+#X text 24 51 Summary: group incoming items into lists of a given sign
+\, saves extra items to add to next list;
+#X text 24 100 Argument 0: <float> - list group size;
+#X text 24 133 Inlet 0: items to group;
+#X text 24 153 Inlet 1: <float> - list group size;
+#X text 24 181 Outlet 0: grouped lists;
+#X text 24 434 Tags: lists \, grouping;
+#X text 24 334 See also: [u_listlatsx] [u_listdrip] [u_lister] [u_listmean]
+;
+#X text 24 234 Description: This is list-abs [list-group] which is
+itself a clone of the Max [zl group] object. It differs from [u_listlastx]
+in that it saves the extra contents of the received list to add to
+the next list.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - group items into lists of the same size;
+#X msg 482 113 list a b;
+#X msg 496 138 list c d e f;
+#X msg 557 298 3;
+#X msg 516 191 list a b c d e;
+#X msg 516 212 list f g;
+#X floatatom 593 299 5 0 0 1 size - -;
+#X floatatom 508 296 5 0 0 0 - - -;
+#X text 491 352 argument sets number of elements to group (default:
+1);
+#X text 510 258 change group size (at least 1) - changing will also
+empty the internal buffer;
+#X obj 482 331 u_listgroup 2;
+#X obj 482 375 u_show;
+#X msg 482 403 a b a b;
+#X obj 8 20 u_listgroup;
+#X text 504 167 remaining items are stored and used for the next group
+;
+#X connect 5 0 14 0;
+#X connect 6 0 14 0;
+#X connect 7 0 14 1;
+#X connect 8 0 14 0;
+#X connect 9 0 14 0;
+#X connect 10 0 14 1;
+#X connect 11 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;

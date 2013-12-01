@@ -1,0 +1,57 @@
+#N canvas 210 120 919 505 10;
+#N canvas 417 226 582 570 REFERENCE 0;
+#X text 24 105 Inlet 0: audio signal to graph;
+#X text 25 132 Inlet 1: control messages: onoff 0 or 1 \, refresh rate
+in ms \, xscale x-axis sensitivity \, yscale y-axis sensitivity \,
+reset all settings;
+#X text 24 273 Warning: This takes some cpu \, so it's best to leave
+it off when not needed. Also \, the higher the refresh rate \, the
+more cpu will be used.;
+#X text 24 51 Summary: a time domain signal gui \, not precise enough
+for scientific work!;
+#X text 24 221 Description: This is a simple oscilloscope table grapher.
+It's not super precise but useful. The incoming signal is clipped to
+stay in the table boundaries.;
+#X text 24 31 Name: [g_scope];
+#X text 24 435 Tags: GUI \, Audio \, Oscilloscope \, Time Domain;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore -55 36 pd REFERENCE;
+#X obj -55 6 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 408 39 Example:;
+#X obj 519 160 noise~;
+#X obj 442 127 hsl 128 15 20 20000 0 0 empty empty 20-20k 32 8 0 10
+-262144 -1 -1 667 1;
+#X floatatom 439 160 10 0 0 0 - - -;
+#X text 693 395 <-- reset;
+#X text 692 283 <-- refresh & onoff;
+#X obj 439 73 loadbang;
+#X msg 439 100 440;
+#X obj 439 210 osc~;
+#X obj 519 211 *~ 0;
+#X obj 543 185 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 530 434 u_loadmeter;
+#X msg 738 222 reset;
+#X text 419 466 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 69 9 - simple oscilloscope gui;
+#X obj 519 283 g_scope;
+#X obj 697 72 g_tgl onoff;
+#X obj 697 107 g_hsl refresh 10 1000;
+#X obj 697 141 g_hsl xscale 128 1024;
+#X obj 697 175 g_hsl yscale 0.2 2;
+#X text -51 8 g_scope;
+#X connect 3 0 11 0;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;
+#X connect 10 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 11 1;
+#X connect 14 0 17 1;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 17 1;

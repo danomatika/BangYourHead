@@ -1,0 +1,87 @@
+#N canvas 173 113 868 521 10;
+#X declare -path .;
+#N canvas 147 66 582 570 REFERENCE 0;
+#X text 24 31 Name: [s_sample];
+#X text 24 101 Argument 0: <float or symbol> unique id (don't use \$0)
+;
+#X text 24 243 Outlet 0: sample left channel out;
+#X text 24 263 Outlet 1: sample right channel out;
+#X text 24 405 See also: [s_playsample] [u_samplebank] [u_samplekit]
+;
+#X text 24 434 Tags: sample playback \, audio;
+#X text 24 314 Description: This is a convenience wrapper around [s_samplebank]
+& [s_playsample] that works with midi. Make sure to use [declare] when
+working with relative paths. The filename and right inlet values are
+state savable. Note: playback via midi pairs does not change the internal
+speed setting.;
+#X text 24 286 Outlet 2: bang when sample finishes playing;
+#X text 23 199 Inlet 1: "amp" <float> - amplitude 0-1 \, "speed" <float>
+- playback speed (> 0) \, "reverse" <float> - playback direction;
+#X text 24 147 Inlet 0: bang - play sample \, "open" <symbol> - file
+to load \, <float> - midi velocity (0-127) \, <float float> - midi
+note/vel pairs;
+#X text 24 50 Summary: a simple one shot stereo sample player with
+speed and playback direction control \, built to handle midi note and
+velocities;
+#X text 24 117 Argument 1: <symbol> optional file to open on creation
+;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 494 418 soundoutput;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 476 20 declare -path .;
+#X obj 671 467 s RJLIB;
+#X msg 671 441 sf-samplerate 44100;
+#X obj 517 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 538 129 play;
+#X msg 682 174 60 127;
+#X msg 619 103 60;
+#X msg 654 104 127;
+#X text 617 82 play using midi velocities \, 0 - 127;
+#X msg 688 104 0;
+#X text 718 103 stop;
+#X msg 788 175 60 0;
+#X obj 671 395 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X text 690 394 bangs when sample is done;
+#X text 632 152 speed via midi note-vel pairs;
+#X msg 633 174 35 127;
+#X msg 733 174 72 127;
+#X obj 633 214 t a;
+#X obj 671 265 g_hsl amp 0 1;
+#X obj 671 334 g_tgl reverse;
+#X msg 671 238 amp 1 \, speed 1 \, reverse 0;
+#X obj 671 299 g_hsl speed 0 2;
+#X obj 619 132 t a;
+#X text 577 21 set local path when using relative filenames;
+#X text 668 419 Set global samplerate:;
+#X text 129 21 - one shot stereo sample player;
+#X obj 8 20 s_sample;
+#X obj 494 371 s_sample sample media/bang.wav;
+#X msg 494 101 open media/aw.wav;
+#X msg 473 77 open media/bang.wav;
+#X connect 7 0 6 0;
+#X connect 8 0 32 0;
+#X connect 10 0 22 0;
+#X connect 11 0 27 0;
+#X connect 12 0 27 0;
+#X connect 14 0 27 0;
+#X connect 16 0 22 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 32 0;
+#X connect 23 0 26 0;
+#X connect 24 0 32 1;
+#X connect 25 0 23 0;
+#X connect 26 0 24 0;
+#X connect 27 0 32 0;
+#X connect 32 0 3 0;
+#X connect 32 1 3 1;
+#X connect 32 2 17 0;
+#X connect 33 0 32 0;
+#X connect 34 0 32 0;

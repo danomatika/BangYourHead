@@ -1,2 +1,6 @@
-c_qseq - a sequencer interface to qlist
+c_autospigot - pass a signal only if it's above an amplitude threshold
+c_midiplay - midifile player (requires mrpeach [midifile])
+c_nstep - arbitrary length bang sequence player
+c_playlist - manage a playlist from a text file
+c_qseq - sequencer interface to qlist
 c_spigot - toggle a signal without clicking

@@ -1,6 +1,17 @@
 u_allnotesoff - send noteoff for all midi notes
+u_count - up/down counter
 u_demux2 - demultiplex from 1 inlet between 2 outlets
 u_list2symbol - convert a list into a symbol
+u_listfind - find position(s) of a value in a list
+u_listgroup - group items into lists of the same size
+u_listlastx - make a list of the last x items
+u_listlen - calculate length of a list
 u_listmean - calculate the arithmetic mean of a list
+u_listrev - reverse a list's order
+u_listunique - remove duplicates from a list
 u_mux2 - multiplex between 2 inlets to 1 outlet
+u_openclose - open and close patches via filename (requires ggee)
+u_remote - send remote messages to state saving objects
+u_savestate - save & load scene state settings
+u_tabdump - dump the contents of a table as a list
 u_tabset - set the contents of a table via a list

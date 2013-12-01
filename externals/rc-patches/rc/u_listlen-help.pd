@@ -1,0 +1,35 @@
+#N canvas 421 166 868 521 10;
+#N canvas 294 238 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_listlen];
+#X text 24 51 Summary: calculate the length of a list;
+#X text 24 124 Inlet 0: incoming list to count;
+#X text 24 164 Outlet 0: <float> number of items in the list;
+#X text 24 234 Description: This is the list-abs [list-len] object.
+Added here for rc/rj completeness.;
+#X text 24 334 See also: [u_listrev] [u_listnth] [u_listsort];
+#X text 24 434 Tags: list \, count \, utility;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - calculate length of a list;
+#X msg 588 216 1 2 3 4 5 6;
+#X floatatom 544 316 5 0 0 1 length - -;
+#X msg 544 137 bang;
+#X msg 557 176 1;
+#X text 603 134 empty list;
+#X text 635 174 convert atom to 1-elem list;
+#X text 678 217 "real" lists;
+#X msg 588 176 dog;
+#X obj 544 284 u_listlen;
+#X msg 595 247 one two three;
+#X obj 8 20 u_listlen;
+#X connect 5 0 13 0;
+#X connect 7 0 13 0;
+#X connect 8 0 13 0;
+#X connect 12 0 13 0;
+#X connect 13 0 6 0;
+#X connect 14 0 13 0;

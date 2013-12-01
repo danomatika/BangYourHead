@@ -1,0 +1,36 @@
+#N canvas 136 158 868 521 10;
+#N canvas 445 153 582 570 REFERENCE 0;
+#X text 24 51 Summary: pow based distortion;
+#X text 24 91 Argument 0: <float or symbol> unique id (don't use \$0)
+;
+#X text 24 122 Inlet 0: audio signal in;
+#X text 24 142 Inlet 1: "dry" <float> - dry/wet mix (default is 0)
+\, "drive" <float> - distortion effect amount (0-1);
+#X text 24 187 Outlet 0: distorted audio signal out;
+#X text 24 254 Description: This is a modifed version of nusmuk distortion.pd
+which distorts the audio signal using pow. Nice and grungy.;
+#X text 24 335 See also: [e_apdist] [e_softclip] [e_alias] [e_agc]
+;
+#X text 24 434 Tags: distortion \, effect \, audio;
+#X text 24 31 Name: [e_powdist];
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 538 331 soundoutput;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X floatatom 538 142 5 0 0 0 - - -;
+#X obj 538 168 osc~ 440;
+#X obj 667 205 g_hsl drive 0 1;
+#X obj 667 236 g_hsl dry 0 1;
+#X text 130 21 - pow based distortion;
+#X obj 538 272 e_powdist mydistortion;
+#X obj 8 20 e_powdist;
+#X connect 5 0 6 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 1;
+#X connect 10 0 3 0;
+#X connect 10 0 3 1;

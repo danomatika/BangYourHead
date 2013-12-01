@@ -1,0 +1,9 @@
+#N canvas 0 22 225 170 10;
+#X obj 36 116 s RJ_SCENE_LOAD;
+#X obj 36 93 list trim;
+#X obj 36 69 list prepend \$1-\$2;
+#X text 23 14 args: object type \, unique id;
+#X obj 36 44 inlet;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 4 0 2 0;

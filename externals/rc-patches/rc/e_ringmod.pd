@@ -1,0 +1,41 @@
+#N canvas 610 138 410 256 10;
+#X obj 42 139 *~;
+#X obj 42 49 inlet~;
+#X obj 42 217 outlet~;
+#X text 30 17 simple ring modulator;
+#X obj 175 51 inlet;
+#X obj 175 96 u_dispatch \$0 dry;
+#X obj 175 74 u_dispatch \$0 freq;
+#X obj 234 51 u_loader e_ringmod-\$1 \$0;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 237 177 pd LICENSE-GPL;
+#X obj 57 81 r \$0-freq;
+#X obj 57 107 osc~ 0;
+#X obj 42 187 c_xfade;
+#X obj 81 139 r \$0-dry;
+#X obj 81 163 pack 0 10;
+#X connect 0 0 11 0;
+#X connect 1 0 0 0;
+#X connect 1 0 11 1;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 1;
+#X connect 11 0 2 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 2;

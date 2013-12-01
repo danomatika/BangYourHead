@@ -1,0 +1,45 @@
+#N canvas 284 194 868 521 10;
+#N canvas 311 140 582 570 REFERENCE 0;
+#X text 24 144 Inlet 1:;
+#X text 24 434 Tags:;
+#X text 24 31 Name: [u_listlastx];
+#X text 24 124 Inlet 0: items to group;
+#X text 24 91 Argument 0: <float> - desired list size;
+#X text 24 209 Outlet 1: grouped list;
+#X text 24 334 See also: [u_listgroup] [u_listdrip] [u_listser];
+#X text 24 175 Outlet 0: <float> - desired list size \, <bang> - reset
+the stored list;
+#X text 24 51 Summary: make a list of the last x items;
+#X text 24 245 Description: This is the list-abs [list-lastx] object.
+It differs from [u_listgroup] in that it does not save any extra contents
+of the received list to add to the next list.;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X floatatom 596 294 5 0 0 0 - - -;
+#X floatatom 646 282 5 0 0 2 change-size - -;
+#X msg 657 308 bang;
+#X text 699 307 reset stored list;
+#X obj 8 20 u_listlastx;
+#X obj 571 359 u_show;
+#X msg 571 387 f g;
+#X msg 571 129 list a b;
+#X msg 585 154 list c d e f;
+#X msg 605 207 list a b c d e;
+#X msg 605 228 list f g;
+#X obj 571 334 u_listlastx 2;
+#X text 129 21 - make a list of the last x items;
+#X text 599 180 chops off contents of longer lists;
+#X connect 4 0 15 0;
+#X connect 5 0 15 1;
+#X connect 6 0 15 1;
+#X connect 9 0 10 0;
+#X connect 11 0 15 0;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;
+#X connect 14 0 15 0;
+#X connect 15 0 9 0;

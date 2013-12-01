@@ -1,0 +1,95 @@
+#N canvas 795 80 396 512 10;
+#X obj 23 478 outlet~;
+#X obj 115 93 inlet~ env;
+#X obj 23 92 inlet~ audio;
+#X text 16 10 a low-pass resonant filter;
+#X obj 200 94 inlet freq;
+#X obj 311 94 inlet q;
+#X obj 200 169 clip 20 20000;
+#X obj 23 324 moog~;
+#X obj 311 216 pow 2;
+#X obj 311 242 / 16;
+#X obj 311 187 * 8;
+#X obj 311 160 clip 0 1;
+#N canvas 0 22 450 300 arg1 0;
+#X obj 107 86 f \$1;
+#X obj 107 58 loadbang;
+#X obj 107 113 sel 0;
+#X msg 107 137 2000;
+#X obj 143 176 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 4 0;
+#X restore 235 136 pd arg1;
+#N canvas 74 188 450 300 arg2 0;
+#X obj 107 58 loadbang;
+#X obj 107 113 sel 0;
+#X obj 143 176 outlet;
+#X obj 107 86 f \$2;
+#X msg 107 137 0.5;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 1 1 2 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X restore 326 132 pd arg2;
+#X text 145 59 creation args: freq \, q;
+#X obj 75 297 sig~ 3;
+#X obj 115 132 clip~ 0 1;
+#X obj 323 370 + 0;
+#X obj 311 332 f 1;
+#X obj 311 301 t b f;
+#X text 31 378 moog~ seems to be a bit quiet with higher q ...;
+#X text 33 407 so increase vol;
+#X text 121 297 q 0 - 4;
+#X obj 115 220 *~ 2000;
+#X msg 323 398 \$1 10;
+#X obj 323 427 vline~;
+#X obj 23 441 *~;
+#X obj 311 272 / 2.4;
+#X obj 23 357 hip~ 5;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2012 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 204 478 pd LICENSE-GPL;
+#X text 56 35 currently just a wrapper around moog~;
+#X connect 1 0 16 0;
+#X connect 2 0 7 0;
+#X connect 4 0 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 23 1;
+#X connect 7 0 28 0;
+#X connect 8 0 9 0;
+#X connect 9 0 15 0;
+#X connect 9 0 27 0;
+#X connect 10 0 8 0;
+#X connect 11 0 10 0;
+#X connect 12 0 6 0;
+#X connect 13 0 11 0;
+#X connect 15 0 7 2;
+#X connect 16 0 23 0;
+#X connect 17 0 24 0;
+#X connect 18 0 17 0;
+#X connect 19 0 18 0;
+#X connect 19 1 17 1;
+#X connect 23 0 7 1;
+#X connect 24 0 25 0;
+#X connect 25 0 26 1;
+#X connect 26 0 0 0;
+#X connect 27 0 19 0;
+#X connect 28 0 26 0;

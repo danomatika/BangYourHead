@@ -1,0 +1,33 @@
+#N canvas 511 261 868 521 10;
+#N canvas 317 64 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_listrev];
+#X text 24 51 Summary: reverses the item order in a given list;
+#X text 24 124 Inlet 0: incoming list to reverse;
+#X text 24 164 Outlet 0: reversed list;
+#X text 24 234 Description: This is the list-abs [list-rev] object.
+Added here for rc/rj completeness.;
+#X text 24 334 See also: [u_listdrip] [u_listnth] u_listfind] [u_listmap]
+;
+#X text 24 434 Tags: list \, reverse \, utility;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X msg 603 132 1 2 3 4;
+#X obj 673 219 u_show;
+#X obj 603 323 u_show;
+#X msg 673 244;
+#X msg 603 348;
+#X text 129 21 - reverse a list's order;
+#X obj 603 275 u_listrev;
+#X obj 8 20 u_listrev;
+#X obj 603 187 u_listrev;
+#X connect 4 0 12 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 10 0 6 0;
+#X connect 12 0 5 0;
+#X connect 12 0 10 0;

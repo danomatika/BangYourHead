@@ -1,1 +1,4 @@
-m_mavg - a moving average filter
+m_ctlin - ctlin that can learn it's ctl num & channel
+m_fadtodb - convert fader scale to vu db
+m_mavg - moving average filter
+m_scalefilter - filter notes based on a given scale

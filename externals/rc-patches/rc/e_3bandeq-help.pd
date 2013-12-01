@@ -1,0 +1,57 @@
+#N canvas 321 133 854 525 10;
+#N canvas 15 145 582 570 REFERENCE 0;
+#X text 24 31 Name: e_3bandeq;
+#X text 24 124 Inlet 0: incoming audio signal;
+#X text 24 164 Outlet 0: equalized audio signal;
+#X text 24 51 Summary: a dj-style 3 band equalizer with frequency adjustment
+from 0-2;
+#X text 24 434 Tags: equalizer \, filters;
+#X text 24 144 Inlet 1: filter mixer control;
+#X text 24 91 Argument 0: <float or symbol> unique id (don't use \$0)
+;
+#X text 22 361 See also:;
+#X text 24 211 Description: e_3bandeq filters the incoming signal in
+3 separate bands which are then mixed back together to create the output
+audio signal. The individual bands can be adjusted in the mixing stage
+from 0-2 with 1 being normal volume. From Derek Holzer's dj-eq.pd on
+http://puredata.hurleur.com/sujet-1687.html;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 496 376 soundoutput;
+#X obj 496 342 e_3bandeq myeq;
+#X text 475 483 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 577 300 g_hsl dry 0 1;
+#X obj 577 197 g_hsl low 0 2;
+#X obj 577 232 g_hsl med 0 2;
+#N canvas 750 150 209 168 defaults 0;
+#X obj 24 34 loadbang;
+#X obj 24 92 outlet;
+#X msg 24 63 dry 0 \, low 1 \, med 1 \, hi 1;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 577 166 pd defaults;
+#X obj 90 400 e_beequad;
+#X obj 170 400 e_lop2;
+#X obj 228 400 e_lop4;
+#X obj 360 399 e_resonzq;
+#X obj 288 399 e_reslop;
+#X obj 496 138 noise~;
+#X text 471 86 Freq band controls are 0-2 which allows *boosting* as
+well as filtering.;
+#X text 526 438 Use a range of 0-1 if you only want to attenuate.;
+#X obj 658 391 g_hsl high 0 1;
+#X obj 577 266 g_hsl high 0 2;
+#X obj 8 20 e_3bandeq;
+#X text 129 21 - dj-style 3 band equalizer;
+#X connect 4 0 3 0;
+#X connect 6 0 4 1;
+#X connect 7 0 8 0;
+#X connect 8 0 19 0;
+#X connect 9 0 7 0;
+#X connect 15 0 4 0;
+#X connect 18 0 4 1;
+#X connect 19 0 6 0;

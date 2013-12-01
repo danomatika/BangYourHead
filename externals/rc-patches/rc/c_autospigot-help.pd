@@ -1,0 +1,54 @@
+#N canvas 115 63 868 521 10;
+#N canvas 79 84 582 570 REFERENCE 0;
+#X text 24 365 See also: [c_spigot] [e_agc] [e_compressor];
+#X text 24 434 Tags: gain control \, threshold;
+#X text 24 31 Name: [c_autospigot];
+#X text 24 51 Summary: a smart signal spigot that opens itself when
+the incoming amplitude is above a given threshold;
+#X text 24 124 Inlet 0: audio signal in;
+#X text 24 206 Outlet 0: audio signal out;
+#X text 24 144 Inlet 1: <float> - set the gain threshold \; "calibrate"
+- tell the spigot to listen and set the threshold based on a short
+average of the current audio level;
+#X text 24 226 Outlet 1: <float> - status of the spigot \, 0 closed
+/ 1 open;
+#X text 24 90 Argument 0: <float> - gain threshold in rms dB (0-100)
+;
+#X text 24 264 Description: This is a basic envelop following signal
+threshold \, useful for cutting out hum and background noise on a live
+mic for instance. Set the threshold using the rms dB range (0-100)
+which is the same values that you get from [env~].;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 526 86 soundinput;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X obj 526 393 c_autospigot 45;
+#X floatatom 613 287 5 0 0 0 - - -;
+#X msg 638 345 calibrate;
+#X obj 526 423 env~;
+#X floatatom 526 454 5 0 0 0 rms_dB_out - -;
+#X obj 590 149 env~;
+#X floatatom 590 178 5 0 0 0 rms_dB_in - -;
+#X msg 577 220 20;
+#X msg 598 253 60;
+#X text 630 254 set rms dB threshold (0-100);
+#X text 634 320 uses the incoming signal level;
+#X text 103 20 - pass a signal only if it's above an amplitude threshold
+;
+#X obj 8 20 c_autospigot;
+#X obj 613 423 tgl 15 0 empty empty open? 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 3 0 5 0;
+#X connect 3 0 10 0;
+#X connect 5 0 8 0;
+#X connect 5 1 18 0;
+#X connect 6 0 5 1;
+#X connect 7 0 5 1;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 12 0 5 1;
+#X connect 13 0 5 1;

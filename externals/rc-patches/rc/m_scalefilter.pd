@@ -1,0 +1,63 @@
+#N canvas 377 64 384 384 10;
+#X obj 185 190 / 12;
+#X obj 185 215 int;
+#X obj 185 240 * 12;
+#X obj 38 322 +;
+#X obj 38 293 f;
+#X obj 26 152 t f f;
+#X obj 26 97 t f f;
+#X obj 26 38 inlet note;
+#X obj 26 64 route float clear;
+#X obj 26 128 mod 12;
+#X text 21 14 let a note through only if it is found in the scale list
+;
+#X obj 38 350 outlet note in scale;
+#X msg 83 97 0 1 2 3 4 5 6 7 8 9 10 11;
+#X text 251 98 default full scale;
+#X obj 26 184 u_listfind;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 260 152 pd LICENSE-GPL;
+#X obj 190 67 route clear;
+#X obj 190 38 inlet pitch class list;
+#X obj 271 68 loadbang;
+#X obj 202 351 outlet didn't pass;
+#X obj 83 214 moses 1;
+#X msg 202 317 bang;
+#X msg 83 243 bang;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 3 0 11 0;
+#X connect 4 0 3 0;
+#X connect 5 0 14 0;
+#X connect 5 1 4 1;
+#X connect 6 0 9 0;
+#X connect 6 1 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 5 0;
+#X connect 12 0 14 1;
+#X connect 14 1 20 0;
+#X connect 16 0 12 0;
+#X connect 16 1 14 1;
+#X connect 17 0 16 0;
+#X connect 18 0 12 0;
+#X connect 20 0 22 0;
+#X connect 20 1 21 0;
+#X connect 21 0 19 0;
+#X connect 22 0 4 0;

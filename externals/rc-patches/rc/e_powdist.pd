@@ -1,0 +1,54 @@
+#N canvas 323 172 416 351 10;
+#X obj 20 42 inlet~;
+#X obj 19 322 outlet~;
+#X obj 19 196 /~;
+#X obj 19 245 *~;
+#X obj 78 168 +~ 1;
+#X obj 78 142 *~ -1;
+#X obj 34 169 abs~;
+#X obj 78 211 expr~ pow($v2 \, $v1);
+#X obj 188 40 inlet;
+#X obj 188 63 u_dispatch \$0 drive;
+#X obj 188 85 u_dispatch \$0 dry;
+#X obj 247 40 u_loader e_powdist-\$1 \$0;
+#X obj 78 114 clip 0 1;
+#X obj 78 84 r \$0-drive;
+#X obj 19 296 c_xfade;
+#X obj 58 248 r \$0-dry;
+#X obj 58 272 pack 0 10;
+#X text 78 322 modified from nusmuk distortion.pd;
+#X text 9 10 simple pow distortion;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 252 273 pd LICENSE-GPL;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 0 0 14 1;
+#X connect 2 0 3 0;
+#X connect 3 0 14 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 6 0 2 1;
+#X connect 6 0 7 1;
+#X connect 7 0 3 1;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 12 0 5 0;
+#X connect 13 0 12 0;
+#X connect 14 0 1 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 2;

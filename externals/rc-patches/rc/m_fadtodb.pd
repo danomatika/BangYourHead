@@ -1,0 +1,45 @@
+#N canvas 624 22 298 193 10;
+#X obj -38 4 inlet;
+#X obj -38 104 tabread \$0-fadtodb;
+#X obj -38 71 clip 0 150;
+#X obj -38 37 int;
+#X obj -38 137 outlet;
+#X text -42 -20 a clone of iem [fadetodb] using a lookup table;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 119 138 pd LICENSE-GPL;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-fadtodb 148 float 1;
+#A 0 0 6.66667 13.3333 20 26.6667 33.3333 40 41.6667 43.3333 45 46.6667
+48.3333 50 51.6667 53.3333 55 56.6667 58.3333 60 61.6667 63.3333 65
+66.6667 68.3333 70 70.8333 71.6667 72.5 73.3333 74.1667 75 75.8333
+76.6667 77.5 78.3333 79.1667 80 80.6667 81.3333 82 82.6667 83.3333
+84 84.6667 85.3333 86 86.6667 87.3333 88 88.5 89 89.5 90 90.5 91 91.5
+92 92.5 93 93.5 94 94.3333 94.6667 95 95.3333 95.6667 96 96.3333 96.6667
+97 97.3333 97.6667 98 98.1667 98.3333 98.5 98.6667 98.8333 99 99.1667
+99.3333 99.5 99.6667 99.8333 100 100.167 100.333 100.5 100.667 100.833
+101 101.167 101.333 101.5 101.667 101.833 102 102.333 102.667 103 103.333
+103.667 104 104.333 104.667 105 105.333 105.667 106 106.5 107 107.5
+108 108.5 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123
+124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140
+141 142;
+#X coords 0 150 147 0 100 70 1 0 0;
+#X restore 115 22 graph;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;

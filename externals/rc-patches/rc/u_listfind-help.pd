@@ -1,0 +1,52 @@
+#N canvas 284 194 868 521 10;
+#N canvas 559 50 582 570 REFERENCE 0;
+#X text 24 91 Argument 0: <float> - desired list size;
+#X text 24 51 Summary: make a list of the last x items;
+#X text 24 31 Name: [u_listfind];
+#X text 24 124 Inlet 0: <float> or <symbol> value to search for;
+#X text 24 144 Inlet 1: list to search in;
+#X text 24 177 Outlet 0: <float> found positions in the search list
+;
+#X text 24 199 Outlet 1: <float> number matches found;
+#X text 24 244 Description: This is the list-abs [list-find] object.
+Useful in combination with [u_listnth] to retrieve the list value from
+a specific position.;
+#X text 24 334 See also: [u_listnth] [u_listequal] [u_listmap];
+#X text 24 434 Tags: list \, search \, find \, utility;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X floatatom 589 176 5 0 0 0 - - -;
+#X obj 631 207 loadbang;
+#X obj 531 379 print FOUND_AT;
+#X obj 574 232 t a b;
+#X msg 589 154 0;
+#X msg 619 154 4;
+#X msg 555 101 seven;
+#X msg 631 233 0 1 2 3 4 5 6 seven eight 0 0;
+#X msg 574 123 symbol eight;
+#X msg 574 350;
+#X floatatom 631 289 5 0 0 1 matches - -;
+#X msg 649 154 100;
+#X text 129 21 - find position(s) of a value in a list;
+#X obj 8 20 u_listfind;
+#X obj 574 325 u_collect;
+#X obj 574 261 u_listfind;
+#X connect 4 0 7 0;
+#X connect 5 0 11 0;
+#X connect 7 0 19 0;
+#X connect 7 1 18 1;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 7 0;
+#X connect 11 0 19 1;
+#X connect 12 0 7 0;
+#X connect 15 0 4 0;
+#X connect 18 0 13 0;
+#X connect 19 0 6 0;
+#X connect 19 0 18 0;
+#X connect 19 1 14 0;

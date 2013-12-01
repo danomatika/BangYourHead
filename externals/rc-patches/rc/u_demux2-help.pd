@@ -17,23 +17,26 @@ outlet. Equivalent to [demux 1 2] in zexy.;
 #X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X text 468 51 Example:;
-#X msg 618 153 q w e;
-#X obj 643 250 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+#X msg 590 153 q w e;
+#X obj 615 276 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
-#X text 667 258 choose the inlet;
-#X floatatom 643 290 5 0 0 0 - - -;
-#X obj 598 368 u_show;
-#X msg 598 402 1 2 3;
-#X obj 666 369 u_show;
-#X msg 666 404 abcd;
-#X msg 598 121 abcd;
-#X msg 634 186 1234;
-#X msg 566 90 1 2 3;
+#X text 639 284 choose the inlet;
+#X floatatom 615 316 5 0 0 0 - - -;
+#X obj 570 394 u_show;
+#X msg 570 428 hello;
+#X obj 638 395 u_show;
+#X msg 638 430 hello;
+#X msg 570 121 abcd;
+#X msg 606 186 1234;
+#X msg 538 90 1 2 3;
 #X obj 8 20 u_demux2;
-#X obj 598 321 u_demux2;
+#X obj 570 347 u_demux2;
 #X text 129 21 - demultiplex from 1 inlet between 2 outlets;
 #X text 470 477 rc-patches (https://github.com/danomatika/rc-patches)
 - 2012;
+#X msg 621 221 symbol hello;
+#X text 703 198 "symbol" header;
+#X text 669 182 note: symbols lose their;
 #X connect 3 0 15 0;
 #X connect 4 0 6 0;
 #X connect 6 0 15 1;
@@ -44,3 +47,4 @@ outlet. Equivalent to [demux 1 2] in zexy.;
 #X connect 13 0 15 0;
 #X connect 15 0 7 0;
 #X connect 15 1 9 0;
+#X connect 18 0 15 0;

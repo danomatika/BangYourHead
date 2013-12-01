@@ -1,0 +1,69 @@
+#N canvas 149 56 929 513 10;
+#N canvas 439 73 582 570 REFERENCE 0;
+#X text 24 31 Name: [u_savestate];
+#X text 24 105 Argument 0: optional text file name \, must be in path
+(use [declare -path] to add paths);
+#X text 24 51 Summary: saves & loads state settings for all open objects
+which use [u_loader] & [u_dispatch] internally to either a messagebox
+or texfile;
+#X text 24 152 Inlet 0: messagebox commands: save \, load \, clear
+;
+#X text 24 220 Inlet 1: incoming state messages (for use with a messagebox)
+;
+#X text 23 238 Outlet 0: bang when a given command is done;
+#X text 24 260 Outlet 1: outgoing state message (for use with a messagebox)
+;
+#X text 24 407 See also: [u_loader] [u_dispatch];
+#X text 78 171 texfile commands: savefile \, loadfile \, clearfile
+\, setfile \; setfile sets the current filename \, all others will
+use the existing filename or take an optional filename to change it
+;
+#X text 24 291 Description: [u_savestate] is a wrapper around the RJ_SCENE
+& RJ_SCENE_LOAD state saving mechanism (see [u_loader] help) and can
+save the current state for all open objects which use [u_loader] &
+[u_dispatch]. The state can be stored to a messagebox and saved with
+the parent patch or optionally saved to/loaded from a textfile. Make
+sure to *save* the patch when using a messagebox. Be careful with the
+*clear* command ...;
+#X text 24 434 Tags: Message \, Preset \, State-Saving;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X text 485 478 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X msg 489 100 save;
+#X msg 507 127 load;
+#X msg 527 152 clear;
+#X msg 564 239 loadfile;
+#X msg 585 268 clearfile;
+#X obj 8 20 u_savestate;
+#N canvas 632 217 450 300 state 0;
+#X obj 26 18 inlet;
+#X msg 26 49;
+#X obj 26 274 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 697 349 pd state in a messagebox;
+#X obj 507 376 bng 15 250 50 0 empty empty done 17 7 0 10 -262144 -1
+-1;
+#X text 556 118 save/load to a messagebox;
+#X text 633 237 save/load to a textfile;
+#X text 566 186 optionally set the file with the command;
+#X text 768 297 just set the file;
+#X text 658 265 empties and saves the file;
+#X obj 507 347 u_savestate media/state.txt;
+#X msg 548 207 savefile media/state.txt;
+#X msg 607 295 setfile media/state2.txt;
+#X text 129 21 - save & load scene state settings;
+#X connect 4 0 17 0;
+#X connect 5 0 17 0;
+#X connect 6 0 17 0;
+#X connect 7 0 17 0;
+#X connect 8 0 17 0;
+#X connect 10 0 17 1;
+#X connect 17 0 11 0;
+#X connect 17 1 10 0;
+#X connect 18 0 17 0;
+#X connect 19 0 17 0;

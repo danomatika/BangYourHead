@@ -3,7 +3,7 @@ rc-patches
 
 Pure Data abstractions for the [robotcowboy](http://robotcowboy.com) project
 
-Copyright (c) [Dan Wilcox](danomatika.com) 2007, 2011-2012
+Copyright (c) [Dan Wilcox](danomatika.com) 2007, 2011-2013
 
 LAYOUT
 ------
@@ -27,9 +27,5 @@ You will need to have the [rjlib](https://github.com/rjdj/rjlib) installed and a
 ### Old (deprecated)
 
 These will either be removed or rewritten and added to other folders.
-
-**Unit-Control**: main playlist, networking, and audio patch
-
-**samples**: samples used by Unit-Control
 
 **wip-patches**: bleeding edge work in progress patches (to be moved)

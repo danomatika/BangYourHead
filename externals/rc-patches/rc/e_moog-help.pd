@@ -1,0 +1,48 @@
+#N canvas 115 63 868 521 10;
+#N canvas 122 199 582 570 REFERENCE 0;
+#X text 24 31 Name: [e_moog];
+#X text 24 51 Summary: a resonant low pass filter ala Moog;
+#X text 24 91 Argument 0: filter frequency;
+#X text 23 108 Argument 1: q \, filter resonance (0-4);
+#X text 24 140 Inlet 0: audio in;
+#X text 24 205 Outlet 0: filtered audio out;
+#X text 24 334 See also: [e_resolop] [e_lop2] [e_lop4] [e_beequad]
+[u_lowassq];
+#X text 24 434 Tags: filter \, low pass \, resonant \, audio;
+#X text 24 252 Description: This has a sweepable frequency signal inlet
+\, useful with an envelope generator. Currently \, this object is simply
+a wrapper around the ggee [moog~] external. It will hopefully be ported
+to pure pd at some point.;
+#X text 24 162 Inlet 1: resonance frequency modulation \, use [sig~
+1] if want a flat freq;
+#X coords 0 -1 1 1 450 450 1 10 10;
+#X restore 5 48 pd REFERENCE;
+#X obj 5 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 468 51 Example:;
+#X obj 556 408 soundoutput;
+#X text 495 488 rc-patches (https://github.com/danomatika/rc-patches)
+- 2013;
+#X text 129 21 - moog style resonant low pass filter;
+#X text 666 334 creation args: freq \, q;
+#X obj 556 99 noise~;
+#X obj 585 175 rc-adsr~_ 1 10 100 50 1000;
+#X msg 585 142 bang;
+#X obj 617 224 hsl 128 15 20 20000 1 0 empty empty 20-20k 32 8 0 10
+-262144 -1 -1 11600 1;
+#X obj 646 280 hsl 128 15 0 1 0 0 empty empty 0-1 32 8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 643 305 5 0 0 1 q - -;
+#X floatatom 614 252 5 0 0 1 freq - -;
+#X text 623 141 <---- make noise;
+#X obj 8 20 e_moog;
+#X obj 556 336 e_moog 2000 0.5;
+#X connect 7 0 16 0;
+#X connect 8 0 16 1;
+#X connect 9 0 8 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 16 3;
+#X connect 13 0 16 2;
+#X connect 16 0 3 0;
+#X connect 16 0 3 1;

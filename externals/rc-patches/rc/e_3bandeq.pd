@@ -1,0 +1,108 @@
+#N canvas 49 221 425 233 10;
+#X obj 16 20 inlet~;
+#X obj 142 21 inlet;
+#X obj 16 206 outlet~;
+#X msg 55 140 \$1 10;
+#X obj 55 119 r \$0-dry;
+#X obj 16 166 c_xfade;
+#X obj 142 92 u_dispatch \$0 low;
+#X obj 142 164 u_dispatch \$0 dry;
+#X obj 142 116 u_dispatch \$0 med;
+#X obj 258 22 u_loader e_3bandeq-\$1 \$0;
+#N canvas 491 132 638 450 3bandeq 0;
+#X obj 31 417 outlet~;
+#X obj 31 23 inlet~;
+#X obj 31 78 biquad~ 1.86972 -0.872325 0.000650245 0.00130049 0.000650245
+;
+#X text 150 57 lo x3;
+#X obj 31 98 biquad~ 1.86972 -0.872325 0.000650245 0.00130049 0.000650245
+;
+#X obj 31 118 biquad~ 1.86972 -0.872325 0.000650245 0.00130049 0.000650245
+;
+#X obj 159 170 biquad~ 1.36591 -0.385279 0.307361 0 -0.307361;
+#X text 294 150 mid x3;
+#X obj 159 190 biquad~ 1.36591 -0.385279 0.307361 0 -0.307361;
+#X obj 159 210 biquad~ 1.36591 -0.385279 0.307361 0 -0.307361;
+#X obj 301 261 biquad~ 1.63386 -0.729864 0.840931 -1.68186 0.840931
+;
+#X text 441 239 hi x2;
+#X obj 301 281 biquad~ 1.63386 -0.729864 0.840931 -1.68186 0.840931
+;
+#X obj 513 138 switch~;
+#X obj 31 367 *~ 1;
+#X obj 159 367 *~ 1;
+#X obj 301 367 *~ 1;
+#X obj 513 30 r \$0-dry;
+#X msg 554 84 1;
+#X obj 52 307 r \$0-low;
+#X obj 180 310 r \$0-med;
+#X obj 52 336 clip 0 2;
+#X obj 180 338 clip 0 2;
+#X obj 322 338 clip 0 2;
+#X text 331 398 from Derek Holzer's dj-eq.pd;
+#X text 332 416 on http://puredata.hurleur.com/sujet-1687.html;
+#X obj 513 111 pipe 10;
+#X msg 513 83 0;
+#X obj 513 58 sel 1;
+#X obj 322 311 r \$0-high;
+#X connect 1 0 2 0;
+#X connect 1 0 6 0;
+#X connect 1 0 10 0;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 14 0;
+#X connect 6 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 15 0;
+#X connect 10 0 12 0;
+#X connect 12 0 16 0;
+#X connect 14 0 0 0;
+#X connect 15 0 0 0;
+#X connect 16 0 0 0;
+#X connect 17 0 28 0;
+#X connect 18 0 26 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 21 0 14 1;
+#X connect 22 0 15 1;
+#X connect 23 0 16 1;
+#X connect 26 0 13 0;
+#X connect 27 0 26 0;
+#X connect 28 0 27 0;
+#X connect 28 1 18 0;
+#X connect 29 0 23 0;
+#X restore 16 92 pd 3bandeq;
+#X text 265 116 0 - 2;
+#X text 266 164 0 - 1;
+#N canvas 172 83 586 377 LICENSE-GPL 0;
+#X text 57 88 This program is free software: you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation \, either version 3 of
+the License \, or (at your option) any later version.;
+#X text 58 168 This program is distributed in the hope that it will
+be useful \, but WITHOUT ANY WARRANTY \; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.;
+#X text 57 261 You should have received a copy of the GNU General Public
+License along with this program. If not \, see <http://www.gnu.org/licenses/>.
+;
+#X text 60 325 See the file LICENSE.txt for the full license text.
+;
+#X text 56 54 Copyright (C) 2013 \, Dan Wilcox <danomatika@gmail.com>
+;
+#X restore 318 203 pd LICENSE-GPL;
+#X obj 192 22 loadbang;
+#X msg 192 50 low 1 \, med 1 \, high 1 \, dry 0;
+#X obj 142 140 u_dispatch \$0 high;
+#X connect 0 0 5 1;
+#X connect 0 0 10 0;
+#X connect 1 0 6 0;
+#X connect 3 0 5 2;
+#X connect 4 0 3 0;
+#X connect 5 0 2 0;
+#X connect 6 0 8 0;
+#X connect 8 0 16 0;
+#X connect 10 0 5 0;
+#X connect 14 0 15 0;
+#X connect 15 0 6 0;
+#X connect 16 0 7 0;
