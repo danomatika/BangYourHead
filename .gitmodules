@@ -1,0 +1,6 @@
+[submodule "externals/rc-patches"]
+	path = externals/rc-patches
+	url = https://github.com/danomatika/rc-patches.git
+[submodule "externals/rjlib"]
+	path = externals/rjlib
+	url = https://github.com/rjdj/rjlib.git
