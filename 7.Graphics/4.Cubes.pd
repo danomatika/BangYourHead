@@ -1,24 +1,24 @@
-#N canvas 597 87 386 501 10;
+#N canvas 597 87 401 512 10;
 #X declare -path ../rc;
 #X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
 -path ../externals/rc-patches/rc-patches;
 #X declare -path ../externals/rjlib/rj -path ../externals/pd;
-#X obj -15 265 gemhead;
-#X floatatom 22 376 5 0 0 0 - - -;
-#X obj -15 352 ortho;
-#X floatatom 59 377 5 0 0 0 - - -;
-#X obj 46 323 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 24 270 gemhead;
+#X floatatom 61 381 5 0 0 0 - - -, f 5;
+#X obj 24 357 ortho;
+#X floatatom 98 382 5 0 0 0 - - -, f 5;
+#X obj 85 328 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj -15 439 color 0.5 0.5 0.5;
-#X obj 203 334 g_hsl size 0 3;
-#X msg 203 265 draw line;
-#X msg 278 265 draw fill;
-#X msg 122 265 draw point;
-#X obj 203 375 g_hsl distanceX -3 3 0;
-#X obj 203 406 g_hsl distanceY -3 3;
-#X obj 203 437 g_hsl distanceZ -3 3;
-#X obj 203 302 g_hsl num 0 10;
-#X floatatom 96 377 5 0 0 0 - - -;
+#X obj 24 444 color 0.5 0.5 0.5;
+#X obj 242 339 g_hsl size 0 3;
+#X msg 242 270 draw line;
+#X msg 317 270 draw fill;
+#X msg 161 270 draw point;
+#X obj 242 380 g_hsl distanceX -3 3 0;
+#X obj 242 411 g_hsl distanceY -3 3;
+#X obj 242 442 g_hsl distanceZ -3 3;
+#X obj 242 307 g_hsl num 0 10;
+#X floatatom 135 382 5 0 0 0 - - -, f 5;
 #N canvas 317 59 349 420 cubeset 0;
 #N canvas 0 22 336 409 wall 0;
 #X obj 27 26 inlet;
@@ -141,8 +141,8 @@
 #X connect 12 0 11 0;
 #X connect 13 0 11 1;
 #X connect 14 0 6 0;
-#X restore -15 471 pd cubeset;
-#X obj -15 409 translateXYZ -3 3 0;
+#X restore 24 476 pd cubeset;
+#X obj 24 414 translateXYZ -3 3 0;
 #N canvas 215 284 398 212 guisend 0;
 #X obj -21 179 s \$0-size;
 #X obj 16 155 s \$0-draw;
@@ -153,7 +153,7 @@
 #X obj -21 44 route size draw num;
 #X obj 53 122 s \$0-num;
 #X obj 53 73 int;
-#X floatatom 53 98 5 0 0 0 - - -;
+#X floatatom 53 98 5 0 0 0 - - -, f 5;
 #X obj -21 8 inlet;
 #X connect 2 0 5 0;
 #X connect 2 1 4 0;
@@ -165,30 +165,30 @@
 #X connect 8 0 9 0;
 #X connect 9 0 7 0;
 #X connect 10 0 6 0;
-#X restore 203 474 pd guisend;
-#X text -23 213 Draws a cube of rotating cubes using multiple iterations
+#X restore 242 479 pd guisend;
+#X text 16 218 Draws a cube of rotating cubes using multiple iterations
 of a single [cube] object.;
-#X text 67 322 no perspective?;
-#X obj 46 265 loadbang;
-#X msg 46 295 0;
-#X obj -31 4 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
+#X text 106 327 no perspective?;
+#X obj 85 270 loadbang;
+#X msg 85 300 0;
+#X obj 8 9 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
 0;
-#X msg 10 141 reset;
-#X obj -17 173 gem_win;
-#X obj -3 84 loadbang;
-#X text 69 55 set the window title \, the framerate \,;
-#X text 53 140 reset the window;
-#X obj -17 38 g_tgl run;
-#X text 229 180 2012 Dan Wilcox;
+#X msg 49 146 reset;
+#X obj 22 178 gem_win;
+#X obj 36 89 loadbang;
+#X text 108 60 set the window title \, the framerate \,;
+#X text 92 145 reset the window;
+#X obj 22 43 g_tgl run;
+#X text 268 185 2012 Dan Wilcox;
 #N canvas 0 22 386 154 externals 0;
 #X text 14 16 add search paths to local libraries here;
 #X obj 16 47 declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
 -path ../externals/rc-patches/rc-patches;
 #X obj 15 106 declare -path ../externals/rjlib/rj -path ../externals/pd
 ;
-#X restore 245 15 pd externals;
-#X text 69 71 the window size \, and use a norm viewport;
-#X msg -3 112 title Cubes \, frame 30 \, dimen 400 400 \, defaultView
+#X restore 284 20 pd externals;
+#X text 108 76 the window size \, and use a norm viewport;
+#X msg 36 117 title Cubes \, frame 30 \, dimen 400 400 \, defaultView
 ;
 #X connect 0 0 2 0;
 #X connect 1 0 16 1;
