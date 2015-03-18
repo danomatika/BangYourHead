@@ -1,4 +1,0 @@
-e_3bandeq - dj-style 3 band equalizer
-e_moog - moog style resonant low pass filter (requires ggee)
-e_powdist - pow based distortion
-e_ringmod - ring modulation
