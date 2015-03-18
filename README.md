@@ -8,8 +8,8 @@
 With various contributions from around the web, notably:
 
 * [rjlib](https://github.com/rjdj/rjlib): great external library
-* [Roman Haefeli](http://romanhaefeli.net/): Pd basics patch
-* [Noisybox.net](http://noisybox.net/computers/pd/): rockin' bang your head~ logo
+* [Roman Haefeli](http://romanhaefeli.net): Pd basics patch
+* [Noisybox.net](http://noisybox.net/computers/pd): rockin' bang your head~ logo
 
 What is Pure Data?
 ------------------
@@ -18,7 +18,7 @@ What is Pure Data?
 <img src="https://raw.github.com/danomatika/BangYourHead/master/pd_patch.png"/>
 </p>
 
-Pure Data is an open source graphical patching environment for audio and multimedia similar to [Max/MSP](http://cycling74.com/products/max/). It was created by [Miller Puckette](http://crca.ucsd.edu/~msp/) (who also created Max) in 1996 and is now a community project with contributors from around the world.
+Pure Data is an open source graphical patching environment for audio and multimedia similar to [Max/MSP](http://cycling74.com/products/max). It was created by [Miller Puckette](http://crca.ucsd.edu/~msp) (who also created Max) in 1996 and is now a community project with contributors from around the world.
 
 It's website is http://puredata.info and you can download it from http://puredata.info/downloads
 
@@ -61,4 +61,11 @@ If you run into specific issues or have general questions, see the [Pure Data FA
 
 ### Other Useful Links
 
-* [Ed Kelly's PD Workshop Wiki](http://puredata.wikispaces.com/)
+* [Ed Kelly's PD Workshop Wiki](http://puredata.wikispaces.com)
+
+Cloing this Repo with Git
+-------------------------
+If you're cloning this repo, make sure to checkout the rc-patches & rjlib external submodules:  
+	  
+	git submodule init
+	git submodule update
