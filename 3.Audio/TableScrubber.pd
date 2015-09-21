@@ -1,0 +1,49 @@
+#N canvas 540 116 462 511 10;
+#X obj 25 474 dac~;
+#X obj 25 330 tabread4~ \$0-sample;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-sample 22050 float 0;
+#X coords 0 1 22050 -1 200 140 1;
+#X restore 233 88 graph;
+#X obj 25 438 hip~ 5;
+#X obj 235 282 adc~ 1;
+#X obj 235 309 hip~ 5;
+#X obj 235 344 tabwrite~ \$0-sample;
+#X obj 25 302 line~;
+#X obj 293 311 bng 15 250 50 0 empty empty record 17 7 0 10 -258113
+-1 -1;
+#X obj 28 87 hsl 128 15 0 127 0 0 empty empty scrub_me -2 -8 0 10 -4032
+-1 -1 4500 1;
+#X obj 25 122 / 127;
+#X obj 40 183 array size \$0-sample;
+#X obj 40 153 loadbang;
+#X obj 25 213 *;
+#X msg 103 155 bang;
+#X obj 25 242 int;
+#X obj 54 397 tabplay~ \$0-sample;
+#X obj 25 274 pack 0 100;
+#X floatatom 82 245 5 0 0 1 interpolation_delay_in_ms - -, f 5;
+#X obj 54 373 bng 15 250 50 0 empty empty play_once 17 7 0 10 -4034
+-1 -1;
+#X text 12 11 Simple scrub through samples in a table. Uses line~ interpolation
+and to avoid clicks.;
+#X text 339 454 Dan Wilcox 2015;
+#X text 341 476 danomatika.com;
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 7 0 1 0;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 13 0;
+#X connect 11 0 13 1;
+#X connect 12 0 11 0;
+#X connect 13 0 15 0;
+#X connect 14 0 11 0;
+#X connect 15 0 17 0;
+#X connect 16 0 3 0;
+#X connect 17 0 7 0;
+#X connect 18 0 17 1;
+#X connect 19 0 16 0;

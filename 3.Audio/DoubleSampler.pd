@@ -1,4 +1,4 @@
-#N canvas 159 24 839 640 10;
+#N canvas 159 24 843 608 10;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-array1 44100 float 2;
 #X coords 0 1 44099 -1 200 140 1 0 0;
@@ -19,26 +19,26 @@
 -262144 -1 -1;
 #X obj 338 172 phasor~ 1;
 #X obj 338 411 *~ 0.5;
-#X floatatom 32 135 5 0 0 2 base_playback_speed - -;
+#X floatatom 32 135 5 0 0 2 base_playback_speed - -, f 5;
 #X obj 338 356 +~ 500;
 #X obj 374 310 hsl 128 15 0 44100 0 0 empty empty start_pos -2 -8 0
 10 -262144 -1 -1 0 1;
 #X obj 386 217 hsl 128 15 0 44100 0 0 empty empty length -2 -8 0 10
--262144 -1 -1 12700 1;
+-262144 -1 -1 0 1;
 #X obj 68 309 hsl 128 15 0 44100 0 0 empty empty start_pos -2 -8 0
-10 -262144 -1 -1 3700 1;
+10 -262144 -1 -1 0 1;
 #X obj 80 216 hsl 128 15 0 44100 0 0 empty empty length -2 -8 0 10
--262144 -1 -1 12700 1;
+-262144 -1 -1 0 1;
 #X obj 32 358 +~ 500;
 #X obj 57 59 tabwrite~ \$0-array1;
 #X obj 198 61 tabwrite~ \$0-array2;
 #X obj 32 383 tabread~ \$0-array1;
 #X obj 338 384 tabread~ \$0-array2;
-#X floatatom 77 242 10 0 0 0 - - -;
-#X floatatom 65 333 10 0 0 0 - - -;
-#X floatatom 371 332 10 0 0 0 - - -;
-#X floatatom 383 245 10 0 0 0 - - -;
-#X floatatom 338 137 5 0 0 2 base_playback_speed - -;
+#X floatatom 77 242 10 0 0 0 - - -, f 10;
+#X floatatom 65 333 10 0 0 0 - - -, f 10;
+#X floatatom 371 332 10 0 0 0 - - -, f 10;
+#X floatatom 383 245 10 0 0 0 - - -, f 10;
+#X floatatom 338 137 5 0 0 2 base_playback_speed - -, f 5;
 #X obj 560 142 \$0;
 #X msg 560 113 bang;
 #X msg 560 168 \; \$1-array1 const \; \$1-array2 const 0;
