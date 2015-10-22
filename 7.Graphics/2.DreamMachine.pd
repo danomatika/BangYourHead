@@ -1,59 +1,59 @@
-#N canvas 610 35 554 681 10;
+#N canvas 610 35 591 681 10;
 #X declare -path ../rc;
 #X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
 -path ../externals/rc-patches/rc-patches;
 #X declare -path ../externals/rjlib/rj -path ../externals/pd;
-#X obj -11 272 gemhead;
-#X obj -41 5 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
+#X obj 32 270 gemhead;
+#X obj 2 3 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
 0;
-#X msg 0 142 reset;
-#X obj -27 174 gem_win;
-#X obj -13 85 loadbang;
-#X text 59 56 set the window title \, the framerate \,;
-#X text 43 141 reset the window;
-#X obj 9 312 gemmouse;
-#X floatatom 9 350 5 0 0 0 mouseX - -;
-#X floatatom 53 369 5 0 0 0 mouseY - -;
-#X obj -11 615 colorRGB 1 1 1;
-#X obj 49 565 spigot;
-#X obj 52 590 hsl 128 15 0 1 0 0 empty empty 0-1 8 8 0 10 -262144 -1
--1 8226 1;
-#X obj 82 544 tgl 15 0 empty empty turn_on_the_pulse 17 7 0 10 -262144
+#X msg 43 140 reset;
+#X obj 16 172 gem_win;
+#X obj 30 83 loadbang;
+#X text 102 54 set the window title \, the framerate \,;
+#X text 86 139 reset the window;
+#X obj 52 310 gemmouse;
+#X floatatom 52 348 5 0 0 0 mouseX - -, f 5;
+#X floatatom 96 367 5 0 0 0 mouseY - -, f 5;
+#X obj 32 613 colorRGB 1 1 1;
+#X obj 92 563 spigot;
+#X obj 95 588 hsl 128 15 0 1 0 0 empty empty 0-1 8 8 0 10 -262144 -1
+-1 7146 1;
+#X obj 125 542 tgl 15 0 empty empty turn_on_the_pulse 17 7 0 10 -262144
 -1 -1 1 1;
-#X obj 52 470 hsl 128 15 0 1 0 0 empty empty 0-1_speed 8 8 0 10 -262144
--1 -1 12700 1;
-#X text 95 363 scale the pos from 0-400 to 0-1 and use it to set the
+#X obj 95 468 hsl 128 15 0 1 0 0 empty empty 0-1_speed 8 8 0 10 -262144
+-1 -1 6350 1;
+#X text 138 361 scale the pos from 0-400 to 0-1 and use it to set the
 red and blue;
-#X text 88 615 set the color;
-#X text 167 648 draw a rectangle over the whole window;
-#X text 72 314 get the mouse position;
-#X text 165 507 this low frequency oscillator sweeps the blue value
+#X text 131 613 set the color;
+#X text 210 646 draw a rectangle over the whole window;
+#X text 115 312 get the mouse position;
+#X text 208 505 this low frequency oscillator sweeps the blue value
 back and forth from 0-1;
-#X text 197 447 set the waveform type for the pulse;
-#X obj 49 513 c_lfo lfo1 500 20;
-#X obj 29 432 m_scale 0 400 0 1;
-#X obj 9 401 m_scale 0 400 0 1;
-#X msg 197 470 waveform sine;
-#X msg 296 470 waveform tri;
-#X msg 392 470 waveform saw;
-#X obj -27 39 g_tgl run;
-#X text 59 72 the window size \, and use a pixel viewport;
+#X text 240 445 set the waveform type for the pulse;
+#X obj 92 511 c_lfo lfo1 500 20;
+#X obj 72 430 m_scale 0 400 0 1;
+#X obj 52 399 m_scale 0 400 0 1;
+#X msg 240 468 waveform sine;
+#X msg 339 468 waveform tri;
+#X msg 435 468 waveform saw;
+#X obj 16 37 g_tgl run;
+#X text 102 70 the window size \, and use a pixel viewport;
 #N canvas 0 22 387 152 externals 0;
 #X text 11 16 add search paths to local libraries here;
 #X obj 13 47 declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
 -path ../externals/rc-patches/rc-patches;
 #X obj 12 106 declare -path ../externals/rjlib/rj -path ../externals/pd
 ;
-#X restore 236 13 pd externals;
-#X text -17 222 This is a GEM render chain \, everything connected
-under the [gemhead] is drawn to the screen.;
-#X text 219 181 2011 Dan Wilcox;
-#X obj -11 649 gem_rect 0 0 400 400 corner;
-#X msg -13 113 title DreamMachine \, frame 30 \, dimen 400 400 \, pixelView
+#X restore 279 11 pd externals;
+#X text 26 220 This is a GEM render chain \, everything connected under
+the [gemhead] is drawn to the screen.;
+#X text 262 179 2011 Dan Wilcox;
+#X obj 32 647 gem_rect 0 0 400 400 corner;
+#X msg 30 111 title DreamMachine \, frame 30 \, dimen 400 400 \, pixelView
 ;
-#X obj 155 418 loadbang;
-#X msg 82 489 1;
-#X msg 155 444 0.5;
+#X obj 198 416 loadbang;
+#X msg 125 487 1;
+#X msg 198 442 0.5;
 #X connect 0 0 10 0;
 #X connect 2 0 3 0;
 #X connect 4 0 33 0;

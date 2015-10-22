@@ -1,28 +1,28 @@
-#N canvas 548 28 636 680 10;
+#N canvas 551 53 642 685 10;
 #X declare -path ../rc;
 #X declare -path ../../externals/rjlib/rj -path ../../externals/pd
 ;
 #X declare -path ../../externals/rc-patches/extra -path ../../externals/rc-patches/rc
 -path ../../externals/rc-patches/rc-patches;
 #X declare -path ../rc-patches;
-#X floatatom 223 271 3 0 0 0 - - -;
-#X obj 223 243 keyname;
-#X symbolatom 304 270 10 0 0 0 - - -;
-#X obj 12 406 tgl 20 0 empty empty play 24 7 0 10 -262144 -1 -1 0 1
-;
-#X msg -11 264 open test_clip.mov;
-#X obj -33 572 unpack f f f;
-#X obj 246 408 hsl 128 15 0 1 0 0 empty empty 0-1_frame_position 8
-8 0 10 -262144 -1 -1 0 1;
-#X obj 243 491 int;
-#X obj -11 237 loadbang;
-#X obj 401 410 hsl 128 15 0 1 0 0 empty empty 0-1_loop_length 8 8 0
-10 -262144 -1 -1 0 1;
-#X obj 398 492 int;
-#X obj 343 435 r \$0-framelen;
-#X obj -33 596 s \$0-framelen;
-#X obj 102 407 hsl 128 15 1 60 0 0 empty empty 1-60_fps 8 8 0 10 -262144
--1 -1 6242 1;
+#X floatatom 316 290 3 0 0 0 - - -, f 3;
+#X obj 316 262 keyname;
+#X symbolatom 397 289 10 0 0 0 - - -, f 10;
+#X obj 105 425 tgl 20 0 empty empty play 24 7 0 10 -262144 -1 -1 1
+1;
+#X msg 82 283 open test_clip.mov;
+#X obj 60 591 unpack f f f;
+#X obj 339 427 hsl 128 15 0 1 0 0 empty empty 0-1_frame_position 8
+8 0 10 -262144 -1 -1 12300 1;
+#X obj 336 510 int;
+#X obj 82 256 loadbang;
+#X obj 494 429 hsl 128 15 0 1 0 0 empty empty 0-1_loop_length 8 8 0
+10 -262144 -1 -1 6300 1;
+#X obj 491 511 int;
+#X obj 436 454 r \$0-framelen;
+#X obj 60 615 s \$0-framelen;
+#X obj 195 426 hsl 128 15 1 60 0 0 empty empty 1-60_fps 8 8 0 10 -262144
+-1 -1 8900 1;
 #N canvas 0 22 283 244 makekeypair 0;
 #X obj 52 47 inlet onoff;
 #X obj 119 81 inlet keyname;
@@ -39,9 +39,9 @@
 #X connect 4 0 2 0;
 #X connect 4 1 3 1;
 #X connect 5 0 6 0;
-#X restore 223 300 pd makekeypair;
-#X obj 12 355 sel 1;
-#X msg 99 380 30;
+#X restore 316 319 pd makekeypair;
+#X obj 105 374 sel 1;
+#X msg 192 399 30;
 #N canvas 0 22 239 270 change 0;
 #X obj 63 38 inlet;
 #X obj 106 39 inlet;
@@ -64,7 +64,7 @@
 #X connect 7 0 6 0;
 #X connect 8 0 5 0;
 #X connect 9 0 5 0;
-#X restore 398 377 pd change length;
+#X restore 491 396 pd change length;
 #N canvas 0 22 173 264 change 0;
 #X obj 54 43 inlet;
 #X obj 97 43 inlet;
@@ -87,56 +87,56 @@
 #X connect 7 0 2 0;
 #X connect 8 0 6 0;
 #X connect 9 0 6 0;
-#X restore 243 377 pd change speed;
-#X obj 99 356 loadbang;
-#X obj 223 329 route Space Left Right Down Up;
-#X msg -4 295 open test_clip2.mp4;
-#X obj -91 -16 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
+#X restore 336 396 pd change speed;
+#X obj 192 375 loadbang;
+#X obj 316 348 route Space Left Right Down Up;
+#X msg 89 314 open test_clip2.mp4;
+#X obj 2 3 cnv 15 360 200 empty empty Setup 5 12 0 14 -233017 -66577
 0;
-#X msg -50 121 reset;
-#X obj -77 153 gem_win;
-#X obj -63 64 loadbang;
-#X text 9 35 set the window title \, the framerate \,;
-#X text -7 120 reset the window;
-#X obj -77 18 g_tgl run;
-#X text 170 160 2012 Dan Wilcox;
+#X msg 43 140 reset;
+#X obj 16 172 gem_win;
+#X obj 30 83 loadbang;
+#X text 102 54 set the window title \, the framerate \,;
+#X text 86 139 reset the window;
+#X obj 16 37 g_tgl run;
+#X text 263 179 2012 Dan Wilcox;
 #N canvas 0 22 350 149 externals 0;
 #X text 11 14 add search paths to local libraries here;
 #X obj 12 104 declare -path ../../externals/rjlib/rj -path ../../externals/pd
 ;
 #X obj 13 45 declare -path ../../externals/rc-patches/extra -path ../../externals/rc-patches/rc
 -path ../../externals/rc-patches/rc-patches;
-#X restore 185 -5 pd externals;
-#X text 9 51 the window size \, and use a norm viewport;
-#X obj -76 544 gem_videoplayer;
-#X obj -76 212 gemhead;
-#X msg 12 434 play \$1;
-#X obj 243 465 m_scale 0 1 0 255;
-#X obj 398 466 m_scale 0 1 0 2;
-#X text 220 203 play with the video file;
-#X text 22 206 load a video file;
-#X text 66 600 set the loop controls max value with the num of frames
+#X restore 278 14 pd externals;
+#X text 102 70 the window size \, and use a norm viewport;
+#X obj 17 231 gemhead;
+#X msg 105 453 play \$1;
+#X obj 336 484 m_scale 0 1 0 255;
+#X obj 491 485 m_scale 0 1 0 2;
+#X text 313 222 play with the video file;
+#X text 115 225 load a video file;
+#X text 159 619 set the loop controls max value with the num of frames
 ;
-#X text 288 245 <-- keybaord input;
-#X text 57 543 <-- simple video player abstraction;
-#X obj -76 631 rectangle 6 4;
-#X msg -63 92 title Player \, frame 30 \, dimen 400 300 \, defaultView
+#X text 150 562 <-- simple video player abstraction;
+#X obj 17 650 rectangle 6 4;
+#X msg 30 111 title Player \, frame 30 \, dimen 400 300 \, defaultView
 ;
+#X obj 17 563 gem_videoplayer;
+#X text 381 264 <-- keyboard input;
 #X connect 0 0 14 0;
 #X connect 1 0 0 0;
 #X connect 1 1 2 0;
 #X connect 2 0 14 1;
-#X connect 3 0 34 0;
-#X connect 4 0 32 0;
+#X connect 3 0 33 0;
+#X connect 4 0 42 0;
 #X connect 5 0 12 0;
-#X connect 6 0 35 0;
-#X connect 7 0 32 2;
+#X connect 6 0 34 0;
+#X connect 7 0 42 2;
 #X connect 8 0 4 0;
-#X connect 9 0 36 0;
-#X connect 10 0 32 3;
+#X connect 9 0 35 0;
+#X connect 10 0 42 3;
+#X connect 11 0 34 4;
 #X connect 11 0 35 4;
-#X connect 11 0 36 4;
-#X connect 13 0 32 1;
+#X connect 13 0 42 1;
 #X connect 14 0 20 0;
 #X connect 15 0 3 0;
 #X connect 16 0 13 0;
@@ -148,14 +148,14 @@
 #X connect 20 2 18 1;
 #X connect 20 3 17 0;
 #X connect 20 4 17 1;
-#X connect 21 0 32 0;
+#X connect 21 0 42 0;
 #X connect 23 0 24 0;
-#X connect 25 0 43 0;
+#X connect 25 0 41 0;
 #X connect 28 0 24 0;
 #X connect 32 0 42 0;
-#X connect 32 1 5 0;
-#X connect 33 0 32 0;
-#X connect 34 0 32 0;
-#X connect 35 0 7 0;
-#X connect 36 0 10 0;
-#X connect 43 0 24 0;
+#X connect 33 0 42 0;
+#X connect 34 0 7 0;
+#X connect 35 0 10 0;
+#X connect 41 0 24 0;
+#X connect 42 0 40 0;
+#X connect 42 1 5 0;
