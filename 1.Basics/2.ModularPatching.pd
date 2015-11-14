@@ -1,15 +1,210 @@
-#N canvas 765 70 192 268 10;
-#N canvas 852 186 450 300 SUBPATCHES 0;
+#N canvas 765 70 188 277 10;
+#X declare -path ../;
+#N canvas 946 160 413 339 SUBPATCHES 0;
+#X text 17 15 As you develop more complicated patches \, it helps to
+stay organized. One way to do this is to encapsulate things within
+"subpatches" within your main patch canvas. Basically \, a subpatch
+is an object who's underlying objects are still saved as part of the
+main patch.;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X text 36 30 This is a subpatch. It's contents are still saved as
+part of the main parent patch \, even though it appears as a separate
+object.;
+#X text 38 88 All subpatches are objects which start with the object
+name "pd".;
+#X restore 93 152 pd;
+#X text 20 106 Create a subpatch using a "pd" object. You can click
+on the box below to open the subpatch.;
+#N canvas 195 73 450 300 do 0;
+#X obj 100 131 print DO SOMETHING;
+#X msg 100 97 hello world;
+#X text 72 55 something happens inside here;
+#X connect 1 0 0 0;
+#X restore 34 240 pd do something;
+#N canvas 0 22 450 300 something 0;
+#X text 85 33 do something else here;
+#X msg 95 84 foo bar;
+#X obj 95 121 print DO SOMETHING ELSE;
+#X connect 1 0 2 0;
+#X restore 196 241 pd something else;
+#X text 22 183 Subpatches can also be given names after the "pd" object
+name. This has no effect on how the program runs \, but it's useful
+to tag what's happening inside of a subpatch.;
+#X text 22 280 Note: Subpatches are *not* reusable objects. If you
+copy and paste a subpatch \, that subpatch is a completely separate
+copy. For reusable objects \, see ABSTRACTIONS.;
 #X restore 18 23 pd SUBPATCHES;
-#N canvas 827 166 450 300 ABSTRACTIONS 0;
+#N canvas 783 89 434 684 ABSTRACTIONS 0;
+#X text 20 22 Abstractions are like subpatches \, except the contents
+of the subpatch is actually saved as a separate patch file and thus
+reusable with parent patches. This allows you to create your own custom
+objects.;
+#X obj 22 143 hello;
+#X text 21 93 Here is an abstraction saved as "hello.pd" in the same
+folder as this patch.;
+#X obj 32 551 hello;
+#X text 80 551 <- right click and select "help";
+#X text 21 479 Creating a help patch is as easy as saving an abstraction
+of the same name with "-help" added to the filename. In this case \,
+the help patch for "hello.pd" is named "hello-help.pd" and is saved
+in the same folder as "hello.pd".;
+#X text 85 160 or by right clicking and selecting "open" in edit mode
+;
+#X text 65 142 <- open by clicking on this in run mode;
+#X text 22 219 Note: This object was instantiated correctly since Pd
+was able to find the abstraction .pd patch. By default \, Pd looks
+in the same folder as the parent patch as well as the paths added to
+Preferences->Path. You can open patches saved in subfolders or relative
+paths directly \, such as [../../hello] or [subfolder/hello]. You can
+also add search paths to the parent patch itself using the declare
+object.;
+#X obj 26 327 declare -path ../;
+#X text 143 329 adds parent folder to the Pd search path;
+#X text 21 362 When creating abstractions \, it's good practice to
+include info as to how the abstraction works aka what the inlets and
+outlets expect and what happens inside. One way to do this is to include
+comments \, etc inside the abstraction patch itself. The second and
+more helpful way to do this \, especially if you plan to reuse the
+abstraction a great deal and/or include it as part of a library \,
+is to create a help patch for it.;
+#X obj 24 190 hello;
+#X text 67 190 <- this is a second instance of the abstraction;
+#X text 24 591 Note: You will need to save the help patch before being
+able to instantiate the object you want to write the help info for.
+This is because \, unless the target abstraction is in one of Pd's
+search paths \, Pd will not be able to find the object until you save
+the patch in same folder.;
 #X restore 18 79 pd ABSTRACTIONS;
-#N canvas 840 197 450 300 ARGUMENT 0;
-#X restore 18 107 pd ARGUMENT VARIABLES;
-#N canvas 912 142 450 300 INLETS_AND_OUTLETS 0;
+#N canvas 899 165 435 358 ARGUMENT 0;
+#X text 110 193 \$1 - the first argument;
+#X text 111 245 \$3 - the third argument;
+#X text 117 272 ... and so on;
+#X text 110 218 \$2 - the second argument;
+#X text 21 305 Arguments which are not set or don't exist \, always
+return a float 0;
+#X text 252 124 <- open me;
+#X obj 109 154 print FOOBAR ARGS;
+#X obj 109 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 109 125 foobar 123 baz hello;
+#X text 13 15 Like regular objects \, subpatches can also take creation
+arguments: either floats or symbols. Within the abstraction itself
+\, you can use "dollarargs" or "dollar sign arguments" to denote a
+particular argument. This is similar to using dollarargs within messages.
+;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X restore 18 138 pd ARGUMENT VARIABLES;
+#N canvas 927 141 407 436 INLETS_AND_OUTLETS 0;
+#N canvas 0 22 450 300 no 0;
+#X text 98 135 A lonely world \, devoid of connections.;
+#X restore 130 63 pd no inlets or outlets;
+#X text 25 102 In order to add inlets or outlets \, you simply use
+the [inlet] and [outlet] objects:;
+#N canvas 0 22 512 284 inlets 0;
+#X obj 40 24 inlet;
+#X obj 35 225 outlet;
+#X obj 306 21 inlet;
+#X obj 304 231 outlet;
+#X text 91 24 <- left inlet;
+#X text 364 21 <- right inlet;
+#X text 105 227 <- left outlet;
+#X text 369 231 <- right inlet;
+#X text 65 107 Two inlets and two outlets. The position of each object
+within the subpatch corresponds with the inlet and outlets drawn on
+the subpatch box in the parent patch.;
+#X restore 116 154 pd inlets and outlets;
+#N canvas 0 22 456 289 tagged 0;
+#X obj 31 30 inlet gimme shelter;
+#X obj 282 29 inlet house of the holy;
+#X obj 36 239 outlet I wanna be Sedataed;
+#X obj 296 239 outlet crazy train?;
+#X text 92 144 Contextual text in the inlet/outlet objects.;
+#X restore 107 396 pd tagged inlets and outlets;
+#X text 28 191 For signal data \, there are also corresponding [inlet~]
+and [outlet~] objects:;
+#N canvas 0 22 428 289 inlet~ 0;
+#X obj 28 23 inlet~;
+#X obj 34 230 outlet~;
+#X text 112 129 Signal inlet and outlets;
+#X restore 115 228 pd inlet~ and outlet~;
+#X text 30 260 Of course \, you can use both together in the same subpatch.
+;
+#N canvas 0 22 450 300 mixed 0;
+#X obj 35 25 inlet~;
+#X obj 340 22 inlet;
+#X obj 327 232 outlet~;
+#X obj 46 234 outlet;
+#X restore 62 301 pd mixed signal and message inlets & outlets;
+#X text 17 13 Ok \, so you've created a subpatch but it doesn't have
+any inlets or outlets for exchanging data:;
+#X text 26 341 You can also add text after the "inlet" and "outlet"
+object names for contextual info. This additional text has no effect
+on the inlet/outlet objects themselves.;
 #X restore 18 51 pd INLETS_AND_OUTLETS;
-#N canvas 846 270 450 300 DOLLAR_ZERO 0;
-#X restore 18 136 pd DOLLAR_ZERO;
-#X text 16 234 Version: 04-08 2013;
-#X text 16 219 Author: Dan Wilcox;
-#X text 14 167 This is a stub for now.;
-#X text 15 186 To be filled out later.;
+#N canvas 739 105 467 670 DOLLAR_ZERO 0;
+#X obj 55 160 dollarzero;
+#X floatatom 55 191 5 0 0 0 - - -, f 5;
+#X floatatom 243 192 5 0 0 0 - - -, f 5;
+#X obj 32 331 s hello;
+#X obj 31 299 r hello;
+#X obj 32 372 r \$0-hello;
+#X obj 33 404 s \$0-hello;
+#X text 31 492 Note: \$0 does *not* work within message boxes. You
+need to use a float object to get the proper value if you need to create
+a symbol using \$0 dynamically:;
+#X msg 135 545 bang;
+#X obj 135 573 f \$0;
+#X symbolatom 135 632 0 0 0 0 - - -;
+#X obj 135 597 makefilename %d-hello;
+#X text 22 14 Like argument variables \, \$0 is a special argument
+that denotes the unique ID of an abstraction instance. This means it
+is guaranteed to be different for each usage of the same abstraction.
+;
+#X text 25 85 The [dollarzero] abstraction below outputs it's dollarzero
+argument when loaded. The two values will be different.;
+#X obj 55 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 243 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 243 161 dollarzero;
+#X text 27 223 The \$0 argument is useful in that you can use it to
+create object names and variables which are only used by that *instance*
+of the abstraction. Take \, for example \, sends & receives:;
+#X text 89 300 If I open multiple copies of this patch \, *all* running
+instances will receive messages sent to [s hello] \, since the send
+& recieve names are global.;
+#X text 114 372 Using \$0 gaurantees a unique global name.;
+#X text 30 440 This same is true when naming tables \, delay lines
+\, var objects \, and data structures.;
+#X connect 0 0 1 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 14 0 0 0;
+#X connect 15 0 16 0;
+#X connect 16 0 2 0;
+#X restore 18 167 pd DOLLAR_ZERO;
+#X text 16 228 Author: Dan Wilcox;
+#N canvas 0 22 450 300 GRAPH 0;
+#X text 199 108 TBD;
+#X restore 18 197 pd GRAPH ON PARENT;
+#X text 16 243 Version: 11-14 2015;
+#N canvas 559 117 406 245 LOADBANG 0;
+#X obj 29 76 loadbang;
+#X text 24 15 The laodbang object simply sends a bang when the patch
+is loaded. It is useful in abstractions in order to setup an initial
+state before incoming messages are handled.;
+#X symbolatom 29 198 0 0 0 0 - - -;
+#X floatatom 132 199 0 0 0 0 - - -;
+#X msg 132 156 123.456;
+#X obj 29 115 t b b;
+#X text 184 200 <- these should be set already;
+#X text 99 75 <- sends banf when patch is laoded;
+#X msg 29 155 symbol hello;
+#X connect 0 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 8 0;
+#X connect 5 1 4 0;
+#X connect 8 0 2 0;
+#X restore 18 108 pd LOADBANG;

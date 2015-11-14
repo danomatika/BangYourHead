@@ -1,61 +1,63 @@
-#N canvas 505 143 750 450 10;
-#X obj -265 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -235 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -266 301 soundlooper;
-#X obj 87 125 MouseState;
-#X obj 87 251 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+#N canvas 505 143 793 478 10;
+#X declare -lib cyclone;
+#X obj 23 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 53 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 22 398 soundlooper;
+#X obj 375 348 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X floatatom 169 293 5 0 0 0 - - -, f 5;
+#X floatatom 407 303 5 0 0 0 - - -, f 5;
+#X text 214 295 x;
+#X msg 375 151 poll;
+#X text 451 304 y;
+#X floatatom 423 279 5 0 0 0 - - -, f 5;
+#X text 473 280 delta x;
+#X floatatom 440 250 5 0 0 0 - - -, f 5;
+#X text 394 349 button pressed ? (one button of course \, mac you know)
 ;
-#X floatatom -119 196 5 0 0 0 - - -;
-#X floatatom 119 206 5 0 0 0 - - -;
-#X text -74 198 x;
-#X msg 88 54 poll;
-#X text 163 207 y;
-#X floatatom 135 182 5 0 0 0 - - -;
-#X text 185 183 delta x;
-#X floatatom 152 153 5 0 0 0 - - -;
-#X text 106 252 button pressed ? (one button of course \, mac you know)
+#X text 435 123 poll the mouse device;
+#X msg 424 170 zero;
+#X text 466 172 set current pos to 0 \, 0 of our coordinate system
 ;
-#X text 148 26 poll the mouse device;
-#X msg 136 73 zero;
-#X text 178 75 set current pos to 0 \, 0 of our coordinate system;
-#X msg 134 98 reset;
-#X text 184 98 reset 0 \, 0 to upper left corner;
-#X obj 88 26 loadbang;
-#X obj -206 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom -119 276 5 0 0 0 - - -;
-#X obj -119 247 expr ($f1 / 1279 * 6.25) -3;
-#X msg -265 140 symbol amen_break.wav;
-#X text -270 -79 This controls the sound looper using the keyboard
-;
-#X text 81 -20 You can try using the mouse to change other inputs in
+#X msg 422 195 reset;
+#X text 472 195 reset 0 \, 0 to upper left corner;
+#X obj 375 123 loadbang;
+#X obj 82 150 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 169 373 5 0 0 0 - - -, f 5;
+#X obj 169 344 expr ($f1 / 1279 * 6.25) -3;
+#X msg 23 237 symbol amen_break.wav;
+#X text 18 18 This controls the sound looper using the keyboard;
+#X text 369 77 You can try using the mouse to change other inputs in
 the sound looper;
-#X text -196 159 Sound file name Don't forget the "symbol";
-#X text -267 329 This custom object is what plays and control the sample
+#X text 92 256 Sound file name Don't forget the "symbol";
+#X text 21 426 This custom object is what plays and control the sample
 Click on it;
-#X symbolatom -265 -11 10 0 0 0 - - -;
-#X obj -265 -41 keyname;
-#X obj -265 19 select q w e;
-#X connect 0 0 23 0;
+#X symbolatom 23 86 10 0 0 0 - - -, f 10;
+#X obj 23 56 keyname;
+#X obj 23 116 select q w e;
+#X obj 375 222 MouseState;
+#X obj 369 21 declare -lib cyclone;
+#X connect 0 0 22 0;
 #X connect 1 0 2 1;
-#X connect 3 0 4 0;
-#X connect 3 1 5 0;
-#X connect 3 2 6 0;
-#X connect 3 3 10 0;
-#X connect 3 4 12 0;
-#X connect 5 0 22 0;
-#X connect 8 0 3 0;
-#X connect 15 0 3 0;
-#X connect 17 0 3 0;
-#X connect 19 0 8 0;
-#X connect 20 0 2 5;
-#X connect 21 0 2 2;
-#X connect 22 0 21 0;
-#X connect 23 0 2 0;
-#X connect 28 0 30 0;
-#X connect 29 1 28 0;
-#X connect 30 0 0 0;
-#X connect 30 1 1 0;
-#X connect 30 2 20 0;
+#X connect 4 0 21 0;
+#X connect 7 0 30 0;
+#X connect 14 0 30 0;
+#X connect 16 0 30 0;
+#X connect 18 0 7 0;
+#X connect 19 0 2 5;
+#X connect 20 0 2 2;
+#X connect 21 0 20 0;
+#X connect 22 0 2 0;
+#X connect 27 0 29 0;
+#X connect 28 1 27 0;
+#X connect 29 0 0 0;
+#X connect 29 1 1 0;
+#X connect 29 2 19 0;
+#X connect 30 0 3 0;
+#X connect 30 1 4 0;
+#X connect 30 2 5 0;
+#X connect 30 3 9 0;
+#X connect 30 4 11 0;

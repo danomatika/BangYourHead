@@ -1,14 +1,14 @@
-#N canvas 953 220 406 391 10;
+#N canvas 953 220 408 407 10;
 #X declare -lib mrpeach;
-#X obj -52 67 unpackOSC;
-#X obj -52 36 udpreceive 8080;
-#X obj -52 126 routeOSC /player;
-#X obj -52 95 routeOSC /pd;
-#X obj -52 198 symbol;
-#X msg -52 227 load \$1;
-#X msg 9 210 1;
-#X msg 47 209 0;
-#X obj 259 186 channel 1;
+#X obj 16 73 unpackOSC;
+#X obj 16 42 udpreceive 8080;
+#X obj 16 132 routeOSC /player;
+#X obj 16 101 routeOSC /pd;
+#X obj 16 204 symbol;
+#X msg 16 233 load \$1;
+#X msg 77 216 1;
+#X msg 115 215 0;
+#X obj 327 192 channel 1;
 #N canvas 710 379 300 180 forward 0;
 #X obj 32 37 inlet raw midi;
 #X obj 32 81 rc-notein;
@@ -28,22 +28,22 @@
 #X connect 2 2 4 2;
 #X connect 3 0 6 0;
 #X connect 4 0 7 0;
-#X restore -23 336 pd forward midi;
+#X restore 45 342 pd forward midi;
 #N canvas 650 189 221 80 externals 0;
 #X text 10 11 add external libraries and paths;
 #X obj 14 41 declare -lib mrpeach;
-#X restore 238 39 pd externals;
-#X obj 70 99 spigot;
-#X obj 103 72 tgl 15 0 empty empty debug_OSC 17 7 0 10 -262144 -1 -1
+#X restore 306 45 pd externals;
+#X obj 138 105 spigot;
+#X obj 171 78 tgl 15 0 empty empty debug_OSC 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 70 126 print OSC;
-#X obj 259 211 channel 2;
-#X obj 259 236 channel 3;
-#X obj 259 261 channel 4;
-#X obj 259 287 channel 5;
-#X obj 259 313 channel 6;
-#X obj 259 339 channel 7;
-#X obj 259 364 channel 8;
+#X obj 138 132 print OSC;
+#X obj 327 217 channel 2;
+#X obj 327 242 channel 3;
+#X obj 327 267 channel 4;
+#X obj 327 293 channel 5;
+#X obj 327 319 channel 6;
+#X obj 327 345 channel 7;
+#X obj 327 370 channel 8;
 #N canvas 131 369 379 298 midifile 0;
 #X obj 18 163 metro 2;
 #X obj 18 16 inlet;
@@ -99,13 +99,13 @@
 #X connect 17 3 11 0;
 #X connect 17 4 18 0;
 #X connect 18 0 4 0;
-#X restore -23 290 pd midifile;
-#X obj -52 157 routeOSC /load /play /stop /bpm /loop /rewind /channel
+#X restore 45 296 pd midifile;
+#X obj 16 163 routeOSC /load /play /stop /bpm /loop /rewind /channel
 ;
-#X msg 85 209 bpm \$1;
-#X msg 139 209 loop \$1;
-#X msg 202 210 rewind;
-#X text -55 7 OSCMidiPlayer: plays a midi file with toggleable channels
+#X msg 153 215 bpm \$1;
+#X msg 207 215 loop \$1;
+#X msg 270 216 rewind;
+#X text 13 13 OSCMidiPlayer: plays a midi file with toggleable channels
 ;
 #N canvas 635 165 419 271 OSC 0;
 #X text 26 55 /pd/player/play - start playing;
@@ -121,13 +121,13 @@ minute;
 ;
 #X text 27 227 /pd/player/channel/#/amp float (0-1) - set amplitude
 scaling;
-#X restore 112 364 pd OSC message notes;
-#X text -25 363 open me for notes -->;
-#X text 50 35 <-- listening OSC port;
-#X text 141 260 midi channels -->;
-#X obj 79 310 spigot;
-#X obj 79 336 print MIDI;
-#X obj 112 288 tgl 15 0 empty empty debug_MIDI 17 7 0 10 -262144 -1
+#X restore 180 370 pd OSC message notes;
+#X text 43 369 open me for notes -->;
+#X text 118 41 <-- listening OSC port;
+#X text 209 266 midi channels -->;
+#X obj 147 316 spigot;
+#X obj 147 342 print MIDI;
+#X obj 180 294 tgl 15 0 empty empty debug_MIDI 17 7 0 10 -262144 -1
 -1 0 1;
 #X connect 0 0 3 0;
 #X connect 0 0 11 0;

@@ -1,3 +1,0 @@
-Nothing much here, just some scripts used to update our copy of external libraries since (currently) submodules are **not** downloaded through Github's "Download as Zip" feature ...
-
-You shouldn't need to do anything here unless you're developing examples, etc
