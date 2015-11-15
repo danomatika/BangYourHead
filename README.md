@@ -53,9 +53,7 @@ What do I use it for?
 Where do I start?
 -----------------
 
-Well, you can clone or download a zip of this repository and start looking into the example patches, but I'd recommend you "Read the Manual" first:
-
-See [Pure Data Start Here](http://puredata.info/docs/StartHere)
+Well, you can clone or download a zip of this repository and start looking into the example patches, but I'd recommend you "Read the Manual" first: [Pure Data Start Here](http://puredata.info/docs/StartHere)
 
 There are also a few books online, see [Pure Data Books About Pd](http://puredata.info/docs/BooksAboutPd)
 
@@ -63,19 +61,20 @@ If you run into specific issues or have general questions, see the [Pure Data FA
 
 ### Other Useful Links
 
+* Johannes Kreidler's [Programming Electronic Music in Pd](http://www.pd-tutorial.com)
 * [Ed Kelly's PD Workshop Wiki](http://puredata.wikispaces.com)
 
 Downloading this Repo as a Zip File fom GitHub
 ----------------------------------------------
 
-*If you want a zip file, don't downlaod it from GitHub. (See below.) Grab the official release here: <https://github.com/danomatika/BangYourHead.git>*
+*If you want a zip file, don't download it from GitHub. (See below.) Grab the official release here: <https://github.com/danomatika/BangYourHead.git>*
 
 You download this repo as a zip using the "Download ZIP" button, however, currently Github does not include git submodules within the zip file, so you will also need to download the following patch libraries and extract their contents into the `externals` folder:
 
 * [rjlib](https://github.com/rjdj/rjlib)
 * [rc-patches](https://github.com/danomatika/rc-patches)
 
-IE. downloading and extracting "rjlib" as a zip gives you a "rjlib-master" folder. Copy the contents of "rjlin-master" inside the "externals/rjlib" folder. 
+IE: downloading and extracting "rjlib" as a zip gives you a "rjlib-master" folder. Copy the contents of "rjlin-master" inside the "externals/rjlib" folder. 
 
 Cloning this Repo with Git
 --------------------------

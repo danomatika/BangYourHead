@@ -5,10 +5,11 @@
 # submodules
 #
 
-USER=danomatika
-SERVER=danomatika.com
 ZIP=BangYourHead
-DEST=/home/danomatika/danomatika.com/docs
+
+SSH_USER=danomatika
+SSH_HOST=danomatika.com
+SSH_DEST=/home/danomatika/danomatika.com/docs
 
 # clone & zip
 git clone https://github.com/danomatika/BangYourHead.git
