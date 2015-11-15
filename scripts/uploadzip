@@ -1,0 +1,29 @@
+#! /bin/bash
+#
+# helper script to update the release zip since
+# Github's "Download ZIP" button doesn't clone
+# submodules
+#
+
+USER=danomatika
+SERVER=danomatika.com
+ZIP=BangYourHead
+DEST=/home/danomatika/danomatika.com/docs
+
+# clone & zip
+git clone https://github.com/danomatika/BangYourHead.git
+cd BangYourHead
+git submodule init
+git submodule update
+rm -rf scripts
+rm -rf .git externals/rjlib/.git externals/rc-patches/.git
+cd ../
+zip -r $ZIP BangYourHead
+
+# rsync zip
+rsync -azv -e ssh $ZIP.zip $SSH_USER@$SSH_HOST:$SSH_DEST
+
+# cleanup
+rm -f $ZIP.zip
+rm -rf BangYourHead
+

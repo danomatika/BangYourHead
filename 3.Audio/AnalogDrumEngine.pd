@@ -1,16 +1,19 @@
-#N canvas 699 153 399 201 10;
-#X obj 20 147 dac~;
-#X obj 20 19 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+#N canvas 699 153 403 201 10;
+#X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X declare -path ../externals/rjlib/rj -path ../externals/pd;
+#X obj 21 171 dac~;
+#X obj 21 43 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
 ;
-#X obj 20 91 sel 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
-#X obj 20 43 metro 160;
-#X obj 20 67 random 16;
-#X obj 74 19 hsl 128 15 50 400 0 0 empty empty empty -2 -6 0 8 -44926
--1 -1 10500 1;
-#X msg 311 65 \; pd dsp 1;
-#X obj 311 38 loadbang;
-#X text 304 15 turn on dsp;
-#X text 256 117 <-- look inside;
+#X obj 21 115 sel 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
+#X obj 21 67 metro 160;
+#X obj 21 91 random 16;
+#X obj 75 43 hsl 128 15 50 400 0 0 empty empty empty -2 -6 0 8 -44926
+-1 -1 0 1;
+#X msg 312 89 \; pd dsp 1;
+#X obj 312 62 loadbang;
+#X text 305 39 turn on dsp;
+#X text 257 141 <-- look inside;
 #N canvas 123 580 969 289 ------------------------drumsynth 0;
 #N canvas 0 22 518 471 clap 0;
 #X obj 189 66 noise~;
@@ -851,9 +854,16 @@
 #X connect 42 0 25 0;
 #X connect 43 0 26 0;
 #X connect 44 0 9 1;
-#X restore 20 118 pd ------------------------drumsynth;
-#X text 12 -13 Let's play analog drums modeled in Pure Data;
-#X text 109 145 by Andy Farnell http://obiwannabe.co.uk;
+#X restore 21 142 pd ------------------------drumsynth;
+#X text 13 11 Let's play analog drums modeled in Pure Data;
+#X text 110 169 by Andy Farnell http://obiwannabe.co.uk;
+#N canvas 0 22 388 150 externals 0;
+#X text 15 15 add search paths to local libraries here;
+#X obj 17 46 declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X obj 16 105 declare -path ../externals/rjlib/rj -path ../externals/pd
+;
+#X restore 309 11 pd externals;
 #X connect 1 0 3 0;
 #X connect 2 0 10 0;
 #X connect 2 1 10 1;

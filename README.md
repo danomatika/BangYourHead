@@ -5,6 +5,8 @@
 
 2012-2013 [Dan Wilcox](http://danomatika.com)
 
+**ZIP DOWNLOAD: <http://docs.danomatika.com/BangYourHead.zip>**
+
 With various contributions from around the web, notably:
 
 * [rjlib](https://github.com/rjdj/rjlib): great external library
@@ -20,7 +22,7 @@ What is Pure Data?
 
 Pure Data is an open source graphical patching environment for audio and multimedia similar to [Max/MSP](http://cycling74.com/products/max). It was created by [Miller Puckette](http://crca.ucsd.edu/~msp) (who also created Max) in 1996 and is now a community project with contributors from around the world.
 
-It's website is http://puredata.info and you can download it from http://puredata.info/downloads
+It's website is <http://puredata.info> and you can download it from <http://puredata.info/downloads>
 
 Conceptually, "patching" refers to programming by connecting little boxes together with "patch cords". Boxes may have inlets and outlets and perform some sort of action on incoming data with the result sent out of an outlet or number of outlets. Data is sent between boxes through the connected patch cords from outlets to inlets.
 
@@ -63,9 +65,22 @@ If you run into specific issues or have general questions, see the [Pure Data FA
 
 * [Ed Kelly's PD Workshop Wiki](http://puredata.wikispaces.com)
 
-Cloing this Repo with Git
--------------------------
+Downloading this Repo as a Zip File fom GitHub
+----------------------------------------------
+
+*If you want a zip file, don't downlaod it from GitHub. (See below.) Grab the official release here: <https://github.com/danomatika/BangYourHead.git>*
+
+You download this repo as a zip using the "Download ZIP" button, however, currently Github does not include git submodules within the zip file, so you will also need to download the following patch libraries and extract their contents into the `externals` folder:
+
+* [rjlib](https://github.com/rjdj/rjlib)
+* [rc-patches](https://github.com/danomatika/rc-patches)
+
+IE. downloading and extracting "rjlib" as a zip gives you a "rjlib-master" folder. Copy the contents of "rjlin-master" inside the "externals/rjlib" folder. 
+
+Cloning this Repo with Git
+--------------------------
 If you're cloning this repo, make sure to checkout the rc-patches & rjlib external submodules:  
 	  
 	git submodule init
 	git submodule update
+
