@@ -1,0 +1,27 @@
+#N canvas 0 22 524 351 10;
+#X obj 124 243 f;
+#X obj 178 245 + 1;
+#X obj 124 200 metro 250;
+#X msg 217 303 0;
+#X obj 178 275 moses 8;
+#X obj 124 135 tgl 30 0 empty empty go 40 7 0 40 -4034 -1 -1 0 1;
+#X obj 224 135 hsl 200 30 100 500 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 7462 1;
+#X obj 124 305 outlet;
+#X obj 221 40 loadbang;
+#X msg 221 73 250;
+#X text 219 239 loop counter 0-8;
+#X obj 62 37 inlet;
+#X connect 0 0 1 0;
+#X connect 0 0 7 0;
+#X connect 1 0 0 1;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 1 3 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 1;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 11 0 0 0;
+#X coords 0 -1 1 1 340 80 1 100 100;

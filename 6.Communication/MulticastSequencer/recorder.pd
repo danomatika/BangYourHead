@@ -1,0 +1,24 @@
+#N canvas 0 22 398 431 10;
+#X msg 129 269 start;
+#X msg 83 267 stop;
+#X obj 129 198 t b b;
+#X obj 110 170 sel 0 1;
+#X obj 110 121 tgl 30 0 empty empty RECORD 35 14 0 10 -258113 -1 -1
+0 1;
+#X obj 198 343 writesf~ 2;
+#X obj 198 312 inlet~;
+#X obj 255 313 inlet~;
+#X obj 175 231 symbol \$1;
+#X msg 175 270 open \$1;
+#X connect 0 0 5 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 2 1 8 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 4 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 1;
+#X connect 8 0 9 0;
+#X connect 9 0 5 0;
+#X coords 0 -1 1 1 85 60 1 100 100;
