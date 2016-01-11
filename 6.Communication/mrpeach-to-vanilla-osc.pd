@@ -1,0 +1,117 @@
+#N canvas 184 78 1006 542 10;
+#X msg 141 162 bang;
+#X obj 31 510 netsend -u -b;
+#X msg 149 457 connect localhost 9990;
+#X msg 150 485 disconnect;
+#X obj 627 214 oscparse;
+#X obj 31 432 list prepend send;
+#X obj 31 461 list trim;
+#X msg 627 153 listen 9990;
+#X obj 698 241 print RECV;
+#X obj 627 302 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 627 242 list trim;
+#X msg 246 163 bang;
+#X obj 297 146 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 294 170 5 0 0 0 - - -, f 5;
+#X obj 674 345 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 671 320 5 0 0 0 - - -, f 5;
+#X obj 246 195 oscformat /slider;
+#X obj 141 195 oscformat /bang;
+#X symbolatom 715 321 10 0 0 0 - - -, f 10;
+#X obj 31 195 oscformat /hello;
+#X msg 31 124 test;
+#X msg 77 124 world;
+#X obj 715 296 symbol;
+#X text 743 183 <--- replaces [udpreceive];
+#X obj 627 124 loadbang;
+#X obj 627 184 netreceive -u -b;
+#X text 821 270 <--- don't need [routeOSC]!;
+#X text 149 515 <--- replaces [udpsend];
+#X obj 149 433 loadbang;
+#X obj 31 161 symbol;
+#X text 697 215 <--- replaces [unpackOSC];
+#X text 606 49 2 Incoming addresses are broken apart and prepended
+to the variable list so you can use [route] instead of [routeOSC].
+;
+#X text 17 50 1 You don't send messages with the address at the head
+of the list. The address is set as the argument to an [oscformat] object.
+Also \, the slashes in the address are optional and you can use a list
+of symbols instead.;
+#X msg 248 230 bang;
+#X msg 259 286 bang;
+#X text 300 286 address slashes are optional!;
+#X obj 627 270 route bang slider hello deeper;
+#X obj 823 298 route address;
+#X obj 823 346 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 248 258 oscformat /deeper/address/x;
+#X obj 259 314 oscformat deeper address x;
+#X obj 823 323 route x;
+#X text 359 195 <--- similar to [packOSC];
+#X text 389 212 except you set the address here;
+#N canvas 808 37 364 232 packOSC 0;
+#X obj 50 169 oscformat;
+#X msg 50 131 set \$1;
+#X obj 23 53 list split 1;
+#X obj 50 197 outlet;
+#X obj 23 19 inlet;
+#X text 123 55 assume first element is the address;
+#X text 143 132 everything else is the message;
+#X text 105 19 an mrpeach/packOSC wrapper for oscformat;
+#X obj 102 131 list;
+#X obj 23 86 t b a;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 9 0;
+#X connect 2 1 8 1;
+#X connect 4 0 2 0;
+#X connect 8 0 0 0;
+#X connect 9 0 8 0;
+#X connect 9 1 1 0;
+#X restore 311 397 pd packOSC;
+#X msg 372 368 /bang;
+#X text 242 345 here's an mrpeach/packOSC style wrapper for oscformat
+;
+#X msg 422 368 /slider 64;
+#X msg 276 367 /hello foobar;
+#X text 17 16 mrpeach OSC to pd vanilla 0.46+ OSC transition;
+#X connect 0 0 17 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 8 0;
+#X connect 4 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 25 0;
+#X connect 10 0 36 0;
+#X connect 11 0 16 0;
+#X connect 12 0 13 0;
+#X connect 13 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 5 0;
+#X connect 17 0 5 0;
+#X connect 19 0 5 0;
+#X connect 20 0 29 0;
+#X connect 21 0 29 0;
+#X connect 22 0 18 0;
+#X connect 24 0 7 0;
+#X connect 25 0 4 0;
+#X connect 28 0 2 0;
+#X connect 29 0 19 0;
+#X connect 33 0 39 0;
+#X connect 34 0 40 0;
+#X connect 36 0 9 0;
+#X connect 36 1 15 0;
+#X connect 36 2 22 0;
+#X connect 36 3 37 0;
+#X connect 37 0 41 0;
+#X connect 39 0 5 0;
+#X connect 40 0 5 0;
+#X connect 41 0 38 0;
+#X connect 44 0 5 0;
+#X connect 45 0 44 0;
+#X connect 47 0 44 0;
+#X connect 48 0 44 0;
