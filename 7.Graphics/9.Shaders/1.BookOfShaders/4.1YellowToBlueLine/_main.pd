@@ -1,0 +1,54 @@
+#N canvas 661 22 558 652 10;
+#X declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X declare -path ../externals/rjlib/rj -path ../externals/pd;
+#X obj 8 9 cnv 15 360 180 empty empty Setup 5 12 0 14 -233017 -66577
+0;
+#X msg 49 134 reset;
+#X text 92 133 reset the window;
+#N canvas 0 22 386 154 externals 0;
+#X text 14 16 add search paths to local libraries here;
+#X obj 16 47 declare -path ../externals/rc-patches/extra -path ../externals/rc-patches/rc
+-path ../externals/rc-patches/rc-patches;
+#X obj 15 106 declare -path ../externals/rjlib/rj -path ../externals/pd
+;
+#X restore 275 20 pd externals;
+#X obj 24 242 gemhead;
+#X obj 24 280 glsl_fragment;
+#X obj 24 442 glsl_program;
+#X obj 24 480 square 3;
+#X msg 99 242 open shader.frag;
+#X msg 49 311 print;
+#X obj 99 311 change;
+#X msg 99 338 link \$1;
+#X obj 99 213 loadbang;
+#X text 157 339 link the fragment shader id;
+#X text 115 280 load the fragment shader;
+#X text 111 443 run the shader program;
+#X text 257 47 2015 Dan Wilcox;
+#X text 87 480 shader effects things below it in render chain;
+#X text 79 548 http://patriciogonzalezvivo.com/2015/thebookofshaders/02
+;
+#X text 78 525 adapted from The Book of Shaders \, Patricio Gonzalez
+Vivo;
+#X obj 22 166 gemwin;
+#X msg 29 88 create \, 1;
+#X msg 95 89 destroy;
+#X obj 20 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X text 496 370 2016 Sofy Yuditskaya;
+#X msg 336 371 u_resolution 600 600;
+#X connect 1 0 20 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 0;
+#X connect 12 0 8 0;
+#X connect 21 0 20 0;
+#X connect 22 0 20 0;
+#X connect 23 0 20 0;
+#X connect 25 0 6 0;
