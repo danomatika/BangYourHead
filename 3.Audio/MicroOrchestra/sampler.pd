@@ -1,0 +1,46 @@
+#N canvas 0 22 494 461 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-sample 44100 float 2;
+#X coords 0 1 44100 -1 200 140 1;
+#X restore 259 219 graph;
+#X obj 257 60 tabwrite~ \$0-sample;
+#X obj 322 32 adc~;
+#X obj 257 31 bng 15 250 50 0 empty empty record 17 7 0 10 -258113
+-1 -1;
+#X text 356 32 <- mic;
+#X obj 58 309 tabplay~ \$0-sample;
+#X obj 35 427 dac~;
+#X obj 59 373 hsl 128 15 0 1 0 0 empty empty amplitude 8 8 0 10 -204786
+-1 -1 12700 1;
+#X obj 35 341 hip~ 5;
+#X obj 35 399 *~ 0;
+#X obj 35 256 tabread4~ \$0-sample;
+#X obj 35 224 *~ 44100;
+#X obj 71 61 hsl 128 15 2 0 0 0 empty empty speed 8 8 0 10 -204800
+-1 -1 7400 1;
+#X floatatom 68 87 5 0 0 0 - - -, f 5;
+#X obj 35 17 bng 30 250 50 0 empty empty play 4 15 0 10 -4034 -1 -1
+;
+#X obj 35 135 f 1000;
+#X obj 68 109 * 1000;
+#X obj 58 286 bng 15 250 50 0 empty empty play_once 17 7 0 10 -4034
+-1 -1;
+#X obj 35 196 vline~;
+#X msg 35 167 0 \, 1 \$1;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 5 0 8 0;
+#X connect 7 0 9 1;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 8 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 13 0 16 0;
+#X connect 14 0 15 0;
+#X connect 15 0 19 0;
+#X connect 16 0 15 1;
+#X connect 17 0 5 0;
+#X connect 18 0 11 0;
+#X connect 19 0 18 0;
