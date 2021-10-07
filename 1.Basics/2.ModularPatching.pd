@@ -192,7 +192,7 @@ instances will receive messages sent to [s hello] \, since the send
 #X text 16 243 Version: 11-14 2015;
 #N canvas 559 117 406 245 LOADBANG 0;
 #X obj 29 76 loadbang;
-#X text 24 15 The laodbang object simply sends a bang when the patch
+#X text 24 15 The loadbang object simply sends a bang when the patch
 is loaded. It is useful in abstractions in order to setup an initial
 state before incoming messages are handled.;
 #X symbolatom 29 198 0 0 0 0 - - -;
@@ -200,7 +200,7 @@ state before incoming messages are handled.;
 #X msg 132 156 123.456;
 #X obj 29 115 t b b;
 #X text 184 200 <- these should be set already;
-#X text 99 75 <- sends banf when patch is laoded;
+#X text 99 75 <- sends bang when patch is loaded;
 #X msg 29 155 symbol hello;
 #X connect 0 0 5 0;
 #X connect 4 0 3 0;
