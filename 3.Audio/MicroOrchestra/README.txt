@@ -24,7 +24,7 @@ Contents
 External Libraries
 ------------------
 
-There are many additional objects that can be added to Pure Data, either from compiled source code or resuable patch abstractions. The rj/c_ead.pd patch is an example of the patch-based approach. You can also download & install externals using Help -> Find externals.
+There are many additional objects that can be added to Pure Data, either from compiled source code or reusable patch abstractions. The rj/c_ead.pd patch is an example of the patch-based approach. You can also download & install externals using Help -> Find externals.
 
 One thing to know is that Pd needs to know where these libraries are located when it tries to create objects.
 

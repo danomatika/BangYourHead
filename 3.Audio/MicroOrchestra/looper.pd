@@ -1,7 +1,7 @@
 #N canvas 136 183 487 504 10;
 #X obj 17 466 dac~;
-#X obj 41 412 hsl 128 15 0 1 0 0 empty empty amplitude 8 8 0 10 -204786
--1 -1 0 1;
+#X obj 41 412 hsl 128 15 0 1 0 0 empty empty amplitude 8 8 0 10 #c4fcc4
+#000000 #000000 0 1;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-sample 44100 float 2;
 #X coords 0 1 44100 -1 200 140 1;
@@ -9,22 +9,22 @@
 #X obj 66 234 +~;
 #X obj 66 207 *~;
 #X obj 17 145 loop~;
-#X floatatom 17 55 5 0 0 1 - - -, f 5;
-#X msg 31 107 bang;
-#X floatatom 176 89 10 0 0 1 sample_len - -, f 10;
+#X floatatom 17 55 5 0 0 1 - - - 0;
+#X msg 61 105 bang;
+#X floatatom 176 89 10 0 0 1 sample_len - - 0;
 #X obj 333 60 tabwrite~ \$0-sample;
 #X obj 398 32 adc~;
 #X obj 100 207 samphold~;
-#X obj 20 29 hsl 128 15 0.001 4 0 0 empty empty speed 8 8 0 10 -204800
--1 -1 0 1;
+#X obj 20 29 hsl 128 15 0.001 4 0 0 empty empty speed 8 8 0 10 #c4fcfc
+#000000 #000000 0 1;
 #X obj 66 266 tabread4~ \$0-sample;
 #X obj 17 257 cos~;
 #X obj 17 300 *~;
 #X obj 17 380 hip~ 5;
-#X obj 333 31 bng 15 250 50 0 empty empty record 17 7 0 10 -258113
--1 -1;
+#X obj 333 31 bng 15 250 50 0 empty empty record 17 7 0 10 #fc0400
+#000000 #000000;
 #X obj 179 30 hsl 128 15 0.001 1 0 0 empty empty play_len 8 8 0 10
--228856 -1 -1 0 1;
+#dcdcdc #000000 #000000 0 1;
 #X obj 17 232 *~ 0.5;
 #X obj 17 207 -~ 0.5;
 #N canvas 0 23 327 281 demux~ 0;
@@ -53,14 +53,15 @@
 #X connect 9 0 4 1;
 #X connect 10 0 5 1;
 #X restore 17 356 pd demux~;
-#X obj 68 333 tgl 15 0 empty empty smooth? 17 7 0 10 -261682 -1 -1
-0 1;
+#X obj 68 333 tgl 15 0 empty empty smooth? 17 7 0 10 #fce0c4 #000000
+#000000 0 1;
 #X obj 176 62 * 44100;
 #X obj 103 164 hsl 128 15 0 44100 0 0 empty empty start_pos 8 8 0 10
--203904 -1 -1 0 1;
-#X obj 31 80 loadbang;
+#c4c4fc #000000 #000000 0 1;
+#X obj 61 56 loadbang;
 #X obj 17 438 *~ 0;
 #X text 432 32 <- mic;
+#X obj 61 81 delay 100;
 #X connect 1 0 26 1;
 #X connect 3 0 13 0;
 #X connect 4 0 3 0;
@@ -87,6 +88,7 @@
 #X connect 22 0 21 2;
 #X connect 23 0 8 0;
 #X connect 24 0 11 0;
-#X connect 25 0 7 0;
+#X connect 25 0 28 0;
 #X connect 26 0 0 0;
 #X connect 26 0 0 1;
+#X connect 28 0 7 0;
