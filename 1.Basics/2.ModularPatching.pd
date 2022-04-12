@@ -1,4 +1,4 @@
-#N canvas 765 70 188 277 10;
+#N canvas 433 48 188 277 10;
 #X declare -path ../;
 #N canvas 946 160 413 339 SUBPATCHES 0;
 #X text 17 15 As you develop more complicated patches \, it helps to
@@ -84,8 +84,8 @@ the patch in same folder.;
 return a float 0;
 #X text 252 124 <- open me;
 #X obj 109 154 print FOOBAR ARGS;
-#X obj 109 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 109 95 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
 #X obj 109 125 foobar 123 baz hello;
 #X text 13 15 Like regular objects \, subpatches can also take creation
 arguments: either floats or symbols. Within the abstraction itself
@@ -142,10 +142,10 @@ any inlets or outlets for exchanging data:;
 object names for contextual info. This additional text has no effect
 on the inlet/outlet objects themselves.;
 #X restore 18 51 pd INLETS_AND_OUTLETS;
-#N canvas 739 105 467 670 DOLLAR_ZERO 0;
+#N canvas 739 105 464 670 DOLLAR_ZERO 0;
 #X obj 55 160 dollarzero;
-#X floatatom 55 191 5 0 0 0 - - -, f 5;
-#X floatatom 243 192 5 0 0 0 - - -, f 5;
+#X floatatom 55 191 5 0 0 0 - - - 0;
+#X floatatom 243 192 5 0 0 0 - - - 0;
 #X obj 32 331 s hello;
 #X obj 31 299 r hello;
 #X obj 32 372 r \$0-hello;
@@ -153,20 +153,20 @@ on the inlet/outlet objects themselves.;
 #X text 31 492 Note: \$0 does *not* work within message boxes. You
 need to use a float object to get the proper value if you need to create
 a symbol using \$0 dynamically:;
-#X msg 135 545 bang;
-#X obj 135 573 f \$0;
-#X symbolatom 135 632 0 0 0 0 - - -;
-#X obj 135 597 makefilename %d-hello;
+#X msg 75 545 bang;
+#X obj 75 573 f \$0;
+#X symbolatom 75 632 0 0 0 0 - - - 0;
+#X obj 75 597 makefilename %d-hello;
 #X text 22 14 Like argument variables \, \$0 is a special argument
 that denotes the unique ID of an abstraction instance. This means it
 is guaranteed to be different for each usage of the same abstraction.
 ;
 #X text 25 85 The [dollarzero] abstraction below outputs it's dollarzero
 argument when loaded. The two values will be different.;
-#X obj 55 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 243 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 55 127 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 243 128 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X obj 243 161 dollarzero;
 #X text 27 223 The \$0 argument is useful in that you can use it to
 create object names and variables which are only used by that *instance*
@@ -177,26 +177,62 @@ instances will receive messages sent to [s hello] \, since the send
 #X text 114 372 Using \$0 gaurantees a unique global name.;
 #X text 30 440 This same is true when naming tables \, delay lines
 \, var objects \, and data structures.;
+#X msg 252 597 \$1-hello;
+#X obj 252 630 print;
+#X text 249 560 message conversion works too \, but doesnt create a
+symbol, f 29;
 #X connect 0 0 1 0;
 #X connect 8 0 9 0;
 #X connect 9 0 11 0;
+#X connect 9 0 21 0;
 #X connect 11 0 10 0;
 #X connect 14 0 0 0;
 #X connect 15 0 16 0;
 #X connect 16 0 2 0;
+#X connect 21 0 22 0;
 #X restore 18 167 pd DOLLAR_ZERO;
 #X text 16 228 Author: Dan Wilcox;
-#N canvas 0 22 450 300 GRAPH 0;
-#X text 199 108 TBD;
+#N canvas 269 163 444 622 GRAPH 0;
+#X obj 167 92 bng 15 250 50 0 empty empty say\ hello 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 167 148 print;
+#X msg 167 119 hello world;
+#X text 19 19 In addition to wrapping up a useful patch into an abstraction
+\, you can also include GUI elements as well.;
+#X obj 160 431 hellogui;
+#X obj 160 505 print;
+#X msg 160 405 bang;
+#X text 19 51 Take the following "hello world" print patch:;
+#X text 19 177 This can be transformed into an abstraction by opening
+a new patch \, and copy/pasting. However \, it can also provide a "child
+canvas" which can be shown on the "parent patch" via the "Graph-On-Parent"
+setting.;
+#X text 19 231 1 Right-click on the patch canvas background and choose
+Properties, f 67;
+#X text 19 252 2 Check Graph-On-Parent;
+#X text 19 273 3 Drag the UI elements you want to show on the parent
+into the little red box;
+#X text 19 305 4 If you need \, the box can be moved or made larger
+by changing the values in the Properties dialog;
+#X text 21 364 A basic version of the patch above could become the
+following abstraction with Graph-On-Parent (GOP) enabled:;
+#X text 23 543 Note: Pd only showns GUI objects when GOP is enabled.
+;
+#X text 23 564 Additionally \, subpatch canvases and abstractions which
+use GOP can be nested so the more complex GUIs can be built from a
+smaller subset of objects.;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
 #X restore 18 197 pd GRAPH ON PARENT;
-#X text 16 243 Version: 11-14 2015;
 #N canvas 559 117 406 245 LOADBANG 0;
 #X obj 29 76 loadbang;
 #X text 24 15 The loadbang object simply sends a bang when the patch
 is loaded. It is useful in abstractions in order to setup an initial
 state before incoming messages are handled.;
-#X symbolatom 29 198 0 0 0 0 - - -;
-#X floatatom 132 199 0 0 0 0 - - -;
+#X symbolatom 29 198 0 0 0 0 - - - 0;
+#X floatatom 132 199 0 0 0 0 - - - 0;
 #X msg 132 156 123.456;
 #X obj 29 115 t b b;
 #X text 184 200 <- these should be set already;
@@ -208,3 +244,4 @@ state before incoming messages are handled.;
 #X connect 5 1 4 0;
 #X connect 8 0 2 0;
 #X restore 18 108 pd LOADBANG;
+#X text 16 243 Version: 03-30 2022;
