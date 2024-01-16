@@ -4,116 +4,121 @@
 #X obj 47 98 print A;
 #X obj 63 77 print B;
 #X floatatom 47 46 5 0 0 0 - - - 0;
-#X text 12 14 In Max \, connection order is determined by *horizontal
-placement*:, f 66;
+#X text 12 14 In Max \, connection order is determined by *horizontal placement*:, f 66;
 #X text 105 98 <- to the left \, fires first?;
 #X text 122 77 <- to the right of [print A] \, fires second?;
 #X text 14 134 Hrmmm \, didn't work right...;
-#X text 13 163 In Pd \, connection order is determined by *creation
-order*. In the example above \, [print B] fires before [print A] because
-the connection to [print A] was created *after* the connection to [print
-B] when the patch was created.;
-#X text 14 221 To ensure connection order \, it is recommended to use
-the [trigger] object \, see 1.Basics.pd -> MESSAGE ORDER.`;
+#X text 13 163 In Pd \, connection order is determined by *creation order*. In the example above \, [print B] fires before [print A] because the connection to [print A] was created *after* the connection to [print B] when the patch was created.;
+#X text 14 221 To ensure connection order \, it is recommended to use the [trigger] object \, see 1.Basics.pd -> MESSAGE ORDER.`;
 #X connect 2 0 1 0;
 #X connect 2 0 0 0;
 #X restore 14 53 pd CONNECTION_ORDER;
 #N canvas 559 217 414 331 ITS_UGLY 0;
 #X text 19 20 ... but it's minimal and fast!;
-#X text 19 151 Also \, Pd is an open source project without direct
-\, paid support \, so additional features are often left off in order
-to focus developer resources on object improvements and (constant)
-maintenance.;
-#X text 19 213 If you want to help improve Pd \, by all means do so!
-Open an issue on the Github repository and/or post to the pd-list:
-;
+#X text 19 151 Also \, Pd is an open source project without direct \, paid support \, so additional features are often left off in order to focus developer resources on object improvements and (constant) maintenance.;
+#X text 19 213 If you want to help improve Pd \, by all means do so! Open an issue on the Github repository and/or post to the pd-list:;
 #X text 19 253 https://github.com/pure-data/pure-data;
 #X text 19 282 https://lists.puredata.info/listinfo/pd-list;
-#X text 19 49 The cross-platform windowing toolkit used by PD for the
-GUI \, Tk \, is realtively old and less modern than many newer \, fancier
-UIs such as JUCE used by Max \, however it works on many systems and
-uses less resources.;
-#X text 19 111 Besides... how many people in your audience care how
-your patch looks?;
+#X text 19 49 The cross-platform windowing toolkit used by PD for the GUI \, Tk \, is realtively old and less modern than many newer \, fancier UIs such as JUCE used by Max \, however it works on many systems and uses less resources.;
+#X text 19 111 Besides... how many people in your audience care how your patch looks?;
 #X restore 14 24 pd ITS_UGLY;
 #N canvas 720 237 413 457 WHERES_JITTER? 0;
 #X text 18 107 https://puredata.info/downloads/gem;
-#X text 18 18 Most versions of Max comes with Jitter included. Pd does
-not come with a graphics environment \, by default.;
-#X text 18 57 Pd's closest equivalent is the GEM (Graphics Environment
-for Multimedia) external library which provides a thin wrapper around
-OpenGL:;
+#X text 18 18 Most versions of Max comes with Jitter included. Pd does not come with a graphics environment \, by default.;
+#X text 18 57 Pd's closest equivalent is the GEM (Graphics Environment for Multimedia) external library which provides a thin wrapper around OpenGL:;
 #X text 41 264 3 Click on the newest highlighted (black) entry;
 #X text 41 216 1 Open Help -> Find Externals;
 #X text 41 240 2 Type "gem" into the search box & hit enter;
-#X text 20 294 CYCLONE should then be downloaded to your ~/Documents/Pd/externals
-directory.;
-#X text 20 333 To start experimenting \, open the cyclone directory
-in the Help Browser:;
+#X text 20 294 CYCLONE should then be downloaded to your ~/Documents/Pd/externals directory.;
+#X text 20 333 To start experimenting \, open the cyclone directory in the Help Browser:;
 #X text 41 371 1 Open Help -> Browser;
 #X text 41 422 3 Open the help patches for each available object;
-#X text 22 176 Like the CYCLONE external library \, GEM can be installed
-via the "deken" download manager:;
-#X text 21 135 NOTE: As of 2022 \, some systems are deprecating support
-for OpenGL \, so GEM may not work everywhere.;
+#X text 22 176 Like the CYCLONE external library \, GEM can be installed via the "deken" download manager:;
+#X text 21 135 NOTE: As of 2022 \, some systems are deprecating support for OpenGL \, so GEM may not work everywhere.;
 #X text 41 397 2 Navigate to externals / Gem;
 #X restore 15 165 pd WHERES_JITTER?;
 #N canvas 632 186 392 371 HOW_DO_I_FIND_THINGS? 0;
-#X text 16 18 The built-in Pd references are admittedly not as extensive
-as those included with Max \, however there is a good amount to be
-found in the Help menu:;
-#X text 16 63 Pd manual: Help -> Pd Help (or Manual on some systems)
-;
-#X text 16 86 Help Browser: Help -> Browser for references and help
-patches found in path;
-#X text 16 120 Similar to Max \, there is a learning curve which requires
-learning those common building-block objects \, however there is no
-auto-complete when typing an object name. There is \, however \, an
-easy to find list of all core Pd objects:;
+#X text 16 18 The built-in Pd references are admittedly not as extensive as those included with Max \, however there is a good amount to be found in the Help menu:;
+#X text 16 63 Pd manual: Help -> Pd Help (or Manual on some systems);
+#X text 16 86 Help Browser: Help -> Browser for references and help patches found in path;
+#X text 16 120 Similar to Max \, there is a learning curve which requires learning those common building-block objects \, however there is no auto-complete when typing an object name. There is \, however \, an easy to find list of all core Pd objects:;
 #X text 16 176 Right-click on the canvas background -> Help;
 #X obj 98 239 cos~;
 #X text 134 240 <- Right-click -> Help;
-#X text 16 199 Also \, right-click on any Pd object and choose Help
-to open it's help patch (if found):;
-#X text 17 264 This works for custom abstractions too \, such as hello.pd
-included in this folder:;
+#X text 16 199 Also \, right-click on any Pd object and choose Help to open it's help patch (if found):;
+#X text 17 264 This works for custom abstractions too \, such as hello.pd included in this folder:;
 #X obj 98 300 hello;
 #X text 145 301 <- me too;
 #X text 18 328 The help file for hello.pd is hello-help.pd.;
 #X restore 14 82 pd HOW_DO_I_FIND_THINGS?;
-#N canvas 661 216 402 513 EQUIVALENT_OBJECTS 0;
-#X text 18 16 Max contains a number of higher-level objects which are
-not included with Pd. Some are simple such as [gate] while others are
-more complex like [counter] or [seq].;
+#N canvas 366 62 396 380 EQUIVALENT_OBJECTS 0;
+#X text 18 16 Max contains a number of higher-level objects which are not included with Pd. Some are simple such as [gate] while others are more complex like [counter] or [seq].;
 #X obj 22 148 f;
 #X obj 57 148 + 1;
-#X obj 22 120 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 22 120 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 57 121 0;
 #X text 88 119 reset;
 #X obj 57 171 moses 10;
 #X floatatom 22 197 5 0 0 0 - - - 0;
-#X text 18 70 Pd's approach is provided a minimal subset of objects
-which can be used as building-blocks towards higher-level abstractions.
-;
-#X text 23 448 Also \, many users will share there own abstraction
-libraries for some of these common use cases \, so searching online
-or on Github can bring up a number of usefile libraries.;
-#X obj 215 357 route one two;
-#X floatatom 215 226 5 0 0 0 - - - 0;
-#X obj 215 416 print one;
-#X obj 252 386 print two;
-#X obj 215 301 list prepend;
-#X msg 284 274 one;
-#X msg 323 275 two;
-#X obj 284 226 hradio 15 1 0 2 empty empty empty 0 -8 0 10 #fcfcfc
-#000000 #000000 0;
-#X obj 284 249 sel 0;
-#X obj 215 331 list trim;
-#X text 153 117 As an example \, for a simple counter which increments
-by 1 from 0 to 9, f 28;
-#X text 20 224 Here is a 1 input \, 2 output "gate" for diverting messages:
-, f 27;
+#X text 18 70 Pd's approach is provided a minimal subset of objects which can be used as building-blocks towards higher-level abstractions.;
+#X text 153 117 As an example \, for a simple counter which increments by 1 from 0 to 9, f 28;
+#X text 20 318 Also \, many users will share there own abstraction libraries for some of these common use cases \, so searching online or on GitHub can bring up a number of usefull libraries.;
+#N canvas 121 146 381 297 gate 0;
+#X obj 213 194 route one two;
+#X floatatom 213 63 5 0 0 0 - - - 0;
+#X obj 213 253 print one;
+#X obj 250 223 print two;
+#X obj 213 138 list prepend;
+#X msg 282 111 one;
+#X msg 321 112 two;
+#X obj 282 63 hradio 15 1 0 2 empty empty empty 0 -8 0 10 #fcfcfc #000000 #000000 0;
+#X obj 282 86 sel 0;
+#X obj 213 168 list trim;
+#X text 16 15 Pd does not have a gate object \, however Max does.;
+#X text 18 61 Here is a 1 input \, 2 output "gate" for diverting messages in Pd:, f 27;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 1 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 1;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 8 1 6 0;
+#X connect 9 0 0 0;
+#X restore 72 282 pd gate for pd;
+#N canvas 63 88 517 356 moses 0;
+#X floatatom 63 119 5 0 0 0 - - - 0;
+#X obj 63 163 moses 2;
+#X floatatom 63 208 5 0 0 0 - - - 0;
+#X floatatom 133 208 5 0 0 0 - - - 0;
+#X floatatom 229 119 5 0 0 0 - - - 0;
+#X floatatom 229 298 5 0 0 0 - - - 0;
+#X floatatom 285 297 5 0 0 0 - - - 0;
+#X obj 229 256 f;
+#X obj 285 256 f;
+#X obj 229 214 sel 0 1;
+#X obj 229 149 trigger f f;
+#X floatatom 164 78 5 0 0 0 - - - 0;
+#X obj 229 180 >= 2;
+#X text 19 14 Pd has a moses object for diverting numbers \, however Max does not.;
+#X text 325 166 Here is an equivalent "moses" for max using trigger and a comparison., f 26;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 4 0 10 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 9 1 8 0;
+#X connect 10 0 12 0;
+#X connect 10 1 7 1;
+#X connect 10 1 8 1;
+#X connect 11 0 0 0;
+#X connect 11 0 4 0;
+#X connect 12 0 9 0;
+#X restore 201 282 pd moses for max;
+#X text 19 229 Some objects exist in one but not the other \, however both environments have the building blocks to create equivlaent abstractions:;
 #X connect 1 0 2 0;
 #X connect 1 0 7 0;
 #X connect 2 0 1 1;
@@ -121,33 +126,16 @@ by 1 from 0 to 9, f 28;
 #X connect 3 0 1 0;
 #X connect 4 0 1 1;
 #X connect 6 1 4 0;
-#X connect 10 0 12 0;
-#X connect 10 1 13 0;
-#X connect 11 0 14 0;
-#X connect 14 0 19 0;
-#X connect 15 0 14 1;
-#X connect 16 0 14 1;
-#X connect 17 0 18 0;
-#X connect 18 0 15 0;
-#X connect 18 1 16 0;
-#X connect 19 0 10 0;
 #X restore 15 110 pd EQUIVALENT_OBJECTS;
 #N canvas 558 195 399 422 CYCLONE 0;
-#X text 13 12 If you *really miss* some objects available in Max but
-not available in Pd \, there is the external object CYCLONE library
-which ports a subset of Max objects to Pd.;
-#X text 13 62 CYCLONE is a library of objects written in C which is
-provided either as source code (harder) or in pre-compiled binary form
-(easier).;
-#X text 13 112 The quickets way to get a copy of CYCLONE \, is to use
-the "deken" external library downloader built into to Pd:;
-#X text 20 233 CYCLONE should then be downloaded to your ~/Documents/Pd/externals
-directory.;
+#X text 13 12 If you *really miss* some objects available in Max but not available in Pd \, there is the external object CYCLONE library which ports a subset of Max objects to Pd.;
+#X text 13 62 CYCLONE is a library of objects written in C which is provided either as source code (harder) or in pre-compiled binary form (easier).;
+#X text 13 112 The quickets way to get a copy of CYCLONE \, is to use the "deken" external library downloader built into to Pd:;
+#X text 20 233 CYCLONE should then be downloaded to your ~/Documents/Pd/externals directory.;
 #X text 42 201 3 Click on the newest highlighted (black) entry;
 #X text 42 153 1 Open Help -> Find Externals;
 #X text 42 177 2 Type "cyclone" into the search box & hit enter;
-#X text 20 272 To start experimenting \, open the cyclone directory
-in the Help Browser:;
+#X text 20 272 To start experimenting \, open the cyclone directory in the Help Browser:;
 #X text 41 310 1 Open Help -> Browser;
 #X text 41 336 2 Navigate to externals / cyclone;
 #X text 41 361 3 Open the help patches for each available object;
