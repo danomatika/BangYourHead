@@ -1,20 +1,20 @@
 #N canvas 505 143 793 478 10;
 #X declare -lib cyclone;
-#X obj 23 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 53 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 23 149 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 53 149 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
 #X obj 22 398 soundlooper;
-#X obj 375 348 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
-1;
-#X floatatom 169 293 5 0 0 0 - - -, f 5;
-#X floatatom 407 303 5 0 0 0 - - -, f 5;
+#X obj 375 348 tgl 15 0 empty empty empty 0 -6 0 8 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 169 293 5 0 0 0 - - - 0;
+#X floatatom 407 303 5 0 0 0 - - - 0;
 #X text 214 295 x;
 #X msg 375 151 poll;
 #X text 451 304 y;
-#X floatatom 423 279 5 0 0 0 - - -, f 5;
+#X floatatom 423 279 5 0 0 0 - - - 0;
 #X text 473 280 delta x;
-#X floatatom 440 250 5 0 0 0 - - -, f 5;
+#X floatatom 440 250 5 0 0 0 - - - 0;
 #X text 394 349 button pressed ? (one button of course \, mac you know)
 ;
 #X text 435 123 poll the mouse device;
@@ -24,9 +24,9 @@
 #X msg 422 195 reset;
 #X text 472 195 reset 0 \, 0 to upper left corner;
 #X obj 375 123 loadbang;
-#X obj 82 150 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X floatatom 169 373 5 0 0 0 - - -, f 5;
+#X obj 82 150 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X floatatom 169 373 5 0 0 0 - - - 0;
 #X obj 169 344 expr ($f1 / 1279 * 6.25) -3;
 #X msg 23 237 symbol amen_break.wav;
 #X text 18 18 This controls the sound looper using the keyboard;
@@ -35,17 +35,17 @@ the sound looper;
 #X text 92 256 Sound file name Don't forget the "symbol";
 #X text 21 426 This custom object is what plays and control the sample
 Click on it;
-#X symbolatom 23 86 10 0 0 0 - - -, f 10;
+#X symbolatom 23 86 10 0 0 0 - - - 0;
 #X obj 23 56 keyname;
 #X obj 23 116 select q w e;
-#X obj 375 222 MouseState;
 #X obj 369 21 declare -lib cyclone;
+#X obj 375 222 mousestate;
 #X connect 0 0 22 0;
 #X connect 1 0 2 1;
 #X connect 4 0 21 0;
-#X connect 7 0 30 0;
-#X connect 14 0 30 0;
-#X connect 16 0 30 0;
+#X connect 7 0 31 0;
+#X connect 14 0 31 0;
+#X connect 16 0 31 0;
 #X connect 18 0 7 0;
 #X connect 19 0 2 5;
 #X connect 20 0 2 2;
@@ -56,8 +56,8 @@ Click on it;
 #X connect 29 0 0 0;
 #X connect 29 1 1 0;
 #X connect 29 2 19 0;
-#X connect 30 0 3 0;
-#X connect 30 1 4 0;
-#X connect 30 2 5 0;
-#X connect 30 3 9 0;
-#X connect 30 4 11 0;
+#X connect 31 0 3 0;
+#X connect 31 1 4 0;
+#X connect 31 2 5 0;
+#X connect 31 3 9 0;
+#X connect 31 4 11 0;
