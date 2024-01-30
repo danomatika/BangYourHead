@@ -1,0 +1,10 @@
+#N canvas 654 154 450 300 12;
+#X obj 107 125 bng 15 250 50 0 empty empty say\\\ hello 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 107 152 hello world;
+#X obj 107 79 inlet;
+#X obj 107 190 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 85 60 1 100 100;
